@@ -7,7 +7,7 @@ abstract class Controller_Common extends Controller_Template {
     public function before()
     {
         parent::before();
-        View::set_global('title','World Kitchens');
+
         $this->template->content = '';
 
     }
