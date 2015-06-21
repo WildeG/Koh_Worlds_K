@@ -122,15 +122,15 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	// 'auth'       => MODPATH.'auth',       // Basic authentication
+	'auth'       => MODPATH.'auth',       // Basic authentication
 	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
 	// 'minion'     => MODPATH.'minion',     // CLI Tasks
-	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-	'unittest'   => MODPATH.'unittest',   // Unit testing
-	 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	//'unittest'   => MODPATH.'unittest',   // Unit testing
+	'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
 
 /**
@@ -146,15 +146,9 @@ Cookie::$salt = 'foobar';
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('Registration','registration')
+Route::set('Auth','<action>', array('action' => 'login|registration|logout'))
 	->defaults(array(
-		'controller' => 'Registration',
-		'action'     => 'registration',
-	));
-Route::set('Act','act')
-	->defaults(array(
-		'controller' => 'Act',
-		'action'     => 'act',
+		'controller' => 'Auth',
 	));
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')

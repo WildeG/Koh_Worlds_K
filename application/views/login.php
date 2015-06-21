@@ -1,9 +1,9 @@
 <div id='band'>
 <div id='user'>
-	 <form method='post' action='testreg.php'>
+	 <form method='post' action='login'>
 		<table>
 			<tr>
-				<td colspan='2'><input type='text' class='verification' size='25' maxlength='25' placeholder='Логин' name='login'></td>
+				<td colspan='2'><input type='text' class='verification' size='25' maxlength='25' placeholder='Логин' name='username'></td>
 			</tr>
 			<tr>
 				<td colspan='2'><input type='password' class='verification' size='25' maxlength='25' placeholder='Пароль' name='password'></td>

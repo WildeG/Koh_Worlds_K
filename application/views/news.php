@@ -1,10 +1,11 @@
+<center><h2><b>Новости</h2></center>
 <?php foreach($newss as $news): ?>
-<center><h2><b>Новости</h2><div id='news'>
+<center><div id='news'>
 <img align='left' class='image_news' src="" />
 <h4><?php echo $news['title']; ?></h4>
 <table id='table_news'>
 	<tr>
-		<td align='left'><a class='subtitle'><?php echo $news['id_autors'];  ?></a></td>
+		<td align='left'><a class='subtitle'><?php echo $news['family'],' '; echo $news['name'];  ?></a></td>
 		<td align='right'><?php echo $news['date_added']; ?><a class='subtitle'></a></td>
 	</tr>
 	<tr>

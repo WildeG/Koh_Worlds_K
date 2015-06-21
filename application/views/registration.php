@@ -5,10 +5,10 @@
       <div id="registration" >
       <br>
       <center><table>
-        <form action="act" method="post" enctype="multipart/form-data">
+        <form action="auth/registration" method="post" enctype="multipart/form-data">
         <tr>
           <td class="inscriptions">Логин:</td>
-          <td><input class="field" type="text" size="30" maxlength="16" name="login" ></td>
+          <td><input class="field" type="text" size="30" maxlength="16" name="username" ></td>
         </tr>
         <tr>
           <td class="inscriptions">Пароль:</td>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <td class="inscriptions">Подтверждения пароля:</td>
-          <td><input class="field" type="password" size="30" maxlength="16" name="password_repeat"></td>
+          <td><input class="field" type="password" size="30" maxlength="16" name="password_confirm"></td>
         </tr>
         <tr>
           <td class="inscriptions">Имя:</td>
@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <td class="inscriptions">Фамилия:</td>
-          <td><input class="field" type="text" size="30" maxlength="30" name="lastname"></td>
+          <td><input class="field" type="text" size="30" maxlength="30" name="family"></td>
         </tr>
         <tr>
           <td></td>
@@ -33,4 +33,5 @@
         <br>
         </form>
       </table></center>
+      </div>
 

@@ -1,1 +1,0 @@
-<a><?php echo $result ?></a>
