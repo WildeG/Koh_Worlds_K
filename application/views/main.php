@@ -28,7 +28,7 @@
           </text>
         </svg>
         </a> -->
-        <center><a href="index.php"><h1 title="Перейти на главную">World's Kitchens</h1></a></center>
+        <center><a href="main"><h1 title="Перейти на главную">World's Kitchens</h1></a></center>
       </div>
             <div id='button_panel'>
               <div class='owl-carousel'>
@@ -63,7 +63,7 @@
               </div>
             </div>
       <!--Содержимое -->
-       <?php echo $content;?>
+       <?php echo $content; ?>
       <!-- Подвал -->
       <center><br><br><div id="copyright">
       <strong>&copy 2015. Михайлов Олег. Все права защищены.</strong>
@@ -110,37 +110,6 @@
     </script>
     <script src="<?php echo URL::base(); ?>public/script/owl.carousel.js"></script>
     <script src="<?php echo URL::base(); ?>public/script/owl.carousel.min.js"></script>
-    <?php
-      // Проверяем, пусты ли пересменные логина и id пользователя
-      if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
-        echo 
-"<div id='band'>
-<div id='user'>
-   <form method='post' action='testreg.php'>
-    <table>
-      <tr>
-        <td colspan='2'><input type='text' class='verification' size='25' maxlength='25' placeholder='Логин' name='login'></td>
-      </tr>
-      <tr>
-        <td colspan='2'><input type='password' class='verification' size='25' maxlength='25' placeholder='Пароль' name='password'></td>
-      </tr>
-      <tr>
-        <td><input type='submit' name='submit' class='button' value='Вход'></td>
-        <td><a href='reg.php'><input type='button' class='button' value='Регистрация'></a></td>
-      </tr>              
-    </table>
-  </form>
-</div>
-</div>"; }
-else {
-          // Если не пусты, то мы выводим ссылку
-          echo 
-    "<div id='band'>
-      <div id='user'><center>
-        <a href='user.php' title='Редактировать информацию о себе''>".$_SESSION['family']."&nbsp".$_SESSION['name']."</a>
-        <a href='exit.php' >(Выход)</a></center>
-      </div>
-    </div> ";
-        } ?>
+    <?php echo $login ?>
   </body>
 </html>
