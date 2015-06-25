@@ -1,1 +1,1 @@
-error
+<center><strong><a style='color:#E60000;'>Вы неправильно ввели логин или пароль! Попробуйте еще раз.</a></strong></center>

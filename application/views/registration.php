@@ -8,7 +8,8 @@
         <form action="auth/registration" method="post" enctype="multipart/form-data">
         <tr>
           <td class="inscriptions">Логин:</td>
-          <td><input class="field" type="text" size="30" maxlength="16" name="username" ></td>
+          <td> <input class="field" type="text" size="30" maxlength="32" name="username">
+          </td>
         </tr>
         <tr>
           <td class="inscriptions">Пароль:</td>

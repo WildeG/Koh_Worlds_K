@@ -32,6 +32,7 @@ class Model_User extends Model_Auth_User{
 		return array(
 			'username' => array(
 				array('not_empty'),
+				array('min_length', array(':value', 4)),
 				array('max_length', array(':value', 32)),
 				array(array($this, 'unique'), array('username', ':value')),
 			),
@@ -176,17 +177,17 @@ class Model_User extends Model_Auth_User{
 	 * @param array $expected
 	 * @throws ORM_Validation_Exception
 	 */
-	public function update_user($values, $expected = NULL)
-	{
-		if (empty($values['password']))
-		{
-			unset($values['password'], $values['password_confirm']);
-		}
-
-		// Validation for passwords
-		$extra_validation = Model_User::get_password_validation($values);
-
-		return $this->values($values, $expected)->update($extra_validation);
-	}
+	//public function update_user($values, $expected = NULL)
+	//{
+	//	if (empty($values['password']))
+	//	{
+	//		unset($values['password'], $values['password_confirm']);
+	//	}
+//
+//		// Validation for passwords
+//		$extra_validation = Model_User::get_password_validation($values);
+//
+//		return $this->values($values, $expected)->update($extra_validation);
+//	}
 
 } // End Auth User Model

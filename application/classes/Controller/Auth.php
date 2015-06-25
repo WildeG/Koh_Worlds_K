@@ -8,13 +8,14 @@ class Controller_Auth extends Controller_Common {
         {
             try {           
                 // Сохраняем пользователя в БД
-                $user = ORM::factory('user')->create_user($_POST, array('username','password','name','family'));
+                $dateofreg=date('Y-m-d');
+                $user = ORM::factory('user')->create_user($_POST, array('username','password','name','family', 'dateofreg'));
                 // Выставляем ему роль, роль login означает что пользователь может авторизоваться
                 $user->add('roles',ORM::factory('role',array('name'=>'login')));               
                 // Делаем редирект на страницу авторизации
                 $this->redirect("/reg");
             } catch (ORM_Validtion_Exception $e) {
-                $errors = $e->errors('models');
+                $errors = $e->errors('Controller');
                 // echo Debug::vars($errors);
             }
         }
@@ -22,9 +23,8 @@ class Controller_Auth extends Controller_Common {
         // Выводим шаблон регистрации
         $this->template->content = View::factory('registration');
     }
- 
 
-        public function action_login()
+    public function action_login()
     {
         if ($post = $this->request->post())
         {
@@ -38,7 +38,7 @@ class Controller_Auth extends Controller_Common {
         if (Auth::instance()->logged_in())
         {       
             // Если пользователь авторизировался - то выводим например, личный кабинет
-            $this->template->content = View::factory('main');
+            $this->template->content = View::factory('logged');
         }else
         {
             // Если пользователь не авторизировался то выводим форму входа
