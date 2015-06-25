@@ -7,7 +7,7 @@ abstract class Controller_Common extends Controller_Template {
     public function before()
     {
         parent::before(); 	
- 		$this->template->styles = array('style', 'owl.carousel', 'homepages');
+ 		$this->template->styles = array('style', 'homepages');
         $this->template->scripts = array('jquery-1.9.1.min','jquery.waterwheelCarousel.min');
         if (Auth::instance()->logged_in()) {
         $this->template->login = View::factory('/logged');}

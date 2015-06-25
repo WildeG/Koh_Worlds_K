@@ -9,4 +9,4 @@ class Controller_Main extends Controller_Common {
  		$content->title ='Kitchen';
  		$this->template->content = $content;
     }
-} // End Welcome
+} 
