@@ -6,7 +6,7 @@ class Controller_Main extends Controller_Common {
     {
  		$content = View::factory('news')->bind('newss', $newss);		
  		$newss = Model::factory('News')->get_all();
- 		$content->title ='Kitchen';
+ 		$newss = array_reverse($newss);
  		$this->template->content = $content;
     }
 } 

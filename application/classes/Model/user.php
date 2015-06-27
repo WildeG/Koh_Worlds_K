@@ -155,6 +155,11 @@ class Model_User extends Model_Auth_User{
 			->rule('password', 'not_empty');
 		return $this->values($values, $expected)->create($extra_validation);
 	}
+	public function read_sess_vars($username){
+		$sql=DB::select()->from('users')->where('username','=', $username);
+		$res=$sql->execute();
+		return $res;
+	}
 
 	/**
 	 * Update an existing user

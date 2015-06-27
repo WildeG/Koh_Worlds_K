@@ -13,7 +13,7 @@ class Controller_Auth extends Controller_Common {
                 // Выставляем ему роль, роль login означает что пользователь может авторизоваться
                 $user->add('roles',ORM::factory('role',array('name'=>'login')));               
                 // Делаем редирект на страницу авторизации
-                $this->redirect("/reg");
+                $this->redirect("/success");
             } catch (ORM_Validtion_Exception $e) {
                 $errors = $e->errors('Controller');
                 // echo Debug::vars($errors);
@@ -32,13 +32,19 @@ class Controller_Auth extends Controller_Common {
             if(!empty($post['username']) && !empty($post['password']))
             {
                 Auth::instance()->login($post['username'],$post['password']);
+                
+                $sess_vars=Model::factory('user')->read_sess_vars($post['username']);
+                $_SESSION['id']=$sess_vars->get('id');
+                $_SESSION['name']=$sess_vars->get('name');
+                $_SESSION['family']=$sess_vars->get('family');
+                $_SESSION['username']=$post['username'];
             }
         }
         // Проверяем авторизировался пользователь или нет
         if (Auth::instance()->logged_in())
         {       
             // Если пользователь авторизировался - то выводим например, личный кабинет
-            $this->template->content = View::factory('logged');
+            $this->template->content = View::factory('success');
         }else
         {
             // Если пользователь не авторизировался то выводим форму входа

@@ -22,116 +22,18 @@
   <div id="body"> 
     <div id="head">
       <div id="hat">
-        <center><a href="<?php echo URL::base(); ?>index.php"><h1 title="Перейти на главную">World's Kitchens</h1></a></center>
+        <center><a href="<?php echo URL::base(); ?>main"><h1 title="Перейти на главную">World's Kitchens</h1></a></center>
       </div>
     </div>
     <div id='left_panel'>
       <div id="left_bord">
       <h2 style="margin-top:0px;">Меню</h2>
       </div>
-    <?php
-      // Проверяем, пусты ли пересменные логина и id пользователя
-      if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
-          ?>
-          <div>
-            <ul id="accordion" class="accordion">
-            <li>
-              <div class="link">Кухни<i class="fa fa-chevron-down"></i></div>
-              <ul class="submenu">
-
-              </ul>
-            </li>
-            <li>
-              <div class="link"><a href="#">Блюда</a></div>
-            </li>
-            <li>
-              <div class="link"><a href="#">Поиск</a></div>
-            </li>
-            <li>
-              <div class="link"><a href="#">Блюдо дня</a></div>
-            </li>
-            <li>
-              <div class="link"><a href="#">Новости</a></div>
-            </li>
-            </ul>
-          </div>
-          <div id='user'>
-               <form method='post' action='testreg.php'>
-                <table>
-                  <tr>
-                    <td colspan='2'><input type='text' class='verification' size='25' maxlength='25' placeholder='Логин' name='login'></td>
-                  </tr>
-                  <tr>
-                    <td colspan='2'><input type='password' class='verification' size='25' maxlength='25' placeholder='Пароль' name='password'></td>
-                  </tr>
-                  <tr>
-                    <td><input type='submit' name='submit' class='button' value='Вход'></td>
-                    <td><a href='reg.php'><input type='button' class='button' value='Регистрация'></a></td>
-                  </tr>              
-                </table>
-              </form>
-            </div>
-          </div> 
-          <?php ;
-      }
-        else {
-          // Если не пусты, то мы выводим ссылку ?>
-          <div>
-            <ul id="accordion" class="accordion">
-            <li>
-              <div class="link">Добавить<i class="fa fa-chevron-down"></i></div>
-              <ul class="submenu"><?php echo "
-                <li><a href='<?php echo URL::base(); ?>add-news.php'>Новость</a></li>
-                <li><a href='<?php echo URL::base(); ?>add-recipe.php'>Рецепт</a></li>
-                <li><a href='<?php echo URL::base(); ?>php/add/add-kitchens.php'>Кухню</a></li>
-                <li><a href='<?php echo URL::base(); ?>php/add/add-component.php'>Ингридиенты</a></li>
-              </ul>";?>
-            </li>
-            <li>
-              <div class="link">Кухни<i class="fa fa-chevron-down"></i></div>
-              <ul class="submenu">
-                <?php
-                while($res = mysql_fetch_array($query)){
-                  echo "<li><a href='".$link."kitchens.php?kitchens=".$res['title']."'>".$res['title']."</a></li>";
-                }
-                ?>
-              </ul>
-            </li>
-            <li>
-              <div class="link"><a href="#">Блюда</a></div>
-            </li>
-            <li>
-              <div class="link"><a href="#">Поиск</a></div>
-            </li>
-            <li>
-              <div class="link"><a href="#">Блюдо дня</a></div>
-            </li>
-            <li>
-              <div class="link"><a href="#">Новости</a></div>
-            </li>
-            <li>
-              <div class="link">Избранное<i class="fa fa-chevron-down"></i></div>
-              <ul class="submenu">
-                <li><a href='".$link."add-news.php'>Хочу приготовить</a></li> 
-                <li><a href='".$link."add-recipe.php'>Уже готовил</a></li>
-                <li><a href='".$link."php/add/add-kitchens.php'>Мои рецепты</a></li>
-              </ul>
-            </li>
-            </ul>
-          </div>
-          
-          <?php 
-                    echo 
-          " <div id='user'><center>
-              <a href='user.php' title='Редактировать информацию о себе''><h3>".$_SESSION['family']."&nbsp".$_SESSION['name']."</h3></a>
-              <a href='exit.php' >(Выход)</a></center>
-            </div></div>";} ?>
-
-
-
-    <div id="main">
+    <?php echo $login; ?>
       <!--Содержимое -->
+      <div id='main'>
        <?php echo $content; ?>
+      </div>
       <!-- Подвал -->
       <center>
         <br><br>

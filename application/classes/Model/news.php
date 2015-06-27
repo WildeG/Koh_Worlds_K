@@ -3,6 +3,7 @@
 		public function get_all(){
 			$sql = DB::select()->from('news')->join('users')->on('id_autors','=','id');			
 			$res = $sql->execute();
-			return $res;
+			$res2 = $res->as_array();
+			return $res2;
 		}
 }

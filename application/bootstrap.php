@@ -150,7 +150,16 @@ Route::set('Auth','<action>', array('action' => 'login|registration|logout'))
 	->defaults(array(
 		'controller' => 'Auth',
 	));
-
+Route::set('Addrecipe','recipe')
+	->defaults(array(
+		'controller' => 'Addrecipe',
+		'action' => 'recipe',
+	));
+Route::set('Addnews','news')
+->defaults(array(
+	'controller' => 'Addnews',
+	'action' => 'news',
+));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'Main',
