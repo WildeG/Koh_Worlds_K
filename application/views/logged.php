@@ -43,4 +43,4 @@
               
 							<a href='user' title='Редактировать информацию о себе'><?php echo "Вы зашли как ".$_SESSION['family']." ".$_SESSION['name']."." ?><h3></h3></a>
 							<a href='logout' >(Выход)</a></center>
-						</div></div>
+						</div>
