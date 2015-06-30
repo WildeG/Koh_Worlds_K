@@ -1,5 +1,4 @@
-
-    <center><h2>Добавить рецепт</h2>
+    <center><h2 style="margin-top:0px;">Добавить рецепт</h2>
         <center><form action="addrecipe/addrecipe" method="post" enctype="multipart/form-data">
         <div>
             <div class="blok" style="margin-bottom: 0px;">
@@ -9,7 +8,7 @@
             <table style="text-align:center;">
             <tr>
             <td>
-                <div id="news">
+                
                   <div class="block_min">
                       <a class="inscriptions">Кухня</a><br>
                       <select name="kitchens" class='field_l' style="width: 235px;">
