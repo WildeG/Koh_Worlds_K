@@ -15,7 +15,7 @@ class Controller_Auth extends Controller_Common {
                 // Делаем редирект на страницу авторизации
                 $this->redirect("/success");
             } catch (ORM_Validtion_Exception $e) {
-                $errors = $e->errors('Controller');
+                $errors = $e->errors('model');
                 // echo Debug::vars($errors);
             }
         }

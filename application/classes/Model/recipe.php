@@ -24,5 +24,24 @@
 			$res = $sql->execute();
 			return $res;
 		}
+		public function get_recipes($data){
+			$sql = DB::select()->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id');			
+			$res = $sql->execute();
+			$res2 = $res->as_array();
+			return $res2;
+		}
+		public function get_recipe($data){
+			$sql = DB::select()->from('recipe')->where('id_recipe','=',$data)->join('users')->on('id_autors','=','id');			
+			$res = $sql->execute();
+			$res2 = $res->as_array();
+			return $res2;
+		}
+		public function get_comps($data){
+			$sql = DB::select()->from('component')->where('id_recipe','=',$data)->join('name_component')->on('id_component','=','id');
+			$res = $sql->execute();
+			$res2 = $res->as_array();
+			return $res2;
+		}
+}		
 
-}
+

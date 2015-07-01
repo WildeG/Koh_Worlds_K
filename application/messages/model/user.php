@@ -1,4 +1,4 @@
-<?php
+<?php defined('SYSPATH') or die('No direct script access.');
 return array(
     'username' => array(
         'not_empty' => 'You must provide a username.',
@@ -9,4 +9,4 @@ return array(
     'password' => array(
         'not_empty' => 'You must provide a password.',
     ),
-);
+); ?>

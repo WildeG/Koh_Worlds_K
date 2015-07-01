@@ -1,5 +1,5 @@
     <center><h2 style="margin-top:0px;">Добавить рецепт</h2>
-        <center><form action="addrecipe/addrecipe" method="post" enctype="multipart/form-data">
+        <center><form action="<?php echo URL::base(); ?>add/addrecipe" method="post" enctype="multipart/form-data">
         <div>
             <div class="blok" style="margin-bottom: 0px;">
                 <a class="inscriptions">Название</a><br>
@@ -13,7 +13,7 @@
                       <a class="inscriptions">Кухня</a><br>
                       <select name="kitchens" class='field_l' style="width: 235px;">
                       <?php foreach ($kitchens as $kitchen): ?>
-                      <option value='<?php echo $kitchen['title']; ?>'><?php echo $kitchen['title']; ?></option>
+                      <option value='<?php echo $kitchen['id']; ?>'><?php echo $kitchen['title']; ?></option>
                       <?php endforeach; ?>
                       </select><br>
                   </div>

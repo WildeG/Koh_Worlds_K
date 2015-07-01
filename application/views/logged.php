@@ -3,8 +3,8 @@
             <li>
               <div class="link">Добавить<i class="fa fa-chevron-down"></i></div>
               <ul class="submenu">
-                <li><a href='<?php echo URL::base(); ?>news'>Новость</a></li>
-                <li><a href='<?php echo URL::base(); ?>recipe'>Рецепт</a></li>
+                <li><a href='<?php echo URL::base(); ?>add/news'>Новость</a></li>
+                <li><a href='<?php echo URL::base(); ?>add/recipe'>Рецепт</a></li>
                 <li><a href='<?php echo URL::base(); ?>php/add/add-kitchens'>Кухню</a></li>
                 <li><a href='<?php echo URL::base(); ?>php/add/add-component'>Ингридиенты</a></li>
               </ul>
@@ -13,7 +13,7 @@
               <div class="link">Кухни<i class="fa fa-chevron-down"></i></div>
               <ul class="submenu">
               <?php foreach ($kitchens as $kitchen): ?>
-              <li><a href="<?php echo URL::base(); ?>kitchens=<?php echo $kitchen['title']; ?>"><?php echo $kitchen['title']; ?></a></li>
+              <li><a href="<?php echo URL::base(); ?>showrecipes?kitchens=<?php echo $kitchen['id']; ?>"><?php echo $kitchen['title']; ?></a></li>
               <?php endforeach; ?>
               </ul>
             </li>
@@ -42,5 +42,5 @@
 <div id='user'><center>
               
 							<a href='user' title='Редактировать информацию о себе'><?php echo "Вы зашли как ".$_SESSION['family']." ".$_SESSION['name']."." ?><h3></h3></a>
-							<a href='logout' >(Выход)</a></center>
+							<a href='<?php echo URL::base(); ?>logout' >(Выход)</a></center>
 						</div>
