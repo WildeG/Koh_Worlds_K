@@ -48,7 +48,7 @@
                     <p><input class='field_r' type='text' name='quantity0' placeholder='Введите количество'></p>
                 </div>
                 </div></td>
-                </tr></table>
+                </tr></table><br>Нет нужно ингридиента? Добавьте!<a id="go"> Нажмите сюда</a>
             </div>   
             <div class="blok">
                 <a class="inscriptions">Рецепт</a><br>
@@ -58,7 +58,69 @@
         </div>
         </form></center>
 </center>
+<div id="modal_form">
+    <span id="modal_close" class="plus">X</span>
+    <center>
+      <form action="<?php echo URL::base(); ?>add/addcomponent" method="POST" id="test_form">
+  				<h2>Добавить ингридиент</h2>
+  				<strong class='inscriptions_min'>Название:</strong><br><input class="field_r" type="text" id="name_comp" name="name_comp" value="" placeholder="Введите название" title="Название ингридиента"><br>
+  				<strong class='inscriptions_min'>Калории*:</strong><br><input class="field_r" type="text" id="calories" name="calories" value="" placeholder="Введите калорийность" title="Введите количество калорий.Калории учитываються приблизительно на 100г продукта."><br>
+          <strong class='inscriptions_min'>Цена*:</strong><br><input class="field_r" type="text" id="price" name="price" value="" placeholder="Введите цену" title="Цена указываеться на 1 кг., 1л. или 1 упаковку. Пример: 1 кг. яблок, 1л. молока, 1 упаковка крабовых палочек."><br>
+          <strong class='inscriptions_min'>* - Помечены не обязательные поля</strong><br><br>
+  				<input type="submit" id="add_button" value="Добавить">
+  		</form>
+    </center>
+</div>
+<div id="overlay"></div><!-- Подложка -->
 <script>
+// Отправка формы ajax 
+$(function(){
+  $('#test_form').submit(function(e){
+    //отменяем стандартное действие при отправке формы
+    e.preventDefault();
+    //берем из формы метод передачи данных
+    var m_method=$(this).attr('method');
+    //получаем адрес скрипта на сервере, куда нужно отправить форму
+    var m_action=$(this).attr('action');
+    //получаем данные, введенные пользователем в формате input1=value1&input2=value2...,
+    //то есть в стандартном формате передачи данных формы
+    var m_data=$(this).serialize();
+    $.ajax({
+      type: m_method,
+      url: m_action,
+      data: m_data,
+      success: function(result){
+        $('#test_form').html(result);
+      }
+    });
+  });
+});
+
+
+// Модальное окно
+$(document).ready(function() { // вся магия после загрузки страницы
+	$('a#go').click( function(event){ // ловим клик по ссылки с id="go"
+		event.preventDefault(); // выключаем стандартную роль элемента
+		$('#overlay').fadeIn(400, // сначала плавно показываем темную подложку
+		 	function(){ // после выполнения предъидущей анимации
+				$('#modal_form') 
+					.css('display', 'block') // убираем у модального окна display: none;
+					.animate({opacity: 1, top: '50%'}, 200); // плавно прибавляем прозрачность одновременно со съезжанием вниз
+		});
+	});
+	/* Закрытие модального окна, тут делаем то же самое но в обратном порядке */
+	$('#modal_close, #overlay').click( function(){ // ловим клик по крестику или подложке
+		$('#modal_form')
+			.animate({opacity: 0, top: '45%'}, 200,  // плавно меняем прозрачность на 0 и одновременно двигаем окно вверх
+				function(){ // после анимации
+					$(this).css('display', 'none'); // делаем ему display: none;
+					$('#overlay').fadeOut(400); // скрываем подложку
+				}
+			);
+	});
+});
+
+
     var counter = 1;
     $("#add-component").click(function(){
         $("<p><select class='field_l' name='parts"+counter+"'><?php echo $comp; ?></select></p>").appendTo("#name_component");
