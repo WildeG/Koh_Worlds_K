@@ -847,3 +847,6 @@
 #8 C:\xampp\htdocs\Websites\Testing\www\Koh_Worlds_K\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #9 C:\xampp\htdocs\Websites\Testing\www\Koh_Worlds_K\index.php(118): Kohana_Request->execute()
 #10 {main} in C:\xampp\htdocs\Websites\Testing\www\Koh_Worlds_K\modules\database\classes\Database\MySQLi.php:157
+2015-07-02 17:46:37 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '.' ~ APPPATH\views\showrecipe.php [ 5 ] in file:line
+2015-07-02 17:46:37 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

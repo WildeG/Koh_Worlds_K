@@ -18,7 +18,16 @@ ul {
   -moz-border-radius: 6px;
   border-radius: 6px;
  }
-
+.show {
+  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  margin-bottom: 15px;
+  width: 700px;
+  border-radius:15px;
+  -webkit-border-radius:15px;
+  -moz-border-radius:15px;
+  -khtml-border-radius:15px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
 .accordion .link {
   cursor: pointer;
   display: block;
