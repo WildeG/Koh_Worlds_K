@@ -371,3 +371,45 @@
 2015-07-01 18:33:40 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '{' ~ APPPATH\views\showrecipe.php [ 14 ] in file:line
 2015-07-01 18:33:40 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
 #1 {main} in file:line
+2015-07-01 23:35:01 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:35:01 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:35:04 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:35:04 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:38:20 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:38:20 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:38:21 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:38:21 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:45:52 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:45:52 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:46:11 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:46:11 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:46:12 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:46:12 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:46:31 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:46:31 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:48:16 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:48:16 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:53:31 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:53:31 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:55:09 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:55:09 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:57:16 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:57:16 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:57:43 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:57:43 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-07-01 23:59:29 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Recipe' not found ~ SYSPATH/classes/Kohana/Model.php [ 26 ] in file:line
+2015-07-01 23:59:29 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

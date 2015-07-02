@@ -9,11 +9,11 @@ class Controller_Auth extends Controller_Common {
             try {           
                 // Сохраняем пользователя в БД
                 $dateofreg=date('Y-m-d');
-                $user = ORM::factory('user')->create_user($_POST, array('username','password','name','family', 'dateofreg'));
+                $user = ORM::factory('User')->create_user($_POST, array('username','password','name','family', $dateofreg));
                 // Выставляем ему роль, роль login означает что пользователь может авторизоваться
-                $user->add('roles',ORM::factory('role',array('name'=>'login')));               
+                $user->add('roles',ORM::factory('Role',array('name'=>'login')));               
                 // Делаем редирект на страницу авторизации
-                $this->redirect("/success");
+                $this->redirect("success");
             } catch (ORM_Validtion_Exception $e) {
                 $errors = $e->errors('model');
                 // echo Debug::vars($errors);

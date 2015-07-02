@@ -8,7 +8,7 @@ abstract class Controller_Common extends Controller_Template {
     {
         parent::before(); 	
 
- 		$this->template->styles = array('style', 'homepages');
+        $this->template->styles = array('style', 'homepages');
         $this->template->scripts = array('jquery-1.9.1.min','jquery.waterwheelCarousel.min');
         $kitchens=Model::factory('Recipe')->get_kitchens();
         if (Auth::instance()->logged_in()) {
