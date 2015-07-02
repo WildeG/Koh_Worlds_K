@@ -36,9 +36,13 @@ class Model_User extends Model_Auth_User{
 				array('max_length', array(':value', 32)),
 				array(array($this, 'unique'), array('username', ':value')),
 			),
-			'password' => array(
+			'name' => array(
 				array('not_empty'),
-			),
+				array('max_length', array(':value', 32)),
+				),
+			'family'=>array(
+				array('not_empty'),
+				array('max_length', array(':value', 32)),),
 		);
 	}
 
@@ -65,8 +69,10 @@ class Model_User extends Model_Auth_User{
 	public function labels()
 	{
 		return array(
-			'username'         => 'username',
-			'password'         => 'password',
+			'username'         => 'Логин',
+			'password'         => 'Пароль',
+			'name' => 'Имя',
+			'family'=> 'Фамилия',
 		);
 	}
 
@@ -129,6 +135,7 @@ class Model_User extends Model_Auth_User{
 	{
 		return Validation::factory($values)
 			->rule('password', 'min_length', array(':value', 6))
+			->rule('password', 'max_length', array(':value', 32))
 			->rule('password_confirm', 'matches', array(':validation', ':field', 'password'));
 	}
 

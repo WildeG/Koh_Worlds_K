@@ -12,10 +12,10 @@ abstract class Controller_Common extends Controller_Template {
         $this->template->scripts = array('jquery-1.9.1.min','jquery.waterwheelCarousel.min');
         $kitchens=Model::factory('Recipe')->get_kitchens();
         if (Auth::instance()->logged_in()) {
-        $this->template->login = View::factory('/logged')->bind('kitchens', $kitchens);   
+        $this->template->login = View::factory('logged')->bind('kitchens', $kitchens);   
         }
         else{
-        $this->template->login = View::factory('/login')->bind('kitchens', $kitchens);	
+        $this->template->login = View::factory('login')->bind('kitchens', $kitchens);	
         }
     }
  

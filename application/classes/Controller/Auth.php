@@ -4,24 +4,27 @@ class Controller_Auth extends Controller_Common {
 	    public $template = 'main';
     public function action_registration()
     {
+        $this->template->content = View::factory('registration');
         if ($post = $this->request->post())
         {
             try {           
                 // Сохраняем пользователя в БД
                 $dateofreg=date('Y-m-d');
+                $extra_rules = Validation::factory($_POST)
+                        ->rule('password_confirm', 'matches', array( ':validation', ':field', 'password' ));
                 $user = ORM::factory('User')->create_user($_POST, array('username','password','name','family', $dateofreg));
                 // Выставляем ему роль, роль login означает что пользователь может авторизоваться
                 $user->add('roles',ORM::factory('Role',array('name'=>'login')));               
-                // Делаем редирект на страницу авторизации
-                $this->redirect("success");
-            } catch (ORM_Validtion_Exception $e) {
-                $errors = $e->errors('model');
+                $this->redirect('main');
+            } catch (ORM_Validation_Exception $e) {
+                $errors = $e->errors('Model');
+                $this->template->content=View::factory('registration')->set('errors', $errors);
                 // echo Debug::vars($errors);
             }
         }
      
         // Выводим шаблон регистрации
-        $this->template->content = View::factory('registration');
+
     }
 
     public function action_login()
