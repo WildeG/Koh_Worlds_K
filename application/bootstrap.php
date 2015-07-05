@@ -158,6 +158,11 @@ Route::set('auth','<action>', array('action' => 'login|registration|logout'))
 	->defaults(array(
 		'controller' => 'Auth',
 	));
+Route::set('main','newslist')
+	->defaults(array(
+		'controller' => 'Main',
+		'action'=>'news',
+	));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'Main',

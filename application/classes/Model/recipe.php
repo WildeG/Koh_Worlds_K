@@ -42,6 +42,11 @@
 			$res2 = $res->as_array();
 			return $res2;
 		}
+		public function add_comps($data){
+			$sql = DB::insert('name_component', array('components', 'calories', 'price'))->values(array($data['name_comp'], $data['calories'], $data['price']));
+			$res=$sql->execute();
+			return $res;
+		}
 }		
 
 

@@ -6,6 +6,7 @@
 	<img src="<?php echo URL::base(); ?>public/image/countries/004.jpg" id="item-4" />
 </div>
 <h2><b>Новости</h2>
+<a href='<?php echo URL::base(); ?>newslist?page=0'>Показать все</a>
 <?php foreach($newss as $news): ?>
 	<div id='news'>
 	<img align='left' class='image_news' src="" />

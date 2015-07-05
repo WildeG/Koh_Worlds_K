@@ -1,18 +1,25 @@
-<center><h2><b>Рецепты</h2>
-<?php foreach($recipes as $recipe): ?>
+
+<center><h2><b>Новости</h2>
+<?php $i=0 ?>
+<?php for($u=5*$_GET['page']; ;$u++){ if (isset($recipes[$u])){ ?>
 	<div id='news'>
 	<img align='left' class='image_news' src="" />
-	<h4><?php echo $recipe['title']; ?></h4>
+	<h4><?php echo $recipes[$u]['title']; ?></h4>
 		<table id='table_news'>
 			<tr>
-				<td align='left'><a class='subtitle'><?php echo $recipe['family'],' '; echo $recipe['name'];  ?></a></td>
-				<td align='right'><?php echo $recipe['date_added']; ?><a class='subtitle'></a></td>
+				<td align='left'><a class='subtitle'><?php echo $recipes[$u]['family'],' '; echo $recipes[$u]['name'];  ?></a></td>
+				<td align='right'><?php echo $recipes[$u]['date_added']; ?><a class='subtitle'></a></td>
 			</tr>
 			<tr>
-				<td colspan='2'><a id='contents'><?php echo join(' ', array_slice(explode( ' ', $recipe['recipe'] ), 0, 15)); echo '..'; ?></a></br>
-				<a href='<?php echo URL::base(); ?>showrecipe?id=<?php echo $recipe['id_recipe']?>'>Просмотреть полностью</a></td>
+				<td colspan='2'><a id='contents'><?php echo join(' ', array_slice(explode( ' ', $recipes[$u]['recipe'] ), 0, 15)); echo '..'; ?></a></td>
 			</tr>
 		</table>
-	</div>
-<?php endforeach; ?>
+	</div>	
+<?php } if($u>=5*$_GET['page']+4){break;}
+   }?>
+
+<?php while ($i<=intval(count($recipes)/5)){
+	echo '<a href="showrecipes?kitchens'.$_GET['kitchens'].'&page='.$i.'">'.$i.'</a>';
+	$i++;
+}?>
 </center>

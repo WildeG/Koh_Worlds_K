@@ -13,7 +13,7 @@
               <div class="link">Кухни<i class="fa fa-chevron-down"></i></div>
               <ul class="submenu">
               <?php foreach ($kitchens as $kitchen): ?>
-              <li><a href="<?php echo URL::base(); ?>showrecipes?kitchens=<?php echo $kitchen['id']; ?>"><?php echo $kitchen['title']; ?></a></li>
+              <li><a href="<?php echo URL::base(); ?>showrecipes?kitchens=<?php echo $kitchen['id']; ?>&page=0"><?php echo $kitchen['title']; ?></a></li>
               <?php endforeach; ?>
               </ul>
             </li>

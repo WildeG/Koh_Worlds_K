@@ -43,6 +43,6 @@ class Controller_Add extends Controller_Common {
         $this->template->content = $content;        
     }
     public function action_addcomponent(){
-  //  что то
+        
     }
 } // End Add
