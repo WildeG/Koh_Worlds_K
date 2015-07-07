@@ -11,13 +11,13 @@ class Controller_Add extends Controller_Common {
     public function action_recipe()
     {
         $content = View::factory('addrecipe')->bind('kitchens', $kitchens)->bind('components', $components);
-        $kitchens=Model::factory('Recipe')->get_kitchens();
-        $components=Model::factory('Recipe')->get_component();
+        $kitchens=Model::factory('Showmodel')->get_kitchens();
+        $components=Model::factory('Showmodel')->get_component();
         $this->template->styles=array('addrecipe','style', 'owl.carousel', 'homepages');
         $this->template->content = $content;
     }
     public function action_addnews(){
-    	$add=Model::factory('Addnews')->add_news($_POST);
+    	$add=Model::factory('Addmodel')->add_news($_POST);
     	if ($add!=false){
     		$content=View::factory('success');
     	}
@@ -27,10 +27,10 @@ class Controller_Add extends Controller_Common {
  		$this->template->content = $content;    	
     }
     public function action_addrecipe(){
-        $add=Model::factory('Recipe')->add_recipe($_POST);
+        $add=Model::factory('Addmodel')->add_recipe($_POST);
         for($count=0; ;$count++){
             if (isset($_POST['parts'.$count])){
-            $addcomp=Model::factory('Recipe')->add_component($_POST['parts'.$count], $add['0'], $_POST['quantity'.$count]);
+            $addcomp=Model::factory('Addmodel')->add_component($_POST['parts'.$count], $add['0'], $_POST['quantity'.$count]);
             }   
             else {break;}
         }

@@ -9,10 +9,11 @@ class Controller_Auth extends Controller_Common {
         {
             try {           
                 // Сохраняем пользователя в БД
-                $dateofreg=date('Y-m-d');
+                $_POST['dateofreg']=date('Y-m-d');
                 $extra_rules = Validation::factory($_POST)
-                        ->rule('password_confirm', 'matches', array( ':validation', ':field', 'password' ));
-                $user = ORM::factory('User')->create_user($_POST, array('username','password','name','family', $dateofreg));
+                        ->rule('password_confirm', 'matches', array( ':validation', ':field', 'password' ))
+                        ->rule('password', 'not_empty');
+                $user = ORM::factory('User')->create_user($_POST, array('username','password','name','family', 'dateofreg'));
                 // Выставляем ему роль, роль login означает что пользователь может авторизоваться
                 $user->add('roles',ORM::factory('Role',array('name'=>'login')));               
                 $this->redirect('main');
