@@ -49,4 +49,10 @@
 			$res=$sql->execute();
 			return $res;
 		}
+		public function get_news($data){
+			$sql = DB::select()->from('news')->where('id_news','=',$data)->join('users')->on('id_autors','=','id');			
+			$res = $sql->execute();
+			$res2 = $res->as_array();
+			return $res2;
+		}
 	}

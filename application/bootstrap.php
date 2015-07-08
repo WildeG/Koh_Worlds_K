@@ -162,10 +162,9 @@ Route::set('user','<action>', array('action' => 'user'))
 	->defaults(array(
 		'controller' => 'User',
 	));
-Route::set('main','newslist')
+Route::set('main','<action>', array('action' => 'newslist|shownews'))
 	->defaults(array(
 		'controller' => 'Main',
-		'action'=>'news',
 	));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(

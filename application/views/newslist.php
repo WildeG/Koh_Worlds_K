@@ -18,7 +18,7 @@
 <?php } if($u>=5){break;}
    }?>
 
-<?php while ($i<=$count/5){
+<?php while ($i<$count/5){
 	echo '<a href="newslist?page='.$i.'">'.($i+1).'</a>';
 	$i++;
 }?>
