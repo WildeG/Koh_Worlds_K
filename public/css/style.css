@@ -181,10 +181,17 @@ textarea {
     margin-bottom: 10px;
 }
 .button {
-  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  margin: 10px;
+  padding: 5 10 5 10px;
   color: #E60000;
-  text-shadow: 0 0 4px rgba(0,0,0,0.3);
   border-color:#ffd700;
+  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius:15px;
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    -khtml-border-radius:15px;
+    font-size:20;
 }
 .inscriptions {
 	text-align: left;

@@ -1,5 +1,5 @@
 <center>
-	<?php echo "<a class='inscriptions'>".$recipes[0]['title']."</a>"; 
+	<?php echo "<br><a class='inscriptions'>".$recipes[0]['title']."</a>"; 
 	if ($recipes[0]['image']!="default_image"){
 		echo "<img class='image_recipe' src='".$recipes[0]['image']."'>";
 	}
@@ -25,7 +25,11 @@
 	Мне нравиться
 	Хочу приготовить
 	Приготовил
-	<?php } ?>
+	<p>
+	<?php } if (($_GET['id']-1)>0) {
+		echo "<a class='button' href='".URL::base()."showrecipe?id=".($_GET['id']-1)."'><b><</b>&nbspПредыдущий</a>";
+	} echo "<a class='button' href='".URL::base()."showrecipes?kitchens=".$recipes[0]['kitchens']."&page=0'>Вернуться к списку рецептов</a>
+	<a class='button' href='".URL::base()."showrecipe?id=".($_GET['id']+1)."'>Следующий&nbsp<b>></b></a></p>";?>
 	<script type='text/javascript' src='//yastatic.net/share/share.js' charset='utf-8'></script>
 	<div class='yashare-auto-init' data-yashareL10n='ru' data-yashareType='small' data-yashareQuickServices='vkontakte,facebook,twitter,odnoklassniki,moimir,gplus' data-yashareTheme='counter' data-yashareImage='http://wildegard.com/image/recipe/3e551df3a8276c3b50bf.jpg'>
 	</div>
