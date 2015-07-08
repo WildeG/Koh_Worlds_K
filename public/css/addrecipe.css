@@ -110,6 +110,7 @@ input::-webkit-input-placeholder {
     -khtml-border-radius:20px;
     font-size:25;
 }
+/* Модальное окно*/
 #modal_form {
   width: 700px; 
   height: 350px; /* Размеры должны быть фиксированы */
@@ -124,6 +125,7 @@ input::-webkit-input-placeholder {
   display: none; /* в обычном состоянии окна не должно быть */
   opacity: 0; /* полностью прозрачно для анимирования */
   z-index: 5; /* окно должно быть наиболее большем слое */
+  box-shadow: 0 0 30px rgba(105,21,17,1);
 }
 /* Кнопка закрыть*/
 #modal_form #modal_close {

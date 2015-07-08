@@ -244,7 +244,7 @@ textarea {
   width: 800px;
 }
 #user {
-  height: 90px;
+  height: 100px;
   box-shadow: 0 0 50px rgba(204,170,0,0.6);
   margin-top: 10px;
 	background: rgba(255,255,255,0.5);

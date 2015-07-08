@@ -3,7 +3,12 @@
 	if ($recipes[0]['image']!="default_image"){
 		echo "<img class='image_recipe' src='".$recipes[0]['image']."'>";
 	}
-	?>
+	echo "<br><table id='table_news'>
+				<tr>
+					<td align='left'><a class='inscriptions_min'>".$recipes[0]['family']."&nbsp".$recipes[0]['name']."</a></td>
+					<td align='right'><a class='inscriptions_min'>".$recipes[0]['date_added']."</a></td>
+				</tr>
+			</table>";?>
 	<div class="show">
 		<h3>Ингридиенты</h3>
 		<?php
@@ -25,3 +30,4 @@
 	<div class='yashare-auto-init' data-yashareL10n='ru' data-yashareType='small' data-yashareQuickServices='vkontakte,facebook,twitter,odnoklassniki,moimir,gplus' data-yashareTheme='counter' data-yashareImage='http://wildegard.com/image/recipe/3e551df3a8276c3b50bf.jpg'>
 	</div>
 </center>
+<b style="text-align:left;"></b>

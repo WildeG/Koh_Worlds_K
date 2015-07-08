@@ -8,17 +8,14 @@
 		<?php endforeach; ?>
 		</ul>
 	</li>
-	<li>
-		<div class="link"><a href="#">Блюда</a></div>
-	</li>
-	<li>
+	<!-- <li>
 		<div class="link"><a href="#">Поиск</a></div>
+	</li> -->
+	<li>
+		<div class="link"><a href="#">Меню дня</a></div>
 	</li>
 	<li>
-		<div class="link"><a href="#">Блюдо дня</a></div>
-	</li>
-	<li>
-		<div class="link"><a href="#">Новости</a></div>
+		<div class="link"><a href='<?php echo URL::base(); ?>newslist?page=0'>Новости</a></div>
 	</li>
 	</ul>
 </div>
