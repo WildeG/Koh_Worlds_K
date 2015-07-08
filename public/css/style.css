@@ -146,6 +146,7 @@ body {
 a {
   margin: 6px 6px 6px 0px; 
   text-decoration: none; /* Отменяем подчеркивание у ссылки */
+  color: #E60000;
 }
 a:visited {
     color: #E60000;  Цвет посещенных ссылок 
@@ -200,30 +201,28 @@ textarea {
     font-size: 15;
 }
 #body {
-  position: absolute;
-  left: 50%;
-  width: 1200px;
-  margin-top: 5px;
-  margin-left: -600px;
+  margin:0 auto;
+  width: 1000px;
 }
 #hat {
+  margin-top: 10px;
+  width: 1000px;
 	height: 130px;
-	margin-top: 0px;
 	background: linear-gradient(to top,rgba(255,255,255,0.5), rgba(204,170,0,0.8) );
   box-shadow: 0 0 50px rgba(204,170,0,2);
-	border-radius:30px 30px 6px 6px;
-  	-webkit-border-radius:30px 30px 6px 6px;
-  	-moz-border-radius:30px 30px 6px 6px;
-  	-khtml-border-radius:30px 30px 6px 6px;
+	border-radius:6px 6px 6px 6px;
+  	-webkit-border-radius:6px 6px 6px 6px;
+  	-moz-border-radius:6px 6px 6px 6px;
+  	-khtml-border-radius:6px 6px 6px 6px;
 }
 #left_bord {
   margin-top: 10px;
   box-shadow: 0 0 50px rgba(204,170,0,2);
-  background: linear-gradient(to top,rgba(255,255,255,0.5), rgba(204,170,0,0.8) );
-  border-radius:50px 10px 10px 10px;
-    -webkit-border-radius:50px 10px 10px 10px;
-    -moz-border-radius:50px 10px 10px 10px;
-    -khtml-border-radius:50px 10px 10px 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius:6px 6px 6px 6px;
+    -webkit-border-radius:6px 6px 6px 6px;
+    -moz-border-radius:6px 6px 6px 6px;
+    -khtml-border-radius:6px 6px 6px 6px;
   height: 60px;
   width: 190px;
 } 
@@ -237,11 +236,6 @@ textarea {
   -webkit-border-radius:6px;
   -moz-border-radius:6px;
   -khtml-border-radius:6px;
-}
-#head {
-  margin-left: 200px;
-  margin-top: 10px;
-  width: 800px;
 }
 #user {
   height: 100px;

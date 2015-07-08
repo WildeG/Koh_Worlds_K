@@ -1,5 +1,5 @@
 <html>
-		<head>
+<head>
 	<!-- Иконка сайта -->
 	<link href="<?php echo URL::base(); ?>public/image/system/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
@@ -19,11 +19,9 @@
 	<title>World Kitchens</title>
 		</head>
 		<body>
-		<div id="body"> 
-			<div id="head">
-					<div id="hat">
-						<center><a href="<?php echo URL::base(); ?>main"><h1 title="Перейти на главную">World's Kitchens</h1></a></center>
-					</div>
+		<div id="body">
+			<div id="hat">
+				<center><a href="<?php echo URL::base(); ?>main"><h1 title="Перейти на главную">World's Kitchens</h1></a></center>
 			</div>
 			<div id='left_panel'>
 					<div id="left_bord">

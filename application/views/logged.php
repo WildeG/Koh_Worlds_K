@@ -37,6 +37,6 @@
 	</ul>
 </div>
 <div id='user'><center>
-	<?php echo "Вы зашли как<br><h3><a href='user' title='Редактировать информацию о себе'>".$_SESSION['family']." ".$_SESSION['name']."</a></h3>"?>
+	<?php echo "Вы зашли как<br><h3><a href='".URL::base()."user' title='Редактировать информацию о себе'>".$_SESSION['family']." ".$_SESSION['name']."</a></h3>"?>
 	<a href='<?php echo URL::base(); ?>logout' >(Выход)</a></center>
 </div>
