@@ -73,16 +73,16 @@
             <div  style="max-height: 100px; overflow: auto;" >
             <table id="add_component"> 
                 <tr>
-                  <td><input class="field_r" type="text" id="name_comp" name="name_comp" value="" style="width: 200px; text-indent: 5px;" placeholder="Введите название" title="Название ингридиента"></td>
+                  <td><input class="field_r" type="text" id="name_comp" name="name_comp0" value="" style="width: 200px; text-indent: 5px;" placeholder="Введите название" title="Название ингридиента"></td>
                   <td>
-                    <input class="field_r" type="text" id="calories" name="calories" value="" style="width: 80px; text-indent: 5px;" placeholder="Кол-во" title="Введите количество калорий.Калории учитываються приблизительно на 100г продукта.">
+                    <input class="field_r" type="text" id="calories" name="calories0" value="" style="width: 80px; text-indent: 5px;" placeholder="Кол-во" title="Введите количество калорий.Калории учитываються приблизительно на 100г продукта.">
                     <select class='field_l' style="width: 80px; text-indent: 5px;">
                       <option class='field_l' style="width: 80px; text-indent: 5px;">ККал</option>
                       <option class='field_l' style="width: 80px; text-indent: 5px;">Кал</option>
                     </select>
                   </td>
                   <td>
-                    <input class="field_r" type="text" id="price" name="price" value="" style="width: 80px; text-indent: 5px;" placeholder="Кол-во" title="Цена указываеться на 1 кг., 1л. или 1 упаковку. Пример: 1 кг. яблок, 1л. молока, 1 упаковка крабовых палочек.">
+                    <input class="field_r" type="text" id="price" name="price0" value="" style="width: 80px; text-indent: 5px;" placeholder="Кол-во" title="Цена указываеться на 1 кг., 1л. или 1 упаковку. Пример: 1 кг. яблок, 1л. молока, 1 упаковка крабовых палочек.">
                     <select class='field_l' style="width: 100px; text-indent: 5px;">
                       <option>Рублей</option>
                       <option>Долларов</option>
@@ -154,7 +154,7 @@ $(document).ready(function() { // вся магия после загрузки 
 
     var count = 1;
     $("#add-comp").click(function(){
-        $("<tr><td><input class='field_r' type='text' id='name_comp' name='name_comp"+count+"' value='' style='width: 200px; text-indent: 5px;' placeholder='Введите название' title='Название ингридиента'></td><td><input class='field_r' type='text' id='calories' name='calories"+count+"' value='' style='width: 80px; text-indent: 5px;' placeholder='Кол-во' title='Введите количество калорий.Калории учитываються приблизительно на 100г продукта.'><select class='field_l' style='width: 80px; text-indent: 5px;'><option class='field_l' style='width: 80px; text-indent: 5px;'>ККал</option><option class='field_l' style='width: 80px; text-indent: 5px;'>Кал</option></select></td><td><input class='field_r' type='text' id='price' name='price' value='' style='width: 80px; text-indent: 5px;' placeholder='Кол-во' title='Цена указываеться на 1 кг., 1л. или 1 упаковку. Пример: 1 кг. яблок, 1л. молока, 1 упаковка крабовых палочек.'><select class='field_l' style='width: 100px; text-indent: 5px;'><option>Рублей</option><option>Долларов</option><option>Евро</option><option>Гривен</option></select></td></tr>").appendTo("#add_component");
+        $("<tr><td><input class='field_r' type='text' id='name_comp' name='name_comp"+count+"' value='' style='width: 200px; text-indent: 5px;' placeholder='Введите название' title='Название ингридиента'></td><td><input class='field_r' type='text' id='calories' name='calories"+count+"' value='' style='width: 80px; text-indent: 5px;' placeholder='Кол-во' title='Введите количество калорий.Калории учитываються приблизительно на 100г продукта.'><select class='field_l' style='width: 80px; text-indent: 5px;'><option class='field_l' style='width: 80px; text-indent: 5px;'>ККал</option><option class='field_l' style='width: 80px; text-indent: 5px;'>Кал</option></select></td><td><input class='field_r' type='text' id='price' name='price"+count+"' value='' style='width: 80px; text-indent: 5px;' placeholder='Кол-во' title='Цена указываеться на 1 кг., 1л. или 1 упаковку. Пример: 1 кг. яблок, 1л. молока, 1 упаковка крабовых палочек.'><select class='field_l' style='width: 100px; text-indent: 5px;'><option>Рублей</option><option>Долларов</option><option>Евро</option><option>Гривен</option></select></td></tr>").appendTo("#add_component");
         count++;
     });
     $("#remove-comp").click(function(){

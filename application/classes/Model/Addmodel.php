@@ -17,7 +17,7 @@
 		}
 
 		public function add_comps($data){
-			$sql = DB::insert('name_component', array('components', 'calories', 'price'))->values(array($data['name_comp'], $data['calories'], $data['price']));
+			$sql = DB::insert('name_component', array('component', 'calories', 'price'))->values(array($data['name_comp'], $data['calories'], $data['price']));
 			$res=$sql->execute();
 			return $res;
 		}

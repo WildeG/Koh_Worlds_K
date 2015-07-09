@@ -29,9 +29,9 @@
 	<li>
 		<div class="link">Избранное<i class="fa fa-chevron-down"></i></div>
 		<ul class="submenu">
-			<li><a href='<?php echo URL::base(); ?>wantcook'>Хочу приготовить</a></li> 
-			<li><a href='<?php echo URL::base(); ?>prepared'>Уже готовил</a></li>
-			<li><a href='<?php echo URL::base(); ?>myrecipes'>Мои рецепты</a></li>
+			<li><a href='<?php echo URL::base(); ?>favorite/wantcook'>Хочу приготовить</a></li> 
+			<li><a href='<?php echo URL::base(); ?>favorite/prepared'>Уже готовил</a></li>
+			<li><a href='<?php echo URL::base(); ?>favorite/myrecipes'>Мои рецепты</a></li>
 		</ul>
 	</li>
 	</ul>

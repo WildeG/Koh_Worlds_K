@@ -3,8 +3,7 @@
 class Controller_Add extends Controller_Common {
 	    public $template = 'main';
 
-// Что это?
-// ************************************
+
     public function action_news()
     {
  		$content = View::factory('addnews');
@@ -19,7 +18,6 @@ class Controller_Add extends Controller_Common {
         $this->template->styles=array('addrecipe','style', 'owl.carousel', 'homepages');
         $this->template->content = $content;
     }
-// ************************************
 
     public function action_addnews(){
     	$add=Model::factory('Addmodel')->add_news($_POST);
@@ -48,6 +46,22 @@ class Controller_Add extends Controller_Common {
         $this->template->content = $content;        
     }
     public function action_addcomponent(){
-        
+        for($count=0; ;$count++){
+            if (isset($_POST['name_comp'.$count])){
+            $data['name_comp']=$_POST['name_comp'.$count];
+            $data['calories']=$_POST['calories'.$count];
+            $data['price']=$_POST['price'.$count];
+            $addcomp=Model::factory('Addmodel')->add_comps($data);
+             } 
+            else {break;}
+        }
+        if ($addcomp!=false){
+            $content=View::factory('success');
+            $this->response->body($content);
+        }
+        else{
+            $content=View::factory('error');
+            $this->template->content = $content; 
+        }
     }
 } // End Add
