@@ -150,6 +150,10 @@ Route::set('add','<controller>/<action>', array('action' => 'news|recipe'))
 	->defaults(array(
 		'controller' => 'Add',
 	));
+Route::set('favorite','<controller>/<action>', array('action' => 'prepared|wantcook|myrecipes'))
+	->defaults(array(
+		'controller' => 'Favorite',
+	));
 Route::set('recipe','<action>', array('action'=> 'showrecipe|showrecipes'))
 	->defaults(array(
 		'controller' => 'Recipe',
@@ -165,6 +169,10 @@ Route::set('user','<action>', array('action' => 'user'))
 Route::set('main','<action>', array('action' => 'newslist|shownews'))
 	->defaults(array(
 		'controller' => 'Main',
+	));
+Route::set('mday','<action>', array('action' => 'menu_day'))
+	->defaults(array(
+		'controller' => 'Mday',
 	));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(

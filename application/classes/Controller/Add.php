@@ -2,6 +2,9 @@
 
 class Controller_Add extends Controller_Common {
 	    public $template = 'main';
+
+// Что это?
+// ************************************
     public function action_news()
     {
  		$content = View::factory('addnews');
@@ -16,6 +19,8 @@ class Controller_Add extends Controller_Common {
         $this->template->styles=array('addrecipe','style', 'owl.carousel', 'homepages');
         $this->template->content = $content;
     }
+// ************************************
+
     public function action_addnews(){
     	$add=Model::factory('Addmodel')->add_news($_POST);
     	if ($add!=false){

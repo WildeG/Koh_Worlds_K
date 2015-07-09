@@ -18,20 +18,20 @@
 		</ul>
 	</li>
 	<!-- <li> 
-		<div class="link"><a href="#">Поиск</a></div>
+		<a href="#"><div class="link" style="padding-left:10px;">Поиск</div></a>
 	</li>-->
 	<li>
-		<div class="link"><a href="#">Меню дня</a></div>
+		<a href='<?php echo URL::base(); ?>menu_day'><div class="link" style="padding-left:10px;">Меню дня</div></a>
 	</li>
 	<li>
-		<div class="link"><a href='<?php echo URL::base(); ?>newslist?page=0'>Новости</a></div>
+		<a href='<?php echo URL::base(); ?>newslist?page=0'><div class="link" style="padding-left:10px;">Новости</div></a>
 	</li>
 	<li>
 		<div class="link">Избранное<i class="fa fa-chevron-down"></i></div>
 		<ul class="submenu">
-			<li><a href='<?php echo URL::base(); ?>wantprep'>Хочу приготовить</a></li> 
-			<li><a href='<?php echo URL::base(); ?>doneprep'>Уже готовил</a></li>
-			<li><a href='<?php echo URL::base(); ?>user/myreceipts'>Мои рецепты</a></li>
+			<li><a href='<?php echo URL::base(); ?>wantcook'>Хочу приготовить</a></li> 
+			<li><a href='<?php echo URL::base(); ?>prepared'>Уже готовил</a></li>
+			<li><a href='<?php echo URL::base(); ?>myrecipes'>Мои рецепты</a></li>
 		</ul>
 	</li>
 	</ul>

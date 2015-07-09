@@ -12,7 +12,7 @@
 		<div class="link"><a href="#">Поиск</a></div>
 	</li> -->
 	<li>
-		<div class="link"><a href="#">Меню дня</a></div>
+		<div class="link"><a href="<?php echo URL::base(); ?>menu_day">Меню дня</a></div>
 	</li>
 	<li>
 		<div class="link"><a href='<?php echo URL::base(); ?>newslist?page=0'>Новости</a></div>
