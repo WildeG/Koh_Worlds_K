@@ -30,7 +30,13 @@ class Controller_Add extends Controller_Common {
  		$this->template->content = $content;    	
     }
     public function action_addrecipe(){
-        $add=Model::factory('Addmodel')->add_recipe($_POST);
+        if (isset($_FILES['image'])){
+            $image=$this->_save_image($_FILES['image']);
+        }
+        if (!$image){
+            $content=View::factory('error');
+        }
+        $add=Model::factory('Addmodel')->add_recipe($_POST, $image);
         for($count=0; ;$count++){
             if (isset($_POST['parts'.$count])){
             $addcomp=Model::factory('Addmodel')->add_component($_POST['parts'.$count], $add['0'], $_POST['quantity'.$count]);
@@ -63,5 +69,28 @@ class Controller_Add extends Controller_Common {
             $content=View::factory('error');
             $this->template->content = $content; 
         }
+    }
+    protected function _save_image($image)
+    {
+        if (
+            ! Upload::valid($image) OR
+            ! Upload::not_empty($image) OR
+            ! Upload::type($image, array('jpg', 'jpeg', 'png', 'gif')))
+        {
+            return FALSE;
+        }
+ 
+        $directory = DOCROOT.'public/image/uploads';
+        $filename = strtolower(Text::random('alnum', 20)).'.jpg';
+        if ($file = Upload::save($image, $filename, $directory))
+        {
+            // Delete the temporary file
+            return $filename;
+            unlink($file);
+ 
+
+        }
+ 
+        return FALSE;
     }
 } // End Add

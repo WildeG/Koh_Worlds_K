@@ -3,7 +3,7 @@
 <?php $i=0 ?>
 <?php for($u=0; ;$u++){ if (isset($recipes[$u])){ ?>
 	<div id='news'>
-	<img align='left' class='image_news' src="" />
+	<img align='left' class='image_news' src="<?php echo URL::base(); ?>public/image/uploads/<?php echo $recipes[$u]['image']?>" />
 	<a href=<?php  echo "'/showrecipe?id=".$recipes[$u]['id_recipe']."'";?>><h4><?php echo $recipes[$u]['title']; ?></h4></a>
 		<table id='table_news'>
 			<tr>
@@ -18,7 +18,7 @@
 <?php } if($u>=5){break;}
    }?>
 
-<?php while ($i<=$count/5){
+<?php while ($i<$count/5){
 	echo '<a href="showrecipes?kitchens='.$_GET['kitchens'].'&page='.$i.'">'.($i+1).'</a>';
 	$i++;
 }?>

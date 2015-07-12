@@ -39,7 +39,7 @@
 			return $res;
 		}
 		public function get_all($page){
-			$sql = DB::select()->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit($page*5+5);			
+			$sql = DB::select()->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5+1)->limit($page*5+6);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;

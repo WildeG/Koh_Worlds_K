@@ -1,12 +1,12 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 	class Model_Addmodel extends Model_Database{
 
-		public function add_recipe($data){
+		public function add_recipe($data, $image){
 			if (!isset($data['image'])){
 				$data['image']='default_image';
 			}
 			$data['date_added']=date('Y-m-d');
-			$sql = DB::insert('recipe', array('title',  'recipe',  'date_added', 'kitchens','image','id_autors' ))->values(array($data['title'],  $data['recipe'], $data['date_added'], $data['kitchens'], $data['image'], $_SESSION['id']));
+			$sql = DB::insert('recipe', array('title',  'recipe',  'date_added', 'kitchens','image','id_autors' ))->values(array($data['title'],  $data['recipe'], $data['date_added'], $data['kitchens'], $image, $_SESSION['id']));
 			$res = $sql->execute();
 			return $res;
 		}
