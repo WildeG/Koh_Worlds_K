@@ -3,10 +3,9 @@
 	<li>
 		<div class="link">Добавить<i class="fa fa-chevron-down"></i></div>
 		<ul class="submenu">
-			<li><a href='<?php echo URL::base(); ?>add/news'>Новость</a></li>
+		<?php echo $roles ?>
 			<li><a href='<?php echo URL::base(); ?>add/recipe'>Рецепт</a></li>
-			<li><a href='<?php echo URL::base(); ?>php/add/add-kitchens'>Кухню</a></li>
-			<li><a href='<?php echo URL::base(); ?>php/add/add-component'>Ингридиенты</a></li>
+
 		</ul>
 	</li>
 	<li>

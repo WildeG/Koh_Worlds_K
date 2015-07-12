@@ -1,7 +1,7 @@
 <center>
 	<?php echo "<a class='inscriptions'>".$newss[0]['title']."</a>"; 
 	if ($newss[0]['image']!="default_image"){
-		echo "<img class='image_recipe' src='".$newss[0]['image']."'>";
+		echo "<img class='image_recipe' width=80 height=80 src='".URL::base()."public/image/uploads/news/".$newss[0]['image']."'>";
 	}
 	?>
 	<div class="show">

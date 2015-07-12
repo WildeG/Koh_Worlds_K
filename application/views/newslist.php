@@ -3,7 +3,7 @@
 <?php $i=0 ?>
 <?php for($u=0; ;$u++){ if (isset($newss[$u])){ ?>
 	<div id='news'>
-	<img align='left' class='image_news' src="" />
+	<img align='left' class='image_news' src= <?php echo '"'.URL::base().'public/image/uploads/news/'.$newss[$u]['image'].'"' ?> />
 	<h4><?php echo $newss[$u]['title']; ?></h4>
 		<table id='table_news'>
 			<tr>

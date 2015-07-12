@@ -20,7 +20,13 @@ class Controller_Add extends Controller_Common {
     }
 
     public function action_addnews(){
-    	$add=Model::factory('Addmodel')->add_news($_POST);
+        if (isset($_FILES['image'])){
+            $image=$this->_save_image($_FILES['image'], 'news');
+        }
+        if (!$image){
+            $content=View::factory('error');
+        }
+    	$add=Model::factory('Addmodel')->add_news($_POST, $image);
     	if ($add!=false){
     		$content=View::factory('success');
     	}
@@ -31,7 +37,7 @@ class Controller_Add extends Controller_Common {
     }
     public function action_addrecipe(){
         if (isset($_FILES['image'])){
-            $image=$this->_save_image($_FILES['image']);
+            $image=$this->_save_image($_FILES['image'], 'recipe');
         }
         if (!$image){
             $content=View::factory('error');
@@ -70,7 +76,7 @@ class Controller_Add extends Controller_Common {
             $this->template->content = $content; 
         }
     }
-    protected function _save_image($image)
+    protected function _save_image($image,$rn)
     {
         if (
             ! Upload::valid($image) OR
@@ -80,7 +86,7 @@ class Controller_Add extends Controller_Common {
             return FALSE;
         }
  
-        $directory = DOCROOT.'public/image/uploads';
+        $directory = DOCROOT.'public/image/uploads/'.$rn;
         $filename = strtolower(Text::random('alnum', 20)).'.jpg';
         if ($file = Upload::save($image, $filename, $directory))
         {

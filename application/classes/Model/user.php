@@ -163,7 +163,7 @@ class Model_User extends Model_Auth_User{
 		return $this->values($values, $expected)->create($extra_validation);
 	}
 	public function read_sess_vars($username){
-		$sql=DB::select()->from('users')->where('username','=', $username);
+		$sql=DB::select()->from('users')->where('username','=', $username)->join('roles_users')->on('user_id', '=', 'id');
 		$res=$sql->execute();
 		return $res;
 	}

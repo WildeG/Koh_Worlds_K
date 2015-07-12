@@ -16,6 +16,11 @@
 			$res = $sql->execute()->get('test',0);
 			return $res;
 		}
+		public function get_count_recipes(){
+			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('recipe')->where('id_autors', '=', $_SESSION['id']);
+			$res = $sql->execute()->get('test',0);
+			return $res;
+		}
 		public function get_recipe($data){
 			$sql = DB::select()->from('recipe')->where('id_recipe','=',$data)->join('users')->on('id_autors','=','id');			
 			$res = $sql->execute();
@@ -39,7 +44,7 @@
 			return $res;
 		}
 		public function get_all($page){
-			$sql = DB::select()->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5+1)->limit($page*5+6);			
+			$sql = DB::select()->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit($page*5+5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;

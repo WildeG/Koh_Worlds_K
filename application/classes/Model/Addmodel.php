@@ -2,9 +2,6 @@
 	class Model_Addmodel extends Model_Database{
 
 		public function add_recipe($data, $image){
-			if (!isset($data['image'])){
-				$data['image']='default_image';
-			}
 			$data['date_added']=date('Y-m-d');
 			$sql = DB::insert('recipe', array('title',  'recipe',  'date_added', 'kitchens','image','id_autors' ))->values(array($data['title'],  $data['recipe'], $data['date_added'], $data['kitchens'], $image, $_SESSION['id']));
 			$res = $sql->execute();
@@ -21,12 +18,9 @@
 			$res=$sql->execute();
 			return $res;
 		}
-		public function add_news($data){
-			if (!isset($data['image'])){
-				$data['image']='default_image';
-			}
+		public function add_news($data, $image){
 			$data['date_added']=date('Y-m-d');
-			$sql = DB::insert('news', array('title',  'texts',  'date_added', 'image','id_autors' ))->values(array($data['title'],  $data['text'], $data['date_added'],  $data['image'], $_SESSION['id']));
+			$sql = DB::insert('news', array('title',  'texts',  'date_added', 'image','id_autors' ))->values(array($data['title'],  $data['text'], $data['date_added'],  $image, $_SESSION['id']));
 			$res = $sql->execute();
 			return $res;
 		}

@@ -1,7 +1,7 @@
 <center>
 	<?php echo "<br><a class='inscriptions'>".$recipes[0]['title']."</a>"; 
 	if ($recipes[0]['image']!="default_image"){
-		echo "<img class='image_recipe' src='".URL::base()."public/image/uploads/".$recipes[0]['image']."'>";
+		echo "<img class='image_recipe' width=80 height=80 src='".URL::base()."public/image/uploads/recipe/".$recipes[0]['image']."'>";
 	}
 	echo "<br><table id='table_news'>
 				<tr>
