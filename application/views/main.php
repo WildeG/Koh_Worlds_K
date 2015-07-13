@@ -2,6 +2,9 @@
 <head>
 	<!-- Иконка сайта -->
 	<link href="<?php echo URL::base(); ?>public/image/system/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	
+	<!-- Виджет для визуальных закладок -->
+	<link rel="yandex-tableau-widget" href="<?php echo URL::base(); ?>public/script/widget.json" />
 
 	<!-- Подключенные CSS стили -->
 	<?php foreach($styles as $style): ?>

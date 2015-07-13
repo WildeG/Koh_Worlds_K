@@ -1,0 +1,10 @@
+{
+    "version": "0.1",
+    "api_version": 1,
+
+    "layout": {
+        "logo": "../image/widget.png",
+        "color": "#ffffff",
+        "show_title": false
+    }
+}
