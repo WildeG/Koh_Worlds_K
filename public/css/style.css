@@ -193,6 +193,29 @@ textarea {
     -khtml-border-radius:15px;
     font-size:20;
 }
+.blok {
+  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  margin-bottom: 15px;
+  width: 600px;
+  border-radius:15px;
+  -webkit-border-radius:15px;
+  -moz-border-radius:15px;
+  -khtml-border-radius:15px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+.block_min {
+  box-shadow: 0 0 15px rgba(105,21,17,0.3); 
+  width: 288px;
+  height: 110px;
+  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  color: #E60000;
+    text-shadow: 0 0 4px rgba(0,0,0,0.3);
+  border-radius:15px;
+  -webkit-border-radius:15px;
+  -moz-border-radius:15px;
+  -khtml-border-radius:15px;
+  margin: 10px;
+}
 .inscriptions {
 	text-align: left;
     font-family: RupsterScriptFree;

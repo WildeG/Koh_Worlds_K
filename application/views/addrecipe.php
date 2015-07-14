@@ -6,28 +6,47 @@
                 <input class="field_rec" type="text" maxlength="40" name="title" style='width: 550px;' placeholder='Введите название рецепта' >
             </div>
             <table style="text-align:center;">
-            <tr>
-            <td>
-                
+              <tr>
+                <td>
                   <div class="block_min">
-                      <a class="inscriptions">Кухня</a><br>
-                      <select name="kitchens" class='field_l' style="width: 235px;">
+                    <a class="inscriptions">Кухня</a><br>
+                    <select name="kitchens" class='field_l' style="width: 235px;">
                       <?php foreach ($kitchens as $kitchen): ?>
                       <option value='<?php echo $kitchen['id']; ?>'><?php echo $kitchen['title']; ?></option>
                       <?php endforeach; ?>
-                      </select><br>
+                    </select>
                   </div>
-                  </td><td>
+                </td>
+                <td>
+                  <div class="block_min">
+                    <a class="inscriptions">Дата публикации</a><br>
+                    <input class="field_l" type="date" name="date_pub" >
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="block_min">
+                    <a class="inscriptions">Порции<sup>*</sup></a><br>
+                    <input class="field_l" type="text" maxlength="6" name="portions" placeholder='Кол-во порций' >
+                  </div>
+                </td>
+                <td>
                   <div class="block_min">
                     <a class="inscriptions">Изображение<sup>*</sup></a><br>
                     <input class="inscriptions_min" name="image" type="file" accept="image/jpeg,image/png,image/gif">
-                    <br><a class='inscriptions_min'>Необязательное поле</a><br>
                   </div>
-                  
-              </div>
-              <td>
-             </tr>         
+                </td>
+              </tr>           
             </table>
+            <div class="blok">
+              <a class="inscriptions">Время приготовления<sup>*</sup></a><br>
+              <input class="field_l" type="text" maxlength="6" name="time" placeholder='Время приготовления' >
+              <select class='field_l' name="time_type">
+                      <option class='field_l'>Минут</option>
+                      <option class='field_l'>Часов</option>
+              </select>
+            </div>
             <div class="blok">
                 <input id="add-component" class="plus" type="button" value="+" ><a class="inscriptions">Ингридиенты</a><input id="remove-component" class="plus" type="button" value="-" >
                 <table style='text-align:center'>
@@ -48,15 +67,16 @@
                     <p><input class='field_r' type='text' name='quantity0' placeholder='Введите количество'></p>
                 </div>
                 </div></td>
-                </tr></table><br>Нет нужно ингридиента? Добавьте!<a id="go"> Нажмите сюда</a>
+                </tr></table><br>Нет нужно ингридиента? Добавьте!<a id="go" style="cursor: pointer;"> Нажмите сюда</a>
             </div>   
             <div class="blok">
                 <a class="inscriptions">Рецепт</a><br>
                 <textarea class="field_rec" maxlength="16600" name="recipe" style='width: 550px;' placeholder='Введите рецепт приготовления'></textarea>
             </div>
+            <p><a class='inscriptions'><sup>*</sup> - Помечены необязательные поля</a></p>
             <input id="add_button" type="submit" value="Добавить рецепт" name="submit" action="" >
         </div>
-        </form></center>
+        </form>
 </center>
 <div id="modal_form">
     <span id="modal_close" class="plus">X</span>
