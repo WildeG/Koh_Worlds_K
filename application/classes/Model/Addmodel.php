@@ -3,7 +3,7 @@
 
 		public function add_recipe($data, $image){
 			$data['date_added']=date('Y-m-d');
-			$sql = DB::insert('recipe', array('title',  'recipe',  'date_added', 'kitchens','image','id_autors' ))->values(array($data['title'],  $data['recipe'], $data['date_added'], $data['kitchens'], $image, $_SESSION['id']));
+			$sql = DB::insert('recipe', array('title',  'recipe',  'date_added', 'kitchens','image','id_autors', 'portions','time' ))->values(array($data['title'],  $data['recipe'], $data['date_added'], $data['kitchens'], $image, $_SESSION['id'],$data['portions'],$data['time'].' '.$data['time_type']));
 			$res = $sql->execute();
 			return $res;
 		}
