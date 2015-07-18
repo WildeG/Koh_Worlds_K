@@ -39,30 +39,38 @@
 	<title>World Kitchens</title>
 		</head>
 		<body>
-		<div id="body">
+		<div id="body"><img src="<?php echo URL::base(); ?>public/image/system/logo-3.png" style="height: 150px; width: 150px; margin-left: 30px;" align="left">  
 			<div id="hat">
 				<center><a href="<?php echo URL::base(); ?>main"><h1 title="Перейти на главную">World's Kitchens</h1></a></center>
 			</div>
 			<div id='left_panel'>
-					<div id="left_bord">
-						<h2 style="margin-top:0px; text-indent: 50px;">Меню</h2>	
-					</div>
-					<?php echo $login; ?>
+				<div id="left_bord" align="center">
+					<a class="inscriptions"><big>Меню</big></a>	
+				</div>
+				<?php echo $login; ?>
 			</div>
 			<!--Содержимое -->
 			<div id='main'>
-			<?php echo $content; ?>
-			<!-- Подвал -->
+				<?php echo $content; ?>
+				<br>
+				<!-- Подвал -->
 				<center>
-				<br><br>
+				<br>
 					<div id="copyright">
-							<strong>&copy 2015. Михайлов Олег. Все права защищены.</strong>
-							<p>Копирование материалов и использование их в любой форме, в том 
-							числе и в электронных СМИ, возможны только с письменного разрешения 
-							администрации сайта. При этом ссылка на сайт обязательна.</p>
+						<p><big><strong>
+						<a href="<?php echo URL::base(); ?>newslist?page=0" title="Перейти на страницу новостей">Новости |</a>
+						<a href="<?php echo URL::base(); ?>main" title="Перейти на главную"> Главная |</a>
+						<!-- <a href="<?php echo URL::base(); ?>main" title="Перейти в раздел помощи"> Помощь |</a>
+						<a href="<?php echo URL::base(); ?>main" title="Отправить нам сообщение"> Написать нам |</a> -->
+						<a href="<?php echo URL::base(); ?>menu_day" title="Открыть страницу с меню"> Меню дня</a>
+						</strong></big></p>
+						<strong>Wilde Gard&copy 2015. Все права защищены.</strong>
+						<p>Копирование материалов и использование их в любой форме, в том 
+						числе и в электронных СМИ, возможны только с письменного разрешения 
+						администрации сайта. При этом ссылка на сайт обязательна.</p>
 					</div>
 				</center>
-			</div>  
+			</div>
 		</div>
 		</body>
 </html>

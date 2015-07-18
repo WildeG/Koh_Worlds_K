@@ -1,7 +1,7 @@
 <div>
 	<ul id="accordion" class="accordion">
 	<li>
-		<div class="link">Добавить<i class="fa fa-chevron-down"></i></div>
+		<div class="link" id="up_menu">Добавить<i class="fa fa-chevron-down"></i></div>
 		<ul class="submenu">
 		<?php echo $roles ?>
 			<li><a href='<?php echo URL::base(); ?>add/recipe'>Рецепт</a></li>

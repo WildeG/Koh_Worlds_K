@@ -10,23 +10,23 @@ ul {
  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
 }
  .accordion {
-  box-shadow: 0 0 50px rgba(204,170,0,0.6);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   width: 190px;
   margin: 10px auto 10px;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.5); /*rgba(255,255,255,0.3);*//* */
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
  }
 .show {
-  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  background: rgba(255,255,255,0.5);
   margin-bottom: 15px;
   width: 700px;
   border-radius:15px;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
   -khtml-border-radius:15px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 .accordion .link {
   cursor: pointer;
@@ -35,15 +35,10 @@ ul {
   color: #E60000;
   font-size: 19px;
   font-weight: 700;
-  border-bottom: 1px solid #E60000;
   position: relative;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
-}
-
-.accordion li:last-child .link {
-  border-bottom: 0;
 }
 
 .accordion li i {
@@ -65,8 +60,12 @@ ul {
 
 .accordion li.open .link {
   color: #E60000;
+  background: rgba(199,166,0,0.5);
+  border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  -khtml-border-radius: 6px 6px 0px 0px;
 }
-
 .accordion li.open i {
   color: #E60000;
 }
@@ -82,12 +81,12 @@ ul {
  -----------------------------*/
  .submenu {
   display: none;
-  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  background: linear-gradient(to top, rgba(255,246,199,0.5),rgba(199,166,0,0.5) );
   font-size: 16px;
  }
 
  .submenu li {
-  border-bottom: 1px solid #E60000;
+  padding: 3px;
  }
 
  .submenu a {
@@ -120,6 +119,11 @@ font-family: RupsterScriptFree;
     src: url(../fonts/1.eot); /* Для IE5-8 */
     src: local(Pacifico), url(../fonts/1.ttf); /* Для остальных браузеров */
 }
+@font-face {
+  font-family: JIChunkyCaps;
+    src: url(../fonts/3.eot); /* Для IE5-8 */
+    src: local(JI Chunky Caps), url(../fonts/3.ttf); /* Для остальных браузеров */
+}
 .text:focus {
    border: none;
    -webkit-box-shadow:0 0 10px #666;
@@ -130,7 +134,7 @@ h1 {
   line-height: 0em;
   font-weight: 900;
   font-family: Pacifico;
-  color: #E60000;
+  color: #ffffff;
   text-shadow: 0 0 4px rgba(0,0,0,0.3);
   font-size: 90;
 }
@@ -139,8 +143,15 @@ h2 {
   color: #E60000;
   text-shadow: 0 0 4px rgba(0,0,0,0.3);
   font-size: 40;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-radius:6px;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  -khtml-border-radius:6px;
 }
-body { 
+body {
   background: url(../image/fon.jpg);  
 }
 a {
@@ -186,7 +197,7 @@ textarea {
   color: #E60000;
   border-color:#ffd700;
   background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   border-radius:15px;
     -webkit-border-radius:15px;
     -moz-border-radius:15px;
@@ -201,10 +212,10 @@ textarea {
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
   -khtml-border-radius:15px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 .block_min {
-  box-shadow: 0 0 15px rgba(105,21,17,0.3); 
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   width: 288px;
   height: 110px;
   background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
@@ -238,8 +249,8 @@ textarea {
   margin-top: 10px;
   width: 1000px;
 	height: 130px;
-	background: linear-gradient(to top,rgba(255,255,255,0.5), rgba(204,170,0,0.8) );
-  box-shadow: 0 0 50px rgba(204,170,0,2);
+	background: rgba(230,0,0,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 	border-radius:6px 6px 6px 6px;
   	-webkit-border-radius:6px 6px 6px 6px;
   	-moz-border-radius:6px 6px 6px 6px;
@@ -247,7 +258,7 @@ textarea {
 }
 #left_bord {
   margin-top: 10px;
-  box-shadow: 0 0 50px rgba(204,170,0,2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   background: rgba(255,255,255,0.5);
   border-radius:6px 6px 6px 6px;
     -webkit-border-radius:6px 6px 6px 6px;
@@ -258,7 +269,7 @@ textarea {
 } 
 #main {  
   margin-top: 10px;
-  box-shadow: 0 0 50px rgba(204,170,0,0.6);  
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   width: 800px;
   margin-left: 200px;
   background: rgba(255,255,255,0.5);
@@ -269,7 +280,7 @@ textarea {
 }
 #user {
   height: 100px;
-  box-shadow: 0 0 50px rgba(204,170,0,0.6);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   margin-top: 10px;
 	background: rgba(255,255,255,0.5);
     border-radius:10px;
@@ -283,7 +294,7 @@ textarea {
 }
 #copyright {
 	width: 500px;
-	height: 70px;
+	height: 100px;
 	font-size: 10px;
 	text-align: center;
 	color: #E60000;

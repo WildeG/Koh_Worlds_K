@@ -88,13 +88,12 @@ class Controller_Add extends Controller_Common {
  
         $directory = DOCROOT.'public/image/uploads/'.$rn;
         $filename = strtolower(Text::random('alnum', 20)).'.jpg';
+        
         if ($file = Upload::save($image, $filename, $directory))
         {
             // Delete the temporary file
             return $filename;
             unlink($file);
- 
-
         }
  
         return FALSE;

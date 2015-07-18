@@ -28,10 +28,10 @@
   margin-left: 10px;
 }
 #news {
-  box-shadow: 0 0 30px rgba(199,166,0,0.5); 
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   width: 650px;
   height: 100px;
-  background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
+  background: linear-gradient(to top, rgba(199,166,0,0.3) ,rgba(255,229,97,0.3),rgba(199,166,0,0.3) );
   color: #E60000;
     text-shadow: 0 0 4px rgba(0,0,0,0.3);
     border-radius:10px;
