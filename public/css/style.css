@@ -1,6 +1,5 @@
 h1 a {
   color: #E60000;
-  font-size: 16px;
  }
 li {
  list-style-type: none; /* Убираем маркеры */
@@ -131,12 +130,11 @@ font-family: RupsterScriptFree;
    box-shadow:0 0 10px #666;
 }
 h1 {
-  line-height: 0em;
-  font-weight: 900;
   font-family: Pacifico;
   color: #ffffff;
   text-shadow: 0 0 4px rgba(0,0,0,0.3);
   font-size: 90;
+  margin: 0px;
 }
 h2 {
   font-family: RupsterScriptFree;
@@ -246,7 +244,6 @@ textarea {
   width: 1000px;
 }
 #hat {
-  margin-top: 10px;
   width: 1000px;
 	height: 130px;
 	background: rgba(230,0,0,0.8);
