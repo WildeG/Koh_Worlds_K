@@ -29,6 +29,10 @@
 	<?php endforeach; ?>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> <!--  Шрифт иконки в меню  -->
 
+<!-- Перенести -->
+<link href="<?php echo URL::base(); ?>public/css/mday.css"  rel="stylesheet" type="text/css" >
+<!-- ********* -->
+
 	<!-- Скрипты для подключения карусели картинок -->
 	<?php foreach($scripts as $script): ?>
 	<script src="<?php echo URL::base(); ?>public/script/<?php echo $script; ?>.js"  type="text/javascript"></script>
