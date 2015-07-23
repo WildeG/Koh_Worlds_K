@@ -3,7 +3,7 @@
 	<li>
 		<div class="link" id="up_menu">Добавить<i class="fa fa-chevron-down"></i></div>
 		<ul class="submenu">
-		<?php echo $roles ?>
+		<?php echo $roles; ?>
 			<li><a href='<?php echo URL::base(); ?>add/recipe'>Рецепт</a></li>
 			<li><a href="<?php echo URL::base(); ?>advice">Совет</a></li>
 		</ul>

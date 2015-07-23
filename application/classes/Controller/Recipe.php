@@ -7,6 +7,9 @@ class Controller_Recipe extends Controller_Common {
  		$content = View::factory('recipes')->bind('recipes', $recipes)->bind('count', $count)->bind('kitchen', $kitchen);		
  		$recipes = Model::factory('Showmodel')->get_recipes($_GET['kitchens'],$_GET['page']);
         $count=Model::factory('Showmodel')->get_count_kitchens($_GET['kitchens']);
+        if ($count<=5){
+            $count=0;
+        }
         $kitchen=Model::factory('Showmodel')->get_kitchen($_GET['kitchens']);
  		$this->template->content = $content;
     }

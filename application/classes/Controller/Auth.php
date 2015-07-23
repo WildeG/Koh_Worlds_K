@@ -41,9 +41,10 @@ class Controller_Auth extends Controller_Common {
                 $_SESSION['id']=$sess_vars->get('id');
                 $_SESSION['name']=$sess_vars->get('name');
                 $_SESSION['family']=$sess_vars->get('family');
-                $_SESSION['role']=$sess_vars->get('role_id');
+                $_SESSION['role_id']=$sess_vars->get('role_id');
                 $_SESSION['date']=$sess_vars->get('dateofreg');
                 $_SESSION['username']=$post['username'];
+
             }
         }
         // Проверяем авторизировался пользователь или нет
@@ -61,6 +62,7 @@ class Controller_Auth extends Controller_Common {
     {
         // Разлогиниваем пользователя
         Auth::instance()->logout();
+        $_SESSION=NULL;
         // Редиректим его на страницу авторизации
         $this->redirect('/main');
     }

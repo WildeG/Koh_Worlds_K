@@ -22,8 +22,8 @@
 	<?php echo $recipes[0]['recipe'];?>
 	</div>
 	<?php if (Auth::instance()->logged_in()) { ?>
-	Мне нравиться
-	Хочу приготовить
+	Мне нравится
+	<a href='/add/add_favor?id=<?php echo $_GET['id'];?>'>Хочу приготовить</a>
 	Приготовил
 	<p>
 	<?php } if (($_GET['id']-1)>0) {

@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 	class Model_Showmodel extends Model_Database{
 		public function get_recipes($data,$page){
-			$sql = DB::select()->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->offset($page*5)->limit($page*5+5);			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit($page*5+5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
@@ -16,13 +16,23 @@
 			$res = $sql->execute()->get('test',0);
 			return $res;
 		}
+		public function get_count_subs($data){
+			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('subscribers')->where('id_user', '=', $data);
+			$res = $sql->execute()->get('test',0);
+			return $res;
+		}
 		public function get_count_recipes($data){
 			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('recipe')->where('id_autors', '=', $data);
 			$res = $sql->execute()->get('test',0);
 			return $res;
 		}
+		public function get_count_prep($data){
+			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('favor')->where('id_user', '=', $data);
+			$res = $sql->execute()->get('test',0);
+			return $res;
+		}
 		public function get_recipe($data){
-			$sql = DB::select()->from('recipe')->where('id_recipe','=',$data)->join('users')->on('id_autors','=','id');			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'kitchens')->from('recipe')->where('id_recipe','=',$data)->join('users')->on('id_autors','=','id');			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
@@ -50,18 +60,18 @@
 			return $res;
 		}
 		public function get_all($page){
-			$sql = DB::select()->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit($page*5+5);			
+			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit($page*5+5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
 		}
 		public function get_last(){
-			$sql = DB::select()->from('news')->join('users')->on('id_autors', '=', 'id')->order_by('id_news', 'desc')->limit(1);
+			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->join('users')->on('id_autors', '=', 'id')->order_by('id_news', 'desc')->limit(1);
 			$res=$sql->execute();
 			return $res;
 		}
 		public function get_news($data){
-			$sql = DB::select()->from('news')->where('id_news','=',$data)->join('users')->on('id_autors','=','id');			
+			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->where('id_news','=',$data)->join('users')->on('id_autors','=','id');			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
@@ -70,6 +80,15 @@
 			$sql = DB::select()->from('users')->where('id', '=',$data)->join('roles_users')->on('id', '=', 'user_id');
 			$res=$sql->execute();
 			$res=$res->as_array();
+			return $res;
+		}
+		public function fav_rec(){
+			$sql=DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('favor')->where('id_user', '=', $_SESSION['id'])->join('recipe')->on('id_recipe','=','recipe_id')->join('users')->on('id_autors','=','id');
+			$res=$sql->execute();
+			return $res;		}
+		public function get_author($data){
+			$sql=DB::select('family', 'name')->from('users')->where('id','=',$data);
+			$res=$sql->execute()->as_array();
 			return $res;
 		}
 	}

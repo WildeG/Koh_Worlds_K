@@ -13,11 +13,10 @@ abstract class Controller_Common extends Controller_Template {
         $kitchens=Model::factory('Showmodel')->get_kitchens();
         if (Auth::instance()->logged_in()) {
         $this->template->login = View::factory('logged')->bind('kitchens', $kitchens)->bind('roles', $roles);
-       /* if ($_SESSION['role_id']=1){$roles=NULL;}
-        else {$roles="<li><a href='<?php echo URL::base(); ?>add/news'>Новость</a></li>
-            <li><a href='<?php echo URL::base(); ?>php/add/add-kitchens'>Кухню</a></li>
-            <li><a href='<?php echo URL::base(); ?>php/add/add-component'>Ингридиенты</a></li>";}  // не работает, не трогать
-             */ 
+        if ($_SESSION['role_id']!=2){$roles=NULL;}
+        else {$roles="<li><a href='".URL::base()."add/news'>Новость</a></li>
+            <li><a href='".URL::base()."php/add/add-kitchens'>Кухню</a></li>";}  
+             
         }
         else{
         $this->template->login = View::factory('login')->bind('kitchens', $kitchens);	

@@ -146,7 +146,7 @@ Cookie::$salt = 'foobar';
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('add','<controller>/<action>', array('action' => 'news|recipe'))
+Route::set('add','<controller>/<action>', array('action' => 'news|recipe|add_favor'))
 	->defaults(array(
 		'controller' => 'Add',
 	));

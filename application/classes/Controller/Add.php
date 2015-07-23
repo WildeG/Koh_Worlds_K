@@ -63,6 +63,8 @@ class Controller_Add extends Controller_Common {
             $data['name_comp']=$_POST['name_comp'.$count];
             $data['calories']=$_POST['calories'.$count];
             $data['price']=$_POST['price'.$count];
+            $data['type_cal']=$_POST['type_cal'.$count];
+            $data['type_price']=$_POST['type_price'.$count];
             $addcomp=Model::factory('Addmodel')->add_comps($data);
              } 
             else {break;}
@@ -97,5 +99,12 @@ class Controller_Add extends Controller_Common {
         }
  
         return FALSE;
+    }
+    public function action_add_favor(){
+        $favor=Model::factory('Addmodel')->add_favor();
+        if ($favor!=FALSE){
+        $content=View::factory('success');}
+        else $content = View::factory('error');
+        $this->template->content = $content;
     }
 } // End Add

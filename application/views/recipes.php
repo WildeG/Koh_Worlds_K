@@ -3,7 +3,7 @@
 <?php $i=0 ?>
 <?php for($u=0; ;$u++){ if (isset($recipes[$u])){ ?>
 	<div id='news'>
-	<img align='left' class='image_news' src= <?php echo '"'.URL::base().'public/image/uploads/recipe/'.$recipes[0]['image'].'"' ?> />
+	<img align='left' class='image_news' src= <?php echo '"'.URL::base().'public/image/uploads/recipe/'.$recipes[$u]['image'].'"' ?> />
 	<a href=<?php  echo "'/showrecipe?id=".$recipes[$u]['id_recipe']."'";?>><h4><?php echo $recipes[$u]['title']; ?></h4></a>
 		<table id='table_news'>
 			<tr>

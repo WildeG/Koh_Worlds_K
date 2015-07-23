@@ -9,13 +9,9 @@
 			<tr><td>Дата регистрации:</td><td><?php echo $user[0]['dateofreg'];?></td></tr>
 			<tr><td>Колличество приготовленных блюд:</td><td></td></tr>
 			<tr><td>Кол-во добавленных рецептов:</td><td><?php echo $recipes; ?></td></tr>
-			<tr><td>Количество интересующих блюд:</td><td></td></tr>
-			<tr><td>Количество подписчиков:</td><td></td></tr>
+			<tr><td>Количество интересующих блюд:</td><td><?php echo $want_prep; ?></td></tr>
+			<tr><td>Количество подписчиков:</td><td><?php echo $subs; ?></td></tr>
 		</table>
-		<?php if ($_SESSION('id')=$_GET('id')) {
-				echo "<a href='<?php echo URL::base(); ?>favorite/myrecipes'>Мои рецепты</a></li> | <a href='<?php echo URL::base(); ?>favorite/advice'>Мои советы</a></li> | <a href='<?php echo URL::base(); ?>favorite/prepared'>Приготовленные</a></li>";
-			} else {
-					echo "Рецепты ".$user[0]['name'].' '.$user[0]['family']." | Советы ".$user[0]['name'].' '.$user[0]['family']." | ".$user[0]['name'].' '.$user[0]['family']."приготовил";
-				} ?>
+		<?php echo $my;?>
 	</div>
 </center>
