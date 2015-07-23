@@ -12,5 +12,10 @@
 			<tr><td>Количество интересующих блюд:</td><td></td></tr>
 			<tr><td>Количество подписчиков:</td><td></td></tr>
 		</table>
+		<?php if ($_SESSION('id')=$_GET('id')) {
+				echo "<a href='<?php echo URL::base(); ?>favorite/myrecipes'>Мои рецепты</a></li> | <a href='<?php echo URL::base(); ?>favorite/advice'>Мои советы</a></li> | <a href='<?php echo URL::base(); ?>favorite/prepared'>Приготовленные</a></li>";
+			} else {
+					echo "Рецепты ".$user[0]['name'].' '.$user[0]['family']." | Советы ".$user[0]['name'].' '.$user[0]['family']." | ".$user[0]['name'].' '.$user[0]['family']."приготовил";
+				} ?>
 	</div>
 </center>

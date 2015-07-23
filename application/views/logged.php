@@ -5,7 +5,7 @@
 		<ul class="submenu">
 		<?php echo $roles ?>
 			<li><a href='<?php echo URL::base(); ?>add/recipe'>Рецепт</a></li>
-
+			<li><a href="<?php echo URL::base(); ?>advice">Совет</a></li>
 		</ul>
 	</li>
 	<li>
@@ -15,6 +15,9 @@
 		<li><a href="<?php echo URL::base(); ?>showrecipes?kitchens=<?php echo $kitchen['id']; ?>&page=0"><?php echo $kitchen['title']; ?></a></li>
 		<?php endforeach; ?>
 		</ul>
+	</li>
+	<li>
+		<a href='<?php echo URL::base(); ?>#'><div class="link" style="padding-left:10px;">Советы</div></a>
 	</li>
 	<!-- <li> 
 		<a href="#"><div class="link" style="padding-left:10px;">Поиск</div></a>
@@ -29,8 +32,8 @@
 		<div class="link">Избранное<i class="fa fa-chevron-down"></i></div>
 		<ul class="submenu">
 			<li><a href='<?php echo URL::base(); ?>favorite/wantcook'>Хочу приготовить</a></li> 
-			<li><a href='<?php echo URL::base(); ?>favorite/prepared'>Уже готовил</a></li>
-			<li><a href='<?php echo URL::base(); ?>favorite/myrecipes'>Мои рецепты</a></li>
+			<li><a href='<?php echo URL::base(); ?>favorite/myrecipes'>Интересные советы</a></li>
+			<li><a href='<?php echo URL::base(); ?>favorite/myrecipes'>Мои подписки</a></li>
 		</ul>
 	</li>
 	</ul>
