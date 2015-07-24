@@ -1,5 +1,5 @@
 
-<center><h2><b><?php echo $kitchen[0]['title']." кухня"; ?></h2>
+<center><h2><b><?php echo $kitchen[0]['title_k']." кухня"; ?></h2>
 <?php $i=0 ?>
 <?php for($u=0; ;$u++){ if (isset($recipes[$u])){ ?>
 	<div id='news'>

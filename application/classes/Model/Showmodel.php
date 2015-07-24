@@ -91,4 +91,14 @@
 			$res=$sql->execute()->as_array();
 			return $res;
 		}
+		public function get_mday($cat){
+			$sql=DB::select()->from('menu_day')->join('recipe')->on('recipe.id_recipe', '=','menu_day.id_recipe')->where('class', '=', $cat)->join('kitchens')->on('id', '=', 'kitchens');
+			$res=$sql->execute()->as_array();
+			return $res;
+		}
+		public function get_count_comps($data){
+			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('component')->where('id_recipe', '=', $data);
+			$res = $sql->execute()->get('test',0);
+			return $res;
+		}
 	}

@@ -12,7 +12,7 @@
                     <a class="inscriptions">Кухня</a><br>
                     <select name="kitchens" class='field_l' style="width: 235px;">
                       <?php foreach ($kitchens as $kitchen): ?>
-                      <option value='<?php echo $kitchen['id']; ?>'><?php echo $kitchen['title']; ?></option>
+                      <option value='<?php echo $kitchen['id']; ?>'><?php echo $kitchen['title_k']; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>

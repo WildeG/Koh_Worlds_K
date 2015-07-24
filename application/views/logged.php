@@ -12,7 +12,7 @@
 		<div class="link">Кухни<i class="fa fa-chevron-down"></i></div>
 		<ul class="submenu">
 		<?php foreach ($kitchens as $kitchen): ?>
-		<li><a href="<?php echo URL::base(); ?>showrecipes?kitchens=<?php echo $kitchen['id']; ?>&page=0"><?php echo $kitchen['title']; ?></a></li>
+		<li><a href="<?php echo URL::base(); ?>showrecipes?kitchens=<?php echo $kitchen['id']; ?>&page=0"><?php echo $kitchen['title_k']; ?></a></li>
 		<?php endforeach; ?>
 		</ul>
 	</li>
@@ -23,7 +23,7 @@
 		<a href="#"><div class="link" style="padding-left:10px;">Поиск</div></a>
 	</li>-->
 	<li>
-		<a href='<?php echo URL::base(); ?>menu_day'><div class="link" style="padding-left:10px;">Меню дня</div></a>
+		<a href='<?php echo URL::base(); ?>menu_day?category=2'><div class="link" style="padding-left:10px;">Меню дня</div></a>
 	</li>
 	<li>
 		<a href='<?php echo URL::base(); ?>newslist?page=0'><div class="link" style="padding-left:10px;">Новости</div></a>
