@@ -1,51 +1,73 @@
-   h4 {
-    margin-bottom: 0px; /* Отрицательный отступ между заголовком и текстом */
-    text-align: center;
-   }
-   a {
-    text-indent: 20px;
-   }
-.image_news {
-  height: 80px;
-  width: 80px;
-  border-radius:10px;
-  -webkit-border-radius:6px;
-  -moz-border-radius:5px;
-  -khtml-border-radius:10px;
-  border: 4px double #FAD201;
-  margin: 6px 6px 6px 6px;
+h4 {
+	margin-bottom: 0px; /* Отрицательный отступ между заголовком и текстом */
+	text-align: center;
 }
-.subtitle {
-  margin-left: 10px;
-  font-size: 12px;
-  opacity: 0.6;
-  margin-right: 10px; 
+
+a {
+	text-indent: 20px;
 }
-#table_news {
-  width: 550px;
+
+.block {
+	height: 200px;
+	margin-top: 50px;
+	width: 750px;
 }
-#contents {
-  margin-left: 10px;
+
+.article:hover {
+	background: rgba(230,0,0,0.8);
 }
-#news {
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  width: 650px;
-  height: 100px;
-  background: linear-gradient(to top, rgba(199,166,0,0.3) ,rgba(255,229,97,0.3),rgba(199,166,0,0.3) );
-  color: #E60000;
-    text-shadow: 0 0 4px rgba(0,0,0,0.3);
-    border-radius:10px;
-    -webkit-border-radius:6px;
-    -moz-border-radius:5px;
-    -khtml-border-radius:10px;
+
+.article:hover .marticle {
+	color: #fff;
 }
+
+.marticle {
+	color: #000;
+	float: left;
+	margin-top: 2px;
+}
+
+.article {
+	padding-top: 3px;
+	height: 25px;
+	width: 360px;
+}
+
+.mblock {
+	height: 205px;
+	margin: 5px;
+	float: left;
+	width: 360px;
+	border-left: 3px solid rgba(230,0,0,0.8);
+	border-right: 3px solid rgba(230,0,0,0.8);
+	background: rgba(255,255,255,0.4);
+	box-shadow: inset 0 0 2px;
+}
+
+.block_title {
+	padding-top: 15px;
+	float: left;
+	color: #fff;
+	width: 360px;
+	font-size: 25;
+	height: 40px;
+	background: rgba(230,0,0,0.8);
+	line-height: 0.9;
+	margin-bottom: 10px;
+}
+
+.block_title h2 {
+	color: #fff;
+	font-size: 30px;
+}
+
 #carousel {
-  width:800px;
-  height: 330px;
-  
+	width:800px;
+	height: 330px;
 }
+
 #carousel img {
-  height: 300px;
-  display: hidden; /* hide images until carousel prepares them скрыть изображения, пока карусель не готовит их */
-  cursor: pointer; /* not needed if you wrap carousel items in links  не требуется, если вы оберните листать вещи в ссылках */
+	height: 300px;
+	display: hidden; /* hide images until carousel prepares them скрыть изображения, пока карусель не готовит их */
+	cursor: pointer; /* not needed if you wrap carousel items in links  не требуется, если вы оберните листать вещи в ссылках */
 }

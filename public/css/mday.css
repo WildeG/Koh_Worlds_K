@@ -11,7 +11,7 @@ margin-top: 15px;
 
 .mday_inscriptions {
 	width: 60px;
-  	height: 200px;
+  height: 200px;
 }
 
 .mday_blok_left {
@@ -20,13 +20,13 @@ margin-top: 15px;
 	color: #fff;
 	width: 60px;
 	font-size: 25;
-  	height: 185px;
-  	background: rgba(230,0,0,0.8);
-  	border-radius:5px 5px 0px 0px;
-    -webkit-border-radius:5px 5px 0px 0px;
-    -moz-border-radius:5px 5px 0px 0px;
-    -khtml-border-radius:5px 5px 0px 0px;
-    line-height: 0.9;
+  height: 185px;
+  background: rgba(230,0,0,0.8);
+  border-radius:5px 5px 0px 0px;
+  -webkit-border-radius:5px 5px 0px 0px;
+  -moz-border-radius:5px 5px 0px 0px;
+  -khtml-border-radius:5px 5px 0px 0px;
+  line-height: 0.9;
 }
 
 .mday_image {
@@ -42,7 +42,7 @@ margin-top: 15px;
     -khtml-border-radius:5px;
 }
 
-.mday_text{
+.mday_text {
 	float: left;
 	margin: 0px 0px 5px 10px;
 	width: 480px;
@@ -67,15 +67,15 @@ margin-top: 15px;
 	float: left;
 }
 
-.mday_mblock:hover .mday_text{
+.mday_mblock:hover .mday_text {
 	background: rgba(230,0,0,0.8);
 }
 
-.mday_mblock:hover .mday_image{
+.mday_mblock:hover .mday_image {
 	background: rgba(230,0,0,0.8);
 }
 
-.mday_mblock:hover h2{
+.mday_mblock:hover h2 {
 	color: #fff;
 }
 
@@ -89,12 +89,12 @@ margin-top: 15px;
     -khtml-border-radius:5px;
 }
 
-.mday_link{ 
+.mday_link { 
     text-indent: 0px;
     color: #000000;
 }
 
-.mday_link:visited{ 
+.mday_link:visited { 
     text-indent: 0px;
     color: #000000;
 }

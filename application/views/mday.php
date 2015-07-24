@@ -1,6 +1,6 @@
 <center>
 	<div>
-		<h2>Меню дня</h2>
+		<h2><img src="<?php echo URL::base(); ?>public/image/system/h.png" style="transform: scale(-1, 1);">Меню дня<img src="<?php echo URL::base(); ?>public/image/system/h.png"></h2>
 		<a id="1c" href="<?php echo URL::base(); ?>menu_day?category=1" class="mday_inscriptions_min">I Категория</a><big class="mday_inscriptions_min">|</big>
 		<a id="2c" href="<?php echo URL::base(); ?>menu_day?category=2" class="mday_inscriptions_min">II Категория</a><big class="mday_inscriptions_min">|</big>
 		<a id="3c" href="<?php echo URL::base(); ?>menu_day?category=3" class="mday_inscriptions_min">III Категория</a>
