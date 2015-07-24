@@ -4,8 +4,9 @@ class Controller_Main extends Controller_Common {
 	    public $template = 'main';
     public function action_main()
     {
- 		$content = View::factory('home')->bind('newss', $newss);		
- 		$newss = Model::factory('Showmodel')->get_last();
+ 		$content = View::factory('home')->bind('newss', $newss)->bind('recipes', $recipes);		
+ 		$newss = Model::factory('Showmodel')->get_five();
+        $recipes = Model::factory('Showmodel')->get_fiver();
  		$this->template->content = $content;
     }
     public function action_newslist(){

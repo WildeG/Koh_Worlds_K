@@ -14,10 +14,10 @@
 		<div>
 		<!-- Запихать в цикл так же и новости -->
 		<?php foreach($newss as $news): ?>
-			<a href=""><!-- Добавить ссылку -->
+			<a href=<?php echo '"'.URL::base().'shownews?id='.$news['id_news'].'"';  ?>>
 				<div class="article" title="Открыть новость">
 					<div class="marticle">
-						<?php echo join(' ', array_slice(explode( ' ', $news['date_added'] ), 0, 1)); ?><!-- Добавить условие: Если дата равна сегодняшней то выводило время, если не равна то дату -->
+						<?php echo join(' ', array_slice(explode( ' ', $news['date_added'] ), 0, 1)); ?>
 					</div>
 					<div class="marticle">
 						<?php echo $news['title']; ?>
@@ -34,17 +34,18 @@
 		</div>
 		<div>
 		<!-- Запихать в цикл -->
-			<a href="">
+		<?php foreach($recipes as $recipe): ?>
+			<a href=<?php echo '"'.URL::base().'showrecipe?id='.$recipe['id_recipe'].'"';  ?>>
 				<div class="article" title="Открыть рецепт">
 					<div class="marticle">
-						23-04-2015
+						<?php echo join(' ', array_slice(explode( ' ', $recipe['date_added'] ), 0, 1)); ?>
 					</div>
 					<div class="marticle">
-						Жаренные херули с маслом и ...
+						<?php echo $recipe['title']; ?>
 					</div>
 				</div>
 			</a>
-		<!-- *************** -->
+		<?php endforeach; ?>
 		</div>
 	</div>
 </div>

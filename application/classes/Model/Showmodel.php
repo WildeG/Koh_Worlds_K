@@ -65,8 +65,13 @@
 			$res2 = $res->as_array();
 			return $res2;
 		}
-		public function get_last(){
-			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->join('users')->on('id_autors', '=', 'id')->order_by('id_news', 'desc')->limit(1);
+		public function get_five(){
+			$sql = DB::select('title',  'id_news', 'date_added')->from('news')->order_by('id_news', 'desc')->limit(5);
+			$res=$sql->execute();
+			return $res;
+		}
+		public function get_fiver(){
+			$sql = DB::select('title',  'id_recipe', 'date_added')->from('recipe')->order_by('id_recipe', 'desc')->limit(5);
 			$res=$sql->execute();
 			return $res;
 		}
