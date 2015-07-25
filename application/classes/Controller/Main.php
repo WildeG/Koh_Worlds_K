@@ -1,7 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.'); 
 
 class Controller_Main extends Controller_Common {
-	    public $template = 'main';
     public function action_main()
     {
  		$content = View::factory('home')->bind('newss', $newss)->bind('recipes', $recipes);		
@@ -20,4 +19,8 @@ class Controller_Main extends Controller_Common {
         $newss = Model::factory('Showmodel')->get_news($_GET['id']);
         $this->template->content = $content;
     }
-} 
+    public function action_403(){
+        $content = View::factory('e403');
+        $this->template->content = $content;
+    }
+}

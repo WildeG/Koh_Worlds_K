@@ -167,6 +167,17 @@ class Model_User extends Model_Auth_User{
 		$res=$sql->execute();
 		return $res;
 	}
+	public function get_roles_array(){
+		if (Auth::instance()->logged_in()) {
+		$roles=Auth::instance()->get_user()->roles->find_all()->as_array();
+ 		for ($i=0;;$i++){
+ 			if (!isset($roles[$i])){break;} 			
+ 			$roles_res[$i]=$roles[$i]->as_array();
+ 		} }
+ 		else {$roles_res['name']='public';}
+ 		return $roles_res;
+ 	}
+
 
 	/**
 	 * Update an existing user

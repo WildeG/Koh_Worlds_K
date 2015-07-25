@@ -82,7 +82,7 @@
 			return $res2;
 		}
 		public function get_user($data){
-			$sql = DB::select()->from('users')->where('id', '=',$data)->join('roles_users')->on('id', '=', 'user_id');
+			$sql = DB::select()->from('users')->where('id', '=',$data);
 			$res=$sql->execute();
 			$res=$res->as_array();
 			return $res;

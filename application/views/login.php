@@ -13,8 +13,6 @@
 	</li> -->
 	<li>
 		<div class="link"><a href="<?php echo URL::base(); ?>menu_day?category=2">Меню дня</a></div>
-	</li>
-	<li>
 		<div class="link"><a href='<?php echo URL::base(); ?>newslist?page=0'>Новости</a></div>
 	</li>
 	</ul>
