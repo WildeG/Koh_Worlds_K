@@ -10,7 +10,7 @@
 }
 
 .block_show:hover .mblock_text_1 {
-	background: rgba(230,0,0,0.8);
+	background: rgba(230,0,0,0.5);
 	box-shadow: 0 0 15px rgba(0,0,0,0.4);
 }
 
@@ -19,7 +19,7 @@
 }
 
 .block_show:hover .mblock_text_2 {
-	background: rgba(230,0,0,0.8);
+	background: rgba(230,0,0,0.6);
 	box-shadow: 0 0 15px rgba(0,0,0,0.4);
 }
 
@@ -27,14 +27,10 @@
 	box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-.block_show:hover h3{
-	color: #fff;
-}
-
 .block_show h3{
 	margin: 5px;
 	font-size: 30px;
-	color: #E60000;
+	color: #fff;
 }
 
 .block_show a:hover{
@@ -84,9 +80,8 @@
 .mblock_text {
 	padding-top: 5px;
 	text-align: left;
-	text-indent: 20px;
 	width: 570px;
-	height: 55px;
+	height: 50px;
 }
 
 .mblock_subtitle {
@@ -104,6 +99,21 @@
 	-moz-border-radius:5px;
 	-khtml-border-radius:5px;
 	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.block_show:hover .mblock_title {
+	border-bottom: 3px dotted #fff;
+	height: 43px;	
+}
+
+.mblock_title {
+	height: 45px;
+	background: rgba(230,0,0,0.8);
+	margin-bottom: 10px;
+	border-radius:5px 5px 0px 0px;
+	-webkit-border-radius:5px 5px 0px 0px;
+	-moz-border-radius:5px 5px 0px 0px;
+	-khtml-border-radius:5px 5px 0px 0px;
 }
 
 .mblock_text_2 {
