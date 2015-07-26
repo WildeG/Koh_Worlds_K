@@ -31,6 +31,7 @@
 
 <!-- Перенести -->
 <link href="<?php echo URL::base(); ?>public/css/mday.css"  rel="stylesheet" type="text/css" >
+<link href="<?php echo URL::base(); ?>public/css/show.css"  rel="stylesheet" type="text/css" >
 <!-- ********* -->
 
 	<!-- Скрипты для подключения карусели картинок -->
@@ -56,10 +57,8 @@
 			<!--Содержимое -->
 			<div id='main'>
 				<?php echo $content; ?>
-				<br>
 				<!-- Подвал -->
 				<center>
-				<br>
 					<div id="copyright">
 						<p><big><strong>
 						<a href="<?php echo URL::base(); ?>newslist?page=0" title="Перейти на страницу новостей">Новости |</a>

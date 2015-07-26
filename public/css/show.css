@@ -1,0 +1,145 @@
+.block_show {
+	padding: 10px;
+	margin: 5px;
+	height: 150px;
+	width: 750px;
+	border-radius:5px;
+	-webkit-border-radius:5px
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+}
+
+.block_show:hover .mblock_text_1 {
+	background: rgba(230,0,0,0.8);
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.block_show:hover .mblock_image_1 {
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.block_show:hover .mblock_text_2 {
+	background: rgba(230,0,0,0.8);
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.block_show:hover .mblock_image_2 {
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.block_show:hover h3{
+	color: #fff;
+}
+
+.block_show h3{
+	margin: 5px;
+	font-size: 30px;
+	color: #E60000;
+}
+
+.block_show a:hover{
+	color: #fff;
+}
+
+.block_show a{
+	color: #000;
+}
+
+.mblock_open {
+	text-align: right;
+}
+
+.mblock_image_1 {
+	float: left;
+	height: 150px;
+	border-radius:5px;
+	-webkit-border-radius:5px
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.mblock_image_2 {
+	float: right;
+	height: 150px;
+	border-radius:5px;
+	-webkit-border-radius:5px
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.mblock_autor {
+	float: left;
+	width: 285px;
+	text-align: left;
+}
+
+.mblock_date {
+	float: right;
+	width: 285px;
+	text-align: right;
+}
+
+.mblock_text {
+	padding-top: 5px;
+	text-align: left;
+	text-indent: 20px;
+	width: 570px;
+	height: 55px;
+}
+
+.mblock_subtitle {
+	width: 570px;
+	height: 20px;
+}
+
+.mblock_text_1 {
+	float: right;
+	width: 590px;
+	height: 150px;
+	background: rgba(255,255,255,0.4);
+	border-radius:5px;
+	-webkit-border-radius:5px
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.mblock_text_2 {
+	float: left;
+	width: 590px;
+	height: 150px;
+	background: rgba(255,255,255,0.4);
+	border-radius:5px;
+	-webkit-border-radius:5px
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.pages {
+	margin-top: 40px;
+}
+
+.number_page_active {
+	background: rgba(230,0,0,0.8);
+	padding: 0px 5px;
+	border-radius:10px;
+	-webkit-border-radius:10px
+	-moz-border-radius:10px;
+	-khtml-border-radius:10px;
+}
+
+.pages a.number_page_active {
+	color:#fff;
+}
+
+.number_page:hover {
+	padding: 0px 5px;
+	border: 3px solid rgba(255,0,0,0.6); 
+	border-radius:10px;
+	-webkit-border-radius:10px
+	-moz-border-radius:10px;
+	-khtml-border-radius:10px;
+}

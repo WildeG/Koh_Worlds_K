@@ -1,25 +1,60 @@
-
-<center><h2><b>Новости</h2>
-<?php $i=0 ?>
-<?php for($u=0; ;$u++){ if (isset($newss[$u])){ ?>
-	<div id='news'>
-	<img align='left' class='image_news' src= <?php echo '"'.URL::base().'public/image/uploads/news/'.$newss[$u]['image'].'"' ?> />
-	<h4><?php echo $newss[$u]['title']; ?></h4>
-		<table id='table_news'>
-			<tr>
-				<td align='left'><a class='subtitle'><?php echo $newss[$u]['family'],' '; echo $newss[$u]['name'];  ?></a></td>
-				<td align='right'><?php echo $newss[$u]['date_added']; ?><a class='subtitle'></a></td>
-			</tr>
-			<tr>
-				<td colspan='2'><a id='contents'><?php echo join(' ', array_slice(explode( ' ', $newss[$u]['texts'] ), 0, 15)); echo '..'; ?></br><a href=<?php  echo "'/shownews?id=".$newss[$u]['id_news']."'";?>>Читать далее </a></td>
-			</tr>
-		</table>
-	</div>	
-<?php } if($u>=5){break;}
-   }?>
-
-<?php while ($i<$count/5){
-	echo '<a href="newslist?page='.$i.'">'.($i+1).'</a>';
-	$i++;
-}?>
+<center>
+	<div>
+		<h2><img src="<?php echo URL::base(); ?>public/image/system/h.png" style="transform: scale(-1, 1);">Новости<!-- Сделать название через переменную --><img src="<?php echo URL::base(); ?>public/image/system/h.png"></h2>
+		<div>
+			<?php $i=0 ?>
+			<?php for($u=0; ;$u++){ 
+				if (isset($newss[$u])) { 
+					if ($u%2 == 0) {
+						$align = 1;
+					} else {
+						$align = 2;
+						}?>
+						<div class="block_show">
+							<a href=<?php  echo "'/shownews?id=".$newss[$u]['id_news']."'";?>>
+								<img align='left' class=<?php echo 'mblock_image_'.$align; ?> src= <?php echo '"'.URL::base().'public/image/uploads/news/'.$newss[$u]['image'].'"' ?> />
+							</a>
+							<div class=<?php echo 'mblock_text_'.$align; ?>>
+								<div class="mblock_title">
+									<a href=<?php  echo "'/shownews?id=".$newss[$u]['id_news']."'";?>>
+										<h3><?php echo $newss[$u]['title']; ?></h3>
+									</a>
+								</div>
+								<div class="mblock_subtitle">
+									<div class="mblock_autor">
+										<a href=""><?php echo $newss[$u]['family'].' '.$newss[$u]['name']; ?></a>
+									</div>
+									<div class="mblock_date">
+										<?php echo $newss[$u]['date_added']; ?>
+									</div>
+								</div>
+								<div class="mblock_text">
+									<?php echo join(' ', array_slice(explode( ' ', $newss[$u]['texts'] ), 0, 15)); echo '...'; ?>
+								</div>
+								<div class="mblock_open">
+									<a href=<?php  echo "'/shownews?id=".$newss[$u]['id_news']."'";?>>Читать далее...</a>
+								</div>
+							</div>
+						</div>
+			<?php 	} if ($u>=5) { break; }
+   			}?>
+		</div>
+		<div class="pages">
+			<?php if (1<$count/5) { 
+						while ($i<$count/5) {
+							if ( $_GET['page'] == $i ) {
+								$pages = "number_page_active";
+							} else {
+								$pages = "number_page";
+							}
+								echo '<a class="'.$pages.'" href="newslist?page='.$i.'">'.($i+1).'</a>';
+								$i++;
+							}
+						if (5<$count/5) {
+							echo '<a href="newslist?page=0"><<</a>&nbsp<a href="newslist?page='.($_GET['page']-1).'"><</a>';
+							echo '<a href="newslist?page='.($count/5-1).'">>></a>&nbsp<a href="newslist?page='.($_GET['page']+1).'">></a>'; //Доделать переход к последней странице
+						}
+					}?>
+		</div>
+	</div>
 </center>
