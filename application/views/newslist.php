@@ -40,21 +40,7 @@
    			}?>
 		</div>
 		<div class="pages">
-			<?php if (1<$count/5) { 
-						while ($i<$count/5) {
-							if ( $_GET['page'] == $i ) {
-								$pages = "number_page_active";
-							} else {
-								$pages = "number_page";
-							}
-								echo '<a class="'.$pages.'" href="newslist?page='.$i.'">'.($i+1).'</a>';
-								$i++;
-							}
-						if (5<$count/5) {
-							echo '<a href="newslist?page=0"><<</a>&nbsp<a href="newslist?page='.($_GET['page']-1).'"><</a>';
-							echo '<a href="newslist?page='.($count/5-1).'">>></a>&nbsp<a href="newslist?page='.($_GET['page']+1).'">></a>'; //Доделать переход к последней странице
-						}
-					}?>
+			<?php echo $pages; ?>
 		</div>
 	</div>
 </center>

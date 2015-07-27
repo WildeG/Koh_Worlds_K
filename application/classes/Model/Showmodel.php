@@ -1,7 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 	class Model_Showmodel extends Model_Database{
 		public function get_recipes($data,$page){
-			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit($page*5+5);			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit(5);			
+			$res = $sql->execute();
+			$res2 = $res->as_array();
+			return $res2;
+		}
+		public function get_recipes_user($data,$page){
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('id_autors','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit(5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
@@ -60,7 +66,7 @@
 			return $res;
 		}
 		public function get_all($page){
-			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit($page*5+5);			
+			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit(5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;

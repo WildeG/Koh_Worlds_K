@@ -2,7 +2,9 @@
 
 
 return array(
-
+    'Controller_Main' => array(
+        'all_actions' => array('public','admin','login'),
+    ), 
     'Controller_Add'   => array(
         'recipe'       => array('admin', 'login'),
         'news'         => array('admin'),
@@ -11,9 +13,7 @@ return array(
         'addcomponent' => array('admin','login'),
         'add_favor'    => array('admin', 'login'),
     ),
-    'Controller_Main' => array(
-        'all_actions' => array('public','admin','login'),
-    ), 
+
     'Controller_Auth' => array(
         'registration' => array('public'),
         'login'        => array('public'),
@@ -33,6 +33,7 @@ return array(
     ),
     'Controller_User' => array(
         'user'=> array('login', 'admin'),
+        'userrecipes' => array('login', 'admin'),
     ),
 
 );

@@ -140,12 +140,13 @@ Kohana::modules(array(
  * If you have not defined a cookie salt in your Cookie class then
  * uncomment the line below and define a preferrably long salt.
  */
-Cookie::$salt = 'foobar';
+Cookie::$salt = 'dfagoihdsrdfgert45yte9rhgstgh47grewuth45thdaougf';
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+
 
 Route::set('mday','<action>', array('action' => 'menu_day'))
 	->defaults(array(
@@ -155,10 +156,11 @@ Route::set('add','<controller>/<action>', array('action' => 'news|recipe|add_fav
 	->defaults(array(
 		'controller' => 'Add',
 	));
-Route::set('favorite','<controller>/<action>', array('action' => 'prepared|wantcook|myrecipes'))
+Route::set('favorite','<controller>/<action>', array('action' => 'prepared|wantcook'))
 	->defaults(array(
 		'controller' => 'Favorite',
 	));
+
 Route::set('recipe','<action>', array('action'=> 'showrecipe|showrecipes'))
 	->defaults(array(
 		'controller' => 'Recipe',
@@ -167,7 +169,7 @@ Route::set('auth','<action>', array('action' => 'login|registration|logout'))
 	->defaults(array(
 		'controller' => 'Auth',
 	));
-Route::set('user','<action>', array('action' => 'user'))
+Route::set('user','<action>', array('action' => 'user|userrecipes'))
 	->defaults(array(
 		'controller' => 'User',
 	));

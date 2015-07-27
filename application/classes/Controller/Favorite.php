@@ -14,9 +14,10 @@ class Controller_Favorite extends Controller_Common {
 		$recipes=Model::factory('Showmodel')->fav_rec();	
 		$this->template->content = $content;
 	}
-	public function action_myrecipes()
-	{
-		$content = View::factory('myrecipes');		
-		$this->template->content = $content;
+	public function action_favadvice(){
+
+	}
+	public function action_mysubs(){
+		
 	}
 }

@@ -1,5 +1,5 @@
 
-<center><h2><b><?php echo $kitchen[0]['title_k']." кухня"; ?></h2>
+<center><h2><b><?php echo $title; ?></h2>
 <?php for($u=0; ;$u++){ if (isset($recipes[$u])){ ?>
 	<div id='news'>
 	<img align='left' class='image_news' height=80 width=80 src= <?php echo '"'.URL::base().'public/image/uploads/recipe/'.$recipes[$u]['image'].'"' ?> />
