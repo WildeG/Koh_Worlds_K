@@ -61,11 +61,11 @@
 				<center>
 					<div id="copyright">
 						<p><big><strong>
-						<a href="<?php echo URL::base(); ?>newslist?page=0" title="Перейти на страницу новостей">Новости |</a>
+						<a href="<?php echo URL::base(); ?>show/feed?page=0" title="Перейти на страницу новостей">Новости |</a>
 						<a href="<?php echo URL::base(); ?>main" title="Перейти на главную"> Главная |</a>
 						<!-- <a href="<?php echo URL::base(); ?>main" title="Перейти в раздел помощи"> Помощь |</a>
 						<a href="<?php echo URL::base(); ?>main" title="Отправить нам сообщение"> Написать нам |</a> -->
-						<a href="<?php echo URL::base(); ?>menu_day?category=2" title="Открыть страницу с меню"> Меню дня</a>
+						<a href="<?php echo URL::base(); ?>show/menu_day?category=2" title="Открыть страницу с меню"> Меню дня</a>
 						</strong></big></p>
 						<strong>Wilde Gard&copy 2015. Все права защищены.</strong>
 						<p>Копирование материалов и использование их в любой форме, в том 

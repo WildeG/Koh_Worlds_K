@@ -12,7 +12,7 @@
 			$i++;}
 			?></td></tr>
 			<tr><td>Дата регистрации:</td><td><?php echo $user[0]['dateofreg'];?></td></tr>
-			<tr><td>Колличество приготовленных блюд:</td><td></td></tr>
+			<tr><td>Количество приготовленных блюд:</td><td><?php echo $alrdprep; ?></td></tr>
 			<tr><td>Кол-во добавленных рецептов:</td><td><?php echo $recipes; ?></td></tr>
 			<tr><td>Количество интересующих блюд:</td><td><?php echo $want_prep; ?></td></tr>
 			<tr><td>Количество подписчиков:</td><td><?php echo $subs; ?></td></tr>

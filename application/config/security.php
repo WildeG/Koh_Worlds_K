@@ -24,16 +24,13 @@ return array(
         'wantcook' => array('login', 'admin'),
         'myrecipes'=> array('login', 'admin'),
     ),
-    'Controller_Mday' => array(
-        'menu_day' => array('login', 'admin','public'),
-    ),
-    'Controller_Recipe' => array(
-        'showrecipes' => array('login', 'admin','public'),
-        'showrecipe'  => array('login', 'admin','public'),
+    'Controller_Show' => array(
+        'all_actions' => array('public','admin','login'),
     ),
     'Controller_User' => array(
-        'user'=> array('login', 'admin'),
-        'userrecipes' => array('login', 'admin'),
+        'all_actions'=> array('login', 'admin'),
     ),
-
+    'Controller_Help' => array(
+        'all_actions' => array('login', 'admin', 'public'),
+    ),
 );

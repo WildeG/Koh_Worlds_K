@@ -41,12 +41,12 @@
 			return $res;
 		}
 		public function add_favor(){
-			$valid=DB::select()->from('favor')->where('id_user', '=', $_SESSION['id'])->and_where('id_recipe', '=', $_GET['id']);
+			$valid=DB::select()->from('favor')->where('id_user', '=', $_SESSION['id'])->and_where('recipe_id', '=', $_GET['id']);
 			$valid=$valid->execute()->get('id_user', NULL);
 			if ($valid!=NULL){
-				$sql=DB::delete('favor')->where('id_user', '=', $_SESSION['id'])->and_where('id_recipe', '=', $_GET['id']);	}
+				$sql=DB::delete('favor')->where('id_user', '=', $_SESSION['id'])->and_where('recipe_id', '=', $_GET['id']);	}
 			else{				
-				$sql=DB::insert('favor', array('id_user', 'id_recipe'))->values(array($_SESSION['id'], $_GET['id']));
+				$sql=DB::insert('favor', array('id_user', 'recipe_id'))->values(array($_SESSION['id'], $_GET['id']));
 			}
 			$res=$sql->execute();
 			return $res;

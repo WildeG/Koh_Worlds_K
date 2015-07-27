@@ -9,12 +9,12 @@
 <div class="block">
 	<div class="mblock">
 		<div class="block_title" title="Перейти к новостям">
-			<a href='<?php echo URL::base(); ?>newslist?page=0'><h2>Новости</h2></a>
+			<a href='<?php echo URL::base(); ?>show/feed?page=0'><h2>Новости</h2></a>
 		</div>
 		<div>
 		<!-- Запихать в цикл так же и новости -->
 		<?php foreach($newss as $news): ?>
-			<a href=<?php echo '"'.URL::base().'shownews?id='.$news['id_news'].'"';  ?>>
+			<a href=<?php echo '"'.URL::base().'show/news?id='.$news['id_news'].'"';  ?>>
 				<div class="article" title="Открыть новость">
 					<div class="marticle">
 						<?php echo join(' ', array_slice(explode( ' ', $news['date_added'] ), 0, 1)); ?>
@@ -30,12 +30,12 @@
 	</div>
 	<div class="mblock">
 		<div class="block_title" title="Перейти к рецептам">
-			<a href='<?php echo URL::base(); ?>showrecipes?kitchens=1&page=0'><h2>Рецепты</h2></a>
+			<a href='<?php echo URL::base(); ?>show/recipes?kitchens=1&page=0'><h2>Рецепты</h2></a>
 		</div>
 		<div>
 		<!-- Запихать в цикл -->
 		<?php foreach($recipes as $recipe): ?>
-			<a href=<?php echo '"'.URL::base().'showrecipe?id='.$recipe['id_recipe'].'"';  ?>>
+			<a href=<?php echo '"'.URL::base().'show/recipe?id='.$recipe['id_recipe'].'"';  ?>>
 				<div class="article" title="Открыть рецепт">
 					<div class="marticle">
 						<?php echo join(' ', array_slice(explode( ' ', $recipe['date_added'] ), 0, 1)); ?>

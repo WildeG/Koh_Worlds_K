@@ -11,12 +11,12 @@
 						$align = 2;
 						}?>
 						<div class="block_show">
-							<a href=<?php  echo "'/shownews?id=".$newss[$u]['id_news']."'";?>>
+							<a href=<?php  echo "'".URL::base()."show/news?id=".$newss[$u]['id_news']."'";?>>
 								<img align='left' class=<?php echo 'mblock_image_'.$align; ?> src= <?php echo '"'.URL::base().'public/image/uploads/news/'.$newss[$u]['image'].'"' ?> />
 							</a>
 							<div class=<?php echo 'mblock_text_'.$align; ?>>
 								<div class="mblock_title">
-									<a href=<?php  echo "'/shownews?id=".$newss[$u]['id_news']."'";?>>
+									<a href=<?php  echo "'".URL::base()."show/news?id=".$newss[$u]['id_news']."'";?>>
 										<h3><?php echo $newss[$u]['title']; ?></h3>
 									</a>
 								</div>
@@ -32,7 +32,7 @@
 									<?php echo join(' ', array_slice(explode( ' ', $newss[$u]['texts'] ), 0, 15)); echo '...'; ?>
 								</div>
 								<div class="mblock_open">
-									<a href=<?php  echo "'/shownews?id=".$newss[$u]['id_news']."'";?>>Читать далее...</a>
+									<a href=<?php  echo "'".URL::base()."show/news?id=".$newss[$u]['id_news']."'";?>>Читать далее...</a>
 								</div>
 							</div>
 						</div>

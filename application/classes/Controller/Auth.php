@@ -1,10 +1,9 @@
 <?php defined('SYSPATH') or die('No direct script access.'); 
 
 class Controller_Auth extends Controller_Common {
-	    public $template = 'main';
     public function action_registration()
     {
-        $this->template->content = View::factory('registration');
+        $this->template->content = View::factory('user/registration');
         if ($post = $this->request->post())
         {
             try {           
@@ -19,7 +18,7 @@ class Controller_Auth extends Controller_Common {
                 $this->redirect('main');
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('Model');
-                $this->template->content=View::factory('registration')->set('errors', $errors);
+                $this->template->content=View::factory('user/registration')->set('errors', $errors);
                 // echo Debug::vars($errors);
             }
         }
@@ -64,6 +63,6 @@ class Controller_Auth extends Controller_Common {
         Auth::instance()->logout();
         $_SESSION=NULL;
         // Редиректим его на страницу авторизации
-        $this->redirect('/main');
+        $this->redirect('main/main');
     }
 }

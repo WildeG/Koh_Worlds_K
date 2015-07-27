@@ -32,6 +32,11 @@
 			$res = $sql->execute()->get('test',0);
 			return $res;
 		}
+		public function get_count_alrd_prep($data){
+			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('alrd_prep')->where('id_user', '=', $data);
+			$res = $sql->execute()->get('test',0);
+			return $res;
+		}
 		public function get_count_prep($data){
 			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('favor')->where('id_user', '=', $data);
 			$res = $sql->execute()->get('test',0);

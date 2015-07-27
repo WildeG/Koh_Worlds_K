@@ -148,34 +148,26 @@ Cookie::$salt = 'dfagoihdsrdfgert45yte9rhgstgh47grewuth45thdaougf';
  */
 
 
-Route::set('mday','<action>', array('action' => 'menu_day'))
+Route::set('show','<controller>/<action>', array('action' => 'menu_day|news|feed|recipe|recipes'))
 	->defaults(array(
-		'controller' => 'Mday',
+		'controller' => 'Show',
 	));
 Route::set('add','<controller>/<action>', array('action' => 'news|recipe|add_favor'))
 	->defaults(array(
 		'controller' => 'Add',
 	));
-Route::set('favorite','<controller>/<action>', array('action' => 'prepared|wantcook'))
+Route::set('help','<controller>/<action>')
 	->defaults(array(
-		'controller' => 'Favorite',
-	));
-
-Route::set('recipe','<action>', array('action'=> 'showrecipe|showrecipes'))
-	->defaults(array(
-		'controller' => 'Recipe',
+		'controller' => 'Help',
+		'action' => 'help',
 	));
 Route::set('auth','<action>', array('action' => 'login|registration|logout'))
 	->defaults(array(
 		'controller' => 'Auth',
 	));
-Route::set('user','<action>', array('action' => 'user|userrecipes'))
+Route::set('user','<action>', array('action' => 'user|recipes|prepared|wantcook'))
 	->defaults(array(
 		'controller' => 'User',
-	));
-Route::set('main','<action>', array('action' => 'newslist|shownews'))
-	->defaults(array(
-		'controller' => 'Main',
 	));
 Route::set('403','<action>')
 	->defaults(array(

@@ -2,7 +2,7 @@
  
 abstract class Controller_Common extends Controller_Template {
  
-    public $template = 'main';
+    public $template = 'main/main';
  
     public function before()
     {
@@ -11,18 +11,18 @@ abstract class Controller_Common extends Controller_Template {
         $this->template->scripts = array('jquery-1.9.1.min','jquery.waterwheelCarousel.min');
         $kitchens=Model::factory('Showmodel')->get_kitchens();
         if (Auth::instance()->logged_in()) {
-            $this->template->login = View::factory('logged')->bind('kitchens', $kitchens)->bind('roles', $roles);
+            $this->template->login = View::factory('user/logged')->bind('kitchens', $kitchens)->bind('roles', $roles);
             $roles_check=Model::factory('User')->get_roles_array();        
             if (!$this->_in_array_r('admin',$roles_check)){
                 $roles=NULL;
             }
             else {
                 $roles="<li><a href='".URL::base()."add/news'>Новость</a></li>
-                <li><a href='".URL::base()."php/add/kitchens'>Кухню</a></li>";
+                <li><a href='".URL::base()."add/kitchens'>Кухню</a></li>";
             }   
         }   
         else{
-            $this->template->login = View::factory('login')->bind('kitchens', $kitchens);
+            $this->template->login = View::factory('user/login')->bind('kitchens', $kitchens);
         }
         $check=$this->_roles();
         //echo Debug::vars($check);
