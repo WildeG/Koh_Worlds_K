@@ -25,13 +25,16 @@ class Controller_Add extends Controller_Common {
         if (!$image){
             $content=View::factory('error');
         }
-    	$add=Model::factory('Addmodel')->add_news($_POST, $image);
-    	if ($add!=false){
-    		$content=View::factory('success');
-    	}
-    	else{
-    		$content=View::factory('error');
-    	}
+        if (!(empty($_POST['title']) || empty($_POST['text']))){
+    	   $add=Model::factory('Addmodel')->add_news($_POST, $image);
+    	   if ($add!=false){
+    	   	$content=View::factory('success');
+    	   }
+    	   else{
+    	   	$content=View::factory('error');
+    	   }
+        }
+        else {$content=View::factory('error');}
  		$this->template->content = $content;    	
     }
     public function action_addrecipe(){
@@ -41,19 +44,24 @@ class Controller_Add extends Controller_Common {
         if (!$image){
             $content=View::factory('error');
         }
-        $add=Model::factory('Addmodel')->add_recipe($_POST, $image);
-        for($count=0; ;$count++){
-            if (isset($_POST['parts'.$count])){
-            $addcomp=Model::factory('Addmodel')->add_component($_POST['parts'.$count], $add['0'], $_POST['quantity'.$count]);
-            }   
-            else {break;}
-        }
-        if ($add!=false){
-            $content=View::factory('success')->bind('add', $add);
+        if (!(empty($_POST['title']) || empty($_POST['recipe']) || empty($_POST['parts0']))){
+            $add=Model::factory('Addmodel')->add_recipe($_POST, $image);
+            for($count=0; ;$count++){
+                if (isset($_POST['parts'.$count])){
+                $addcomp=Model::factory('Addmodel')->add_component($_POST['parts'.$count], $add['0'], $_POST['quantity'.$count]);
+                }   
+                else {break;}
+            }
+            if ($add!=false){
+                $content=View::factory('success')->bind('add', $add);
+            }
+            else{
+                $content=View::factory('error');
+            }
         }
         else{
-            $content=View::factory('error');
-        }
+                $content=View::factory('error');
+            }
         $this->template->content = $content;        
     }
     public function action_addcomponent(){
