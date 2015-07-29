@@ -1,3 +1,21 @@
+<script type="text/javascript">
+	function funcSuccess (data) {
+		$("#wont_prepare").text ("Добавлено");
+	}
+
+	$(document).ready (function () {
+		$("#wont_prepare").bind("click", function () {
+			var id_recipe = <?php echo $_GET['id'];?>;
+				$.ajax ({
+					url:"/add/add_favor",
+					type: "GET",
+					data: ({ id: id_recipe }),
+					dataType: "html",
+					success: funcSuccess
+				});
+		});
+	});
+</script>
 <center>
 	<?php echo "<br><a class='inscriptions'>".$recipes[0]['title']."</a>"; 
 	if ($recipes[0]['image']!="default_image"){
@@ -23,7 +41,7 @@
 	</div>
 	<?php if (Auth::instance()->logged_in()) { ?>
 	Мне нравится
-	<a href='/add/add_favor?id=<?php echo $_GET['id'];?>'>Хочу приготовить</a>
+	<a id="wont_prepare">Хочу приготовить</a>
 	Приготовил
 	<p>
 	<?php } if (($_GET['id']-1)>0) {
