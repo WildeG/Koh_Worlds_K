@@ -34,7 +34,7 @@
                 <td>
                   <div class="block_min">
                     <a class="inscriptions">Изображение<sup>*</sup></a><br>
-                    <input class="inscriptions_min" name="image" type="file" accept="image/jpeg,image/png,image/gif">
+                    <input class="inscriptions_min" name="image" type="file" accept="image/jpeg,image/png">
                   </div>
                 </td>
               </tr>           

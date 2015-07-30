@@ -17,9 +17,32 @@ class Controller_Show extends Controller_Common {
         $this->template->content = $content;
     }
     public function action_recipe(){ //отдельный рецепт
-        $content = View::factory('show/recipe')->bind('recipes',$recipes)->bind('comps',$comps);
+        $content = View::factory('show/recipe')->bind('recipes',$recipes)->bind('comps',$comps)->bind('fav', $fav)->bind('text', $text);
         $recipes = Model::factory('Showmodel')->get_recipe($_GET['id']);
         $comps = Model::factory('Showmodel')->get_comps($_GET['id']);
+        //echo Debug::vars($valid);
+        if (Auth::instance()->logged_in()) { 
+            $valid = Model::factory('Addmodel')->valid_favor($_GET['id'],'likes_recipe');
+            if ($valid==NULL){
+                $fav = '<a id="like">Мне нравится</a> ';
+                $text['like'] = '"+"';
+            }
+            elseif ($valid!=NULL){
+                $fav .= '<a id="like">Больше не нравится</a>';
+                $text['like'] = '"-"';
+            }
+            $valid = Model::factory('Addmodel')->valid_favor($_GET['id'],'favor');
+            if ($valid==NULL) {
+                $fav .= '<a id="want_prepare">Добавить в избранное</a>';
+                $text['fav'] = '"Добавлено"';
+            } 
+            elseif ($valid!=NULL){
+                $fav .= '<a id="want_prepare">Удалить из избранного</a>';
+                $text['fav'] = '"Удалено"';
+            }
+            $fav .= ' Приготовил<p>';
+        }
+
         $this->template->content = $content;
     }
     
@@ -42,14 +65,14 @@ class Controller_Show extends Controller_Common {
             $i++;
         }
         //while ($i<3){
-       //    if ($i+$page<$count/5){
-       //        if ($i+$page!=$page && $i+$page>=0){
-       //            $res.= '<a href="showrecipes?kitchens='.$_GET['kitchens'].'&page='.($page+$i).'">'.(($page+$i)+1).'</a>';
-       //        }
-       //        elseif($i+$page=$page && $i+$page>=0){$res.=($page+1).' ';}
-       //    }
-       //    $i++;  
-       //} сохранено для истории, не трогать
+        //    if ($i+$page<$count/5){
+        //        if ($i+$page!=$page && $i+$page>=0){
+        //            $res.= '<a href="showrecipes?kitchens='.$_GET['kitchens'].'&page='.($page+$i).'">'.(($page+$i)+1).'</a>';
+        //        }
+        //        elseif($i+$page=$page && $i+$page>=0){$res.=($page+1).' ';}
+        //    }
+        //    $i++;  
+        //} сохранено для истории, не трогать
         if (intval($count/5)>=$count/5){
             $a=intval($count/5)-1;
         }

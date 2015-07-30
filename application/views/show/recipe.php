@@ -1,10 +1,10 @@
 <script type="text/javascript">
 	function funcSuccess (data) {
-		$("#wont_prepare").text ("Добавлено");
+		$("#want_prepare").text (<?php echo $text['fav'];?>);
 	}
 
 	$(document).ready (function () {
-		$("#wont_prepare").bind("click", function () {
+		$("#want_prepare").bind("click", function () {
 			var id_recipe = <?php echo $_GET['id'];?>;
 				$.ajax ({
 					url:"/add/add_favor",
@@ -12,6 +12,22 @@
 					data: ({ id: id_recipe }),
 					dataType: "html",
 					success: funcSuccess
+				});
+		});
+	});
+	function funcLike (data) {
+		$("#like").text (<?php echo $text['like'];?>);
+	}
+
+	$(document).ready (function () {
+		$("#like").bind("click", function () {
+			var id_recipe = <?php echo $_GET['id'];?>;
+				$.ajax ({
+					url:"/add/add_like",
+					type: "GET",
+					data: ({ id: id_recipe }),
+					dataType: "html",
+					success: funcLike
 				});
 		});
 	});
@@ -39,12 +55,8 @@
 	<h3>Рецепт</h3>
 	<?php echo $recipes[0]['recipe'];?>
 	</div>
-	<?php if (Auth::instance()->logged_in()) { ?>
-	Мне нравится
-	<a id="wont_prepare">Хочу приготовить</a>
-	Приготовил
-	<p>
-	<?php } if (($_GET['id']-1)>0) {
+	<?php echo $fav; ?>
+	<?php  if (($_GET['id']-1)>0) {
 		echo "<a class='button' href='".URL::base()."showrecipe?id=".($_GET['id']-1)."'><b><</b>&nbspПредыдущий</a>";
 	} echo "<a class='button' href='".URL::base()."showrecipes?kitchens=".$recipes[0]['kitchens']."&page=0'>Вернуться к списку рецептов</a>
 	<a class='button' href='".URL::base()."showrecipe?id=".($_GET['id']+1)."'>Следующий&nbsp<b>></b></a></p>";?>

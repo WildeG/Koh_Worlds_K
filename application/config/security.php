@@ -12,6 +12,7 @@ return array(
         'addrecipe'    => array('admin', 'login'),
         'addcomponent' => array('admin','login'),
         'add_favor'    => array('admin', 'login'),
+        'add_like'     => array('admin', 'login'),
     ),
 
     'Controller_Auth' => array(

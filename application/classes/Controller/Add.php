@@ -90,7 +90,7 @@ class Controller_Add extends Controller_Common {
         if (
             ! Upload::valid($image) OR
             ! Upload::not_empty($image) OR
-            ! Upload::type($image, array('jpg', 'jpeg', 'png', 'gif')))
+            ! Upload::type($image, array('jpg', 'jpeg', 'png')))
         {
             return FALSE;
         }
@@ -108,7 +108,14 @@ class Controller_Add extends Controller_Common {
         return FALSE;
     }
     public function action_add_favor(){
-        $favor=Model::factory('Addmodel')->add_favor();
+        $favor=Model::factory('Addmodel')->add_favor('favor');
+        if ($favor!=FALSE){
+        $content=View::factory('success');}
+        else $content = View::factory('error');
+        $this->template->content = $content;
+    }
+    public function action_add_like(){
+        $favor=Model::factory('Addmodel')->add_favor('likes_recipe');
         if ($favor!=FALSE){
         $content=View::factory('success');}
         else $content = View::factory('error');

@@ -2,7 +2,7 @@
 	class Model_Addmodel extends Model_Database{
 
 		public function add_recipe($data, $image){
-			if ($image=' '){$image='default_image.jpg';}
+			if (empty($image)){$image='default_image.jpg';}
 			$data['title'] = strip_tags($data['title']);
 			$data['title'] = htmlspecialchars($data['title']);
 			$data['recipe'] = strip_tags($data['recipe']);
@@ -31,7 +31,7 @@
 			return $res;
 		}
 		public function add_news($data, $image){
-			if ($image=' '){$image='default_image.jpg';}
+			if (empty($image)){$image='default_image.jpg';}
 			$data['title'] = strip_tags($data['title']);
 			$data['title'] = htmlspecialchars($data['title']);
 			$data['text'] = strip_tags($data['text']);
@@ -40,16 +40,20 @@
 			$res = $sql->execute();
 			return $res;
 		}
-		public function add_favor(){
-			$valid=DB::select()->from('favor')->where('id_user', '=', $_SESSION['id'])->and_where('recipe_id', '=', $_GET['id']);
-			$valid=$valid->execute()->get('id_user', NULL);
+		public function add_favor($type){
+			$valid = $this->valid_favor($_GET['id'],$type);
 			if ($valid!=NULL){
-				$sql=DB::delete('favor')->where('id_user', '=', $_SESSION['id'])->and_where('recipe_id', '=', $_GET['id']);	}
+				$sql=DB::delete($type)->where('id_user', '=', $_SESSION['id'])->and_where('recipe_id', '=', $_GET['id']);	}
 			else{				
-				$sql=DB::insert('favor', array('id_user', 'recipe_id'))->values(array($_SESSION['id'], $_GET['id']));
+				$sql=DB::insert($type, array('id_user', 'recipe_id'))->values(array($_SESSION['id'], $_GET['id']));
 			}
 			$res=$sql->execute();
 			return $res;
+		}
+		public function valid_favor($id,$type){
+			$valid=DB::select()->from($type)->where('id_user', '=', $_SESSION['id'])->and_where('recipe_id', '=', $id);
+			$valid=$valid->execute()->get('id_user', NULL);
+			return $valid;
 		}
 }
 		
