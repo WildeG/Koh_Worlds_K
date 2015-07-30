@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июл 25 2015 г., 00:39
+-- Время создания: Июл 30 2015 г., 20:23
 -- Версия сервера: 5.6.24
 -- Версия PHP: 5.6.8
 
@@ -107,7 +107,28 @@ INSERT INTO `component` (`id_recipe`, `id_component`, `quantity`) VALUES
 ('8', '1', '8'),
 ('9', '1', '9'),
 ('10', '1', '10'),
-('10', '2', '10');
+('10', '2', '10'),
+('11', '1', '11'),
+('12', '1', '12'),
+('13', '1', '13'),
+('14', '1', '14'),
+('15', '1', '15'),
+('16', '1', '16'),
+('17', '1', '17'),
+('18', '1', '18'),
+('19', '1', '19'),
+('20', '1', '20'),
+('21', '1', '21'),
+('22', '1', '22'),
+('23', '1', '23'),
+('24', '1', '24'),
+('25', '1', '25'),
+('26', '1', '26'),
+('27', '1', '27'),
+('28', '1', '28'),
+('29', '1', '29'),
+('30', '1', '30'),
+('31', '1', '31');
 
 -- --------------------------------------------------------
 
@@ -125,19 +146,21 @@ CREATE TABLE IF NOT EXISTS `favor` (
 --
 
 INSERT INTO `favor` (`id_user`, `recipe_id`) VALUES
-(1, 1);
+(1, 1),
+(1, 26),
+(1, 29);
 
 --
 -- Триггеры `favor`
 --
 DELIMITER $$
 CREATE TRIGGER `unwant_prep` AFTER DELETE ON `favor`
- FOR EACH ROW UPDATE `recipe` SET want_prepare = want_prepare-1 WHERE id_recipe=OLD.id_recipe
+ FOR EACH ROW UPDATE `recipe` SET want_prepare = want_prepare-1 WHERE id_recipe=OLD.recipe_id
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `want_prep` AFTER INSERT ON `favor`
- FOR EACH ROW UPDATE `recipe` SET want_prepare = want_prepare+1 WHERE id_recipe=NEW.id_recipe
+ FOR EACH ROW UPDATE `recipe` SET want_prepare = want_prepare+1 WHERE id_recipe=NEW.recipe_id
 $$
 DELIMITER ;
 
@@ -194,8 +217,29 @@ INSERT INTO `kitchens` (`id`, `title_k`, `image_k`) VALUES
 
 CREATE TABLE IF NOT EXISTS `likes_recipe` (
   `id_user` int(11) NOT NULL,
-  `id_recipe` int(11) NOT NULL
+  `recipe_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `likes_recipe`
+--
+
+INSERT INTO `likes_recipe` (`id_user`, `recipe_id`) VALUES
+(1, 29);
+
+--
+-- Триггеры `likes_recipe`
+--
+DELIMITER $$
+CREATE TRIGGER `like` AFTER INSERT ON `likes_recipe`
+ FOR EACH ROW UPDATE `recipe` SET likes = likes+1 WHERE id_recipe=NEW.recipe_id
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `unlike` AFTER DELETE ON `likes_recipe`
+ FOR EACH ROW UPDATE `recipe` SET likes = likes-1 WHERE id_recipe=OLD.recipe_id
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -260,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `id_autors` smallint(6) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_pub` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `news`
@@ -268,7 +312,10 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 INSERT INTO `news` (`id_news`, `title`, `texts`, `image`, `id_autors`, `date_added`, `date_pub`) VALUES
 (1, 'test news 1', '1', 'default_image.jpg', 1, '2015-07-22 17:32:33', '0000-00-00 00:00:00'),
-(2, 'test news 2', '2', 'default_image.jpg', 1, '2015-07-25 01:30:00', '0000-00-00 00:00:00');
+(2, 'test news 2', '2', 'default_image.jpg', 1, '2015-07-25 01:30:00', '0000-00-00 00:00:00'),
+(3, '', '', 'default_image.jpg', 1, '2015-07-28 22:32:57', '0000-00-00 00:00:00'),
+(4, '', '', 'default_image.jpg', 1, '2015-07-28 22:33:13', '0000-00-00 00:00:00'),
+(5, 'test news 5', '5', 'default_image.jpg', 1, '2015-07-28 22:57:26', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -316,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `recipe` (
   `checked` varchar(10) NOT NULL DEFAULT 'false',
   `portions` int(8) NOT NULL,
   `time` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `recipe`
@@ -331,7 +378,27 @@ INSERT INTO `recipe` (`id_recipe`, `title`, `id_autors`, `recipe`, `image`, `dat
 (7, 'test recipe 7', 1, '7', 'default_image.jpg', '2015-07-23 12:56:08', 0, 0, 0, 0, '1', 'no', 'false', 0, '7 Минут'),
 (8, 'test recipe 8', 1, '8', 'default_image.jpg', '2015-07-23 12:56:20', 0, 0, 0, 0, '1', 'no', 'false', 8, '8 Минут'),
 (9, 'test recipe 9', 1, '9', 'default_image.jpg', '2015-07-23 14:09:00', 0, 0, 0, 0, '1', 'no', 'false', 9, '9 Минут'),
-(10, 'test recipe 10', 1, '10', 'default_image.jpg', '2015-07-24 17:44:32', 0, 0, 0, 0, '2', 'no', 'false', 10, '10 Часов');
+(10, 'test recipe 10', 1, '10', 'default_image.jpg', '2015-07-24 17:44:32', 0, 0, 0, 0, '2', 'no', 'false', 10, '10 Часов'),
+(11, 'test recipe 11', 2, '11', 'default_image.jpg', '2015-07-27 18:17:00', 0, 0, 0, 0, '1', 'no', 'false', 11, '11 Минут'),
+(12, 'test recipe 12', 2, '12', 'default_image.jpg', '2015-07-27 18:17:16', 0, 0, 0, 0, '1', 'no', 'false', 12, '12 Минут'),
+(13, '13', 2, '13', 'default_image.jpg', '2015-07-27 18:17:26', 0, 0, 0, 0, '1', 'no', 'false', 13, '13 Минут'),
+(14, '14', 2, '14', 'default_image.jpg', '2015-07-27 18:17:35', 0, 0, 0, 0, '1', 'no', 'false', 14, '14 Минут'),
+(15, '15', 2, '15', 'default_image.jpg', '2015-07-27 18:17:44', 0, 0, 0, 0, '1', 'no', 'false', 15, '15 Минут'),
+(16, '16', 2, '16', 'default_image.jpg', '2015-07-27 18:17:53', 0, 0, 0, 0, '1', 'no', 'false', 16, '16 Минут'),
+(17, '17', 2, '17', 'default_image.jpg', '2015-07-27 18:18:03', 0, 0, 0, 0, '1', 'no', 'false', 17, '17 Минут'),
+(18, '18', 2, '18', 'default_image.jpg', '2015-07-27 18:18:12', 0, 0, 0, 0, '1', 'no', 'false', 18, '18 Минут'),
+(19, '19', 2, '19', 'default_image.jpg', '2015-07-27 18:18:29', 0, 0, 0, 0, '1', 'no', 'false', 19, '19 Минут'),
+(20, '20', 2, '20', 'default_image.jpg', '2015-07-27 18:18:39', 0, 0, 0, 0, '1', 'no', 'false', 20, '20 Минут'),
+(21, '21', 2, '21', 'default_image.jpg', '2015-07-27 18:23:45', 0, 0, 0, 0, '1', 'no', 'false', 21, '21 Минут'),
+(22, '22', 2, '22', 'default_image.jpg', '2015-07-27 18:23:54', 0, 0, 0, 0, '1', 'no', 'false', 22, '22 Минут'),
+(23, '23', 2, '23', 'default_image.jpg', '2015-07-27 18:24:02', 0, 0, 0, 0, '1', 'no', 'false', 23, '23 Минут'),
+(24, '24', 2, '24', 'default_image.jpg', '2015-07-27 18:24:11', 0, 0, 0, 0, '1', 'no', 'false', 24, '24 Минут'),
+(25, '25', 2, '25', 'default_image.jpg', '2015-07-27 18:24:19', 0, 0, 0, 0, '1', 'no', 'false', 25, '25 Минут'),
+(26, '26', 2, '26', 'default_image.jpg', '2015-07-27 18:24:28', 0, 0, 1, 0, '1', 'no', 'false', 26, '26 Минут'),
+(27, '27', 2, '27', 'default_image.jpg', '2015-07-27 18:24:36', 0, 0, 0, 0, '1', 'no', 'false', 27, '27 Минут'),
+(28, '28', 2, '28', 'default_image.jpg', '2015-07-27 18:24:45', 0, 0, 0, 0, '1', 'no', 'false', 28, '28 Минут'),
+(29, '29', 2, '29', 'default_image.jpg', '2015-07-27 18:24:56', 1, 0, 1, 0, '1', 'no', 'false', 29, '29 Минут'),
+(30, '30', 2, '30', 'default_image.jpg', '2015-07-27 18:25:05', 0, 0, 0, 0, '1', 'no', 'false', 30, '30 Минут');
 
 -- --------------------------------------------------------
 
@@ -343,15 +410,16 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) unsigned NOT NULL,
   `name` varchar(32) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`) VALUES
-(1, 'login', 'Login privileges, granted after account confirmation'),
-(2, 'admin', 'Administrative user, has access to everything.');
+(1, 'login', 'Возможность залогиниться, базовая роль для всех юзеров'),
+(2, 'admin', 'Администратор'),
+(3, 'moder', 'Модератор.');
 
 -- --------------------------------------------------------
 
@@ -413,8 +481,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `logins`, `last_login`, `name`, `family`, `dateofreg`) VALUES
-(1, 'Lilly', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 25, 1437776981, 'Максим', 'Сульфриев', '2015-07-22'),
-(2, 'test_user_2', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 1, 1437648112, '123', '321', '2015-07-23');
+(1, 'Lilly', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 46, 1438264529, 'Максим', 'Сульфриев', '2015-07-22'),
+(2, 'test_user_2', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 7, 1438264438, '123', '321', '2015-07-23');
 
 --
 -- Триггеры `users`
@@ -524,17 +592,17 @@ ALTER TABLE `name_component`
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id_news` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_news` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `recipe`
 --
 ALTER TABLE `recipe`
-  MODIFY `id_recipe` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id_recipe` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT для таблицы `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
