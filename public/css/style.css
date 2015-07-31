@@ -202,6 +202,43 @@ textarea {
     -khtml-border-radius:15px;
     font-size:20;
 }
+
+.login_button {
+  margin-top: 12px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  background: ;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 80px;
+  height: 25px;
+}
+
+.login_verification {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 180px;
+  background: ;
+  color: #E60000;
+  text-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+#user h4,h5{
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.login_link{
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  margin-top: -10px;
+  background: rgba(255,255,255,0.5);
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -khtml-border-radius:10px;
+}
+
 .blok {
   background: linear-gradient(to top, rgba(199,166,0,0.5) ,rgba(255,229,97,0.5) );
   margin-bottom: 15px;
@@ -276,7 +313,6 @@ textarea {
   -khtml-border-radius:6px;
 }
 #user {
-  height: 100px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   margin-top: 10px;
 	background: rgba(255,255,255,0.5);

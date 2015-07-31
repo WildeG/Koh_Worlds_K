@@ -19,17 +19,15 @@
 </div>
 <div id='user'>
 	<form method='post' action='<?php echo URL::base(); ?>login'>
-		<table>
-			<tr>
-				<td colspan='2'><input type='text' class='verification' size='25' maxlength='25' placeholder='Логин' name='username'></td>
-			</tr>
-			<tr>
-				<td colspan='2'><input type='password' class='verification' size='25' maxlength='25' placeholder='Пароль' name='password'></td>
-			</tr>
-			<tr>
-				<td><input type='submit' name='submit' class='button' value='Вход'></td>
-				<td><a href='<?php echo URL::base(); ?>registration'><input type='button' class='button' value='Регистрация'></a></td>
-			</tr>              
-		</table>
+		<h4>Вход</h4>
+		<input type='text' class='login_verification' maxlength='25' placeholder='Логин' name='username'>
+		<input type='password' class='login_verification' maxlength='25' placeholder='Пароль' name='password'>
+		<center><input type='submit' name='submit' class='login_button' value='Вход'></center>
 	</form>
+</div>
+<div class="login_link">
+	<center>
+		
+		<a href='<?php echo URL::base(); ?>registration' >Перейти к регистрации</a>
+	</center>
 </div>
