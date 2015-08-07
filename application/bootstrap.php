@@ -156,7 +156,7 @@ Route::set('add','<controller>/<action>', array('action' => 'news|recipe|add_fav
 	->defaults(array(
 		'controller' => 'Add',
 	));
-Route::set('help','<controller>/<action>')
+Route::set('help','<controller>(/<action>)')
 	->defaults(array(
 		'controller' => 'Help',
 		'action' => 'help',
