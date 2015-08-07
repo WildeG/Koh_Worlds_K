@@ -156,11 +156,7 @@ Route::set('add','<controller>/<action>', array('action' => 'news|recipe|add_fav
 	->defaults(array(
 		'controller' => 'Add',
 	));
-Route::set('help','<controller>(/<action>)')
-	->defaults(array(
-		'controller' => 'Help',
-		'action' => 'help',
-	));
+
 Route::set('auth','<action>', array('action' => 'login|registration|logout'))
 	->defaults(array(
 		'controller' => 'Auth',
@@ -173,6 +169,11 @@ Route::set('403','<action>')
 	->defaults(array(
 		'controller' => 'Main',
 		'action' => '403',
+	));
+Route::set('help','<controller>(/<action>)')
+	->defaults(array(
+		'controller' => 'Help',
+		'action' => 'help',
 	));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
