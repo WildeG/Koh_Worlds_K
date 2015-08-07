@@ -156,6 +156,7 @@ a {
   margin: 6px 6px 6px 0px; 
   text-decoration: none; /* Отменяем подчеркивание у ссылки */
   color: #E60000;
+  
 }
 a:visited {
     color: #E60000;  Цвет посещенных ссылок 

@@ -23,7 +23,7 @@
 						<?php echo $news['title']; ?>
 					</div>
 				</div>
-			</a>
+			</a><br>
 		<?php endforeach; ?>
 		<!-- *************** -->
 		</div>
@@ -44,7 +44,7 @@
 						<?php echo $recipe['title']; ?>
 					</div>
 				</div>
-			</a>
+			</a><br>
 		<?php endforeach; ?>
 		</div>
 	</div>

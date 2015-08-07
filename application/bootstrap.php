@@ -82,7 +82,8 @@ if (isset($_SERVER['SERVER_PROTOCOL']))
  * Note: If you supply an invalid environment name, a PHP warning will be thrown
  * saying "Couldn't find constant Kohana::<INVALID_ENV_NAME>"
  */
-Kohana::$environment = Kohana::DEVELOPMENT;
+//Kohana::$environment = Kohana::DEVELOPMENT;
+Kohana::$environment = Kohana::PRODUCTION;
 if (isset($_SERVER['KOHANA_ENV']))
 {
 	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));

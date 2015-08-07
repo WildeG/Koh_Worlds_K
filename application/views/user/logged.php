@@ -17,16 +17,16 @@
 		</ul>
 	</li>
 	<li>
-		<a href='<?php echo URL::base(); ?>#'><div class="link" style="padding-left:10px;">Советы</div></a>
+		<a style='display:block;margin-top:0px;margin-bottom:0px' href='<?php echo URL::base(); ?>#'><div class="link" style="padding-left:10px;">Советы</div></a>
 	</li>
 	<!-- <li> 
 		<a href="#"><div class="link" style="padding-left:10px;">Поиск</div></a>
 	</li>-->
 	<li>
-		<a href='<?php echo URL::base(); ?>show/menu_day?category=2'><div class="link" style="padding-left:10px;">Меню дня</div></a>
+		<a style='display:block;margin-top:0px;margin-bottom:0px' href='<?php echo URL::base(); ?>show/menu_day?category=2'><div class="link" style="padding-left:10px;">Меню дня</div></a>
 	</li>
 	<li>
-		<a href='<?php echo URL::base(); ?>show/feed?page=0'><div class="link" style="padding-left:10px;">Новости</div></a>
+		<a style='display:block;margin-top:0px;margin-bottom:0px' href='<?php echo URL::base(); ?>show/feed?page=0'><div class="link" style="padding-left:10px;">Новости</div></a>
 	</li>
 	<li>
 		<div class="link">Избранное<i class="fa fa-chevron-down"></i></div>
