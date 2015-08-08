@@ -1,155 +1,110 @@
-.block_show {
-	padding: 10px;
-	margin: 5px;
-	height: 150px;
+.show_block {
+margin-top: 10px;
+}
+
+.show_mblock {
+	height: 200px;
+	margin-bottom: 5px;
 	width: 750px;
-	border-radius:5px;
-	-webkit-border-radius:5px
-	-moz-border-radius:5px;
-	-khtml-border-radius:5px;
+	border-bottom: 3px dotted rgba(230,0,0,0.4);
 }
 
-.block_show:hover .mblock_text_1 {
-	background: rgba(230,0,0,0.5);
-	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+.show_image {
+	float: left;
+	margin: 0px 0px 5px 5px;
+	width: 190px;
+  	height: 195px;
+  	background: rgba(230,0,0,0.6);
+  	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  	border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -khtml-border-radius:5px;
 }
 
-.block_show:hover .mblock_image_1 {
-	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+.show_mblock:last-child {
+	border-bottom: 0px;
+	margin-bottom: 40px;
 }
 
-.block_show:hover .mblock_text_2 {
-	background: rgba(230,0,0,0.6);
-	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+.show_text {
+	float: left;
+	margin: 0px 0px 5px 10px;
+	width: 540px;
+  	height: 195px;
+  	background: rgba(255,255,255,0.4);
+  	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  	border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -khtml-border-radius:5px;
 }
 
-.block_show:hover .mblock_image_2 {
-	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+.show_mblock:hover .show_text,.show_mblock:hover .show_image {
+	background: rgba(230,0,0,0.8);
 }
 
-.block_show h3{
-	margin: 5px;
-	font-size: 30px;
+.show_mblock h2 {
+	padding-top: 0px;
+    margin-bottom: -5px;
+}
+
+.show_title{
+	height: 70px;
+    width: 540px;
+}
+
+.show_mblock:hover h2, .show_mblock:hover .show_text_r a {
 	color: #fff;
 }
 
-.block_show a:hover{
+.show_mblock:hover .show_mtitle, .show_mblock:hover a, .show_mblock:hover .show_icon{
+	color: rgba(255,255,255,0.5);
+}
+
+.show_name a{
+	color: rgba(0,0,0,0.7);
+}
+
+.show_name a:hover{
 	color: #fff;
 }
 
-.block_show a{
-	color: #000;
-}
-
-.mblock_open {
+.show_date {
+	float: left;
 	text-align: right;
+	width: 250px;
 }
 
-.mblock_image_1 {
+.show_name{
 	float: left;
-	height: 150px;
-	border-radius:5px;
-	-webkit-border-radius:5px
-	-moz-border-radius:5px;
-	-khtml-border-radius:5px;
-	box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.mblock_image_2 {
-	float: right;
-	height: 150px;
-	border-radius:5px;
-	-webkit-border-radius:5px
-	-moz-border-radius:5px;
-	-khtml-border-radius:5px;
-	box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.mblock_autor {
-	float: left;
-	width: 285px;
 	text-align: left;
+	width: 250px;
 }
 
-.mblock_date {
-	float: right;
-	width: 285px;
-	text-align: right;
-}
-
-.mblock_text {
-	padding-top: 5px;
+.show_text_r {
 	text-align: left;
-	width: 570px;
-	height: 50px;
+	text-indent: 20px;
+	width: 520px;
+	height: 75px;
 }
 
-.mblock_subtitle {
-	width: 570px;
-	height: 20px;
+.show_mtitle {
+	font-size: 15px;
+	color: rgba(0,0,0,0.7);
+	width: 520px;
+	height: 25px;
 }
 
-.mblock_text_1 {
-	float: right;
-	width: 590px;
-	height: 150px;
-	background: rgba(255,255,255,0.4);
-	border-radius:5px;
-	-webkit-border-radius:5px
-	-moz-border-radius:5px;
-	-khtml-border-radius:5px;
-	box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.block_show:hover .mblock_title {
-	border-bottom: 3px dotted #fff;
-	height: 43px;	
-}
-
-.mblock_title {
-	height: 45px;
-	background: rgba(230,0,0,0.8);
-	margin-bottom: 10px;
-	border-radius:5px 5px 0px 0px;
-	-webkit-border-radius:5px 5px 0px 0px;
-	-moz-border-radius:5px 5px 0px 0px;
-	-khtml-border-radius:5px 5px 0px 0px;
-}
-
-.mblock_text_2 {
+.show_icon {
 	float: left;
-	width: 590px;
-	height: 150px;
-	background: rgba(255,255,255,0.4);
-	border-radius:5px;
-	-webkit-border-radius:5px
-	-moz-border-radius:5px;
-	-khtml-border-radius:5px;
-	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	width: 130px;
+	height: 25px;
+	font-size: 20px;
+	color: rgba(0,0,0,0.7);
 }
 
-.pages {
-	margin-top: 40px;
-}
-
-.number_page_active {
-	background: rgba(230,0,0,0.8);
-	padding: 0px 5px;
-	border-radius:10px;
-	-webkit-border-radius:10px
-	-moz-border-radius:10px;
-	-khtml-border-radius:10px;
-}
-
-.pages a.number_page_active {
-	color:#fff;
-}
-
-.number_page:hover {
-	padding: 0px 5px;
-	border: 3px solid rgba(255,0,0,0.6); 
-	border-radius:10px;
-	-webkit-border-radius:10px
-	-moz-border-radius:10px;
-	-khtml-border-radius:10px;
+.mini_icon {
+	width: 14px;
+	height: 14px;
 }

@@ -1,67 +1,89 @@
-<script type="text/javascript">
-	function funcSuccess (data) {
-		$("#want_prepare").text (<?php echo $text['fav'];?>);
-	}
-
-	$(document).ready (function () {
-		$("#want_prepare").bind("click", function () {
-			var id_recipe = <?php echo $_GET['id'];?>;
-				$.ajax ({
-					url:"/add/add_favor",
-					type: "GET",
-					data: ({ id: id_recipe }),
-					dataType: "html",
-					success: funcSuccess
-				});
-		});
-	});
-	function funcLike (data) {
-		$("#like").text (<?php echo $text['like'];?>);
-	}
-
-	$(document).ready (function () {
-		$("#like").bind("click", function () {
-			var id_recipe = <?php echo $_GET['id'];?>;
-				$.ajax ({
-					url:"/add/add_like",
-					type: "GET",
-					data: ({ id: id_recipe }),
-					dataType: "html",
-					success: funcLike
-				});
-		});
-	});
-</script>
-<center>
-	<?php echo "<br><a class='inscriptions'>".$recipes[0]['title']."</a>"; 
-	if ($recipes[0]['image']!="default_image"){
-		echo "<img class='image_recipe' width=80 height=80 src='".URL::base()."public/image/uploads/recipe/".$recipes[0]['image']."'>";
-	}
-	echo "<br><table id='table_news'>
-				<tr>
-					<td align='left'><a class='inscriptions_min'>".$recipes[0]['family']."&nbsp".$recipes[0]['name']."</a></td>
-					<td align='right'><a class='inscriptions_min'>".$recipes[0]['date_added']."</a></td>
-				</tr>
-			</table>";?>
-	<div class="show">
-		<h3>Ингридиенты</h3>
-		<?php
-		$i=0; 
-		while (isset($comps[$i])){
-		echo $comps[$i]['component'].' '.$comps[$i]['quantity'].'</br>';
-		$i++;}?>
-	</div>
-	<div class="show">
-	<h3>Рецепт</h3>
-	<?php echo $recipes[0]['recipe'];?>
-	</div>
-	<?php echo $fav; ?>
-	<?php  if (($_GET['id']-1)>0) {
-		echo "<a class='button' href='".URL::base()."showrecipe?id=".($_GET['id']-1)."'><b><</b>&nbspПредыдущий</a>";
-	} echo "<a class='button' href='".URL::base()."showrecipes?kitchens=".$recipes[0]['kitchens']."&page=0'>Вернуться к списку рецептов</a>
-	<a class='button' href='".URL::base()."showrecipe?id=".($_GET['id']+1)."'>Следующий&nbsp<b>></b></a></p>";?>
+<div>
+	<!-- Подключать через контроллер -->
 	<script type='text/javascript' src='//yastatic.net/share/share.js' charset='utf-8'></script>
+	<!-- *************************** -->
 	<div class='yashare-auto-init' data-yashareL10n='ru' data-yashareType='small' data-yashareQuickServices='vkontakte,facebook,twitter,odnoklassniki,moimir,gplus' data-yashareTheme='counter' data-yashareImage='http://wildegard.com/image/recipe/3e551df3a8276c3b50bf.jpg'>
 	</div>
-</center>
-<b style="text-align:left;"></b>
+	<h2><img src="<?php echo URL::base(); ?>public/image/system/h.png" style="transform: scale(-1, 1);"><?php echo $recipes[0]['title'];?><img src="<?php echo URL::base(); ?>public/image/system/h.png"></h2>
+	<div>
+		<div>
+			Добавил: <?php echo $recipes[0]['family']."&nbsp".$recipes[0]['name']; ?>
+		</div>	
+		<div>
+			<?php
+			if (substr($recipes[0]['date_added'],0,10)!==date("Y-m-d")) {
+				if (date('Y-m-d', strtotime('yesterday'))==substr($recipes[0]['date_added'],0,10)) {
+					echo "Вчера в ".substr(substr($recipes[0]['date_added'],11,8),0,5);
+				} else {
+					$date = explode(".", date("d.m.Y",strtotime($recipes[0]['date_added'])));
+					switch ($date[1]){
+						case 1: $m='января'; break;
+						case 2: $m='февраля'; break;
+						case 3: $m='марта'; break;
+						case 4: $m='апреля'; break;
+						case 5: $m='мая'; break;
+						case 6: $m='июня'; break;
+						case 7: $m='июля'; break;
+						case 8: $m='августа'; break;
+						case 9: $m='сентября'; break;
+						case 10: $m='октября'; break;
+						case 11: $m='ноября'; break;
+						case 12: $m='декабря'; break;
+					}
+					echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2].date(' в G:i', strtotime($recipes[0]['date_added']));
+				}
+			} else {
+			 	echo "Сегодня в ".substr(substr($recipes[0]['date_added'],11,8),0,5);
+			}
+			?>
+		</div>
+	</div>
+	<div>
+		<div>
+			<h3>Ингридиенты</h3>
+			<?php
+			$i=0; 
+			while (isset($comps[$i])) { ?>
+			<div>
+				<div>
+					<?php echo $comps[$i]['component'] ?>
+				</div>
+				<div>
+					<?php echo $comps[$i]['quantity'] ?>
+				</div>
+			</div>
+			<?php $i++; } ?>
+		</div>
+		<div>
+			<?php if ($recipes[0]['image']!="default_image"){
+				echo "<img class='image_recipe' width=80 height=80 src='".URL::base()."public/image/uploads/recipe/".$recipes[0]['image']."'>";
+			} ?>
+			<div>
+				
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="show_icon">
+			<img class="mini_icon" title="Кухня" src=<?php echo '"'.URL::base().'public/image/system/kitchens_icon.png"' ?>>&nbspРусская <!-- Колличество приготовивших -->
+		</div>
+		<div class="show_icon">
+			<img class="mini_icon" title="Колличество приготовивших" src=<?php echo '"'.URL::base().'public/image/system/prepared_icon.png"' ?>>&nbsp13 <!-- Колличество приготовивших -->
+		</div>
+		<div class="show_icon">
+			<img class="mini_icon" title="Колличество лайков" src=<?php echo '"'.URL::base().'public/image/system/likes_icon.png"' ?>>&nbsp13 <!-- Колличество лайков -->
+		</div>
+		<div class="show_icon">
+			<img class="mini_icon" title="Колличество порций" src=<?php echo '"'.URL::base().'public/image/system/servings_icon.png"' ?>>&nbsp13 <!-- Колличество порций -->
+		</div>
+		<div class="show_icon">
+			<img class="mini_icon" title="Время приготовления" src=<?php echo '"'.URL::base().'public/image/system/time_icon.png"' ?>>&nbsp13 <!-- Время приготовления -->
+		</div>
+	</div>
+	<div>
+		<h3>Рецепт</h3>
+		<div>
+			<?php echo $recipes[0]['recipe'];?>
+		</div>
+	</div>
+</div>

@@ -149,7 +149,7 @@ Cookie::$salt = 'dfagoihdsrdfgert45yte9rhgstgh47grewuth45thdaougf';
  */
 
 
-Route::set('show','<controller>/<action>', array('action' => 'menu_day|news|feed|recipe|recipes'))
+Route::set('show','<controller>/<action>', array('action' => 'menu_day|news|feed|recipe|recipes|advice'))
 	->defaults(array(
 		'controller' => 'Show',
 	));

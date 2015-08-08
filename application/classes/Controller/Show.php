@@ -120,6 +120,10 @@ class Controller_Show extends Controller_Common {
         $newss = Model::factory('Showmodel')->get_news($_GET['id']);
         $this->template->content = $content;
     }
+    public function action_advice(){ //показ отдельной новости
+        $content = View::factory('show/advice');
+        $this->template->content = $content;
+    }
     protected function pages_news($page,$count){ //страницы для новостей
         $res=NULL;
         if ($page!=0){

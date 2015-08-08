@@ -12,8 +12,13 @@
 		<div class="link"><a href="#">Поиск</a></div>
 	</li> -->
 	<li>
-		<div class="link"><a href="<?php echo URL::base(); ?>show/menu_day?category=2">Меню дня</a></div>
+		<div class="link"><a href="<?php echo URL::base(); ?>show/menu_day?category=2">Меню дня</div></a>
+	</li>
+	<li>
 		<div class="link"><a href='<?php echo URL::base(); ?>show/feed?page=0'>Новости</a></div>
+	</li>
+	<li>
+		<div class="link"><a href='<?php echo URL::base(); ?>show/advice'>Советы</a></div>
 	</li>
 	</ul>
 </div>
@@ -22,12 +27,11 @@
 		<h4>Вход</h4>
 		<input type='text' class='login_verification' maxlength='25' placeholder='Логин' name='username'>
 		<input type='password' class='login_verification' maxlength='25' placeholder='Пароль' name='password'>
-		<center><input type='submit' name='submit' class='login_button' value='Вход'></center>
+		<center>
+		<input type='submit' name='submit' class='login_button' value='Вход'>
+		<div class="login_link">
+			<h4><a href='<?php echo URL::base(); ?>registration' >Зарегестрироваться</a></h4>
+		</div>
+		</center>
 	</form>
-</div>
-<div class="login_link">
-	<center>
-		
-		<a href='<?php echo URL::base(); ?>registration' >Перейти к регистрации</a>
-	</center>
 </div>

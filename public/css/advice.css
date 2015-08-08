@@ -1,0 +1,70 @@
+.adv_block {
+	width: 750px;
+	padding: 25px;
+	padding-top: 0px;
+}
+
+.adv_mblock {
+	width: 720px;
+	height: 60px;
+	border-bottom: 3px dotted rgba(230,0,0,0.4);
+	padding: 15px;
+	font-size: 20px;
+}
+
+.adv_mblock:last-child {
+	border-bottom: 0px;
+}
+
+.adv_mtitle {
+	text-align: left;
+	float: left;
+	width: 340px;
+	padding: 10px;
+}
+
+.m_stat {
+	float: right;
+	width: 70px;
+	text-align: right;
+}
+
+.adv_mltext {
+	float: left;
+	text-align: left;
+}
+
+.adv_mrtext {
+	float: right;
+	text-align: right;
+}
+
+.mini_icon {
+	width: 13px;
+	height: 13px;
+}
+
+.adv_title {
+	font-size: 16px;
+	color: rgba(0,0,0,0.7);
+}
+
+.adv_mblock:hover {
+	color: #fff;
+	background: rgba(230,0,0,0.8);
+	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  	border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -khtml-border-radius:5px;
+    border-color: rgba(230,0,0,0);
+}
+
+.adv_mblock:hover .adv_title, .adv_mblock:hover a {
+	color: rgba(255,255,255,0.7);
+}
+
+.adv_mblock a:hover {
+	color: #fff;
+	text-decoration: underline;
+}

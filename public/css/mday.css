@@ -67,11 +67,7 @@ margin-top: 15px;
 	float: left;
 }
 
-.mday_mblock:hover .mday_text {
-	background: rgba(230,0,0,0.8);
-}
-
-.mday_mblock:hover .mday_image {
+.mday_mblock:hover .mday_text, .mday_mblock:hover .mday_image {
 	background: rgba(230,0,0,0.8);
 }
 
