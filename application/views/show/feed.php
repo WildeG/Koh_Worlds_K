@@ -2,7 +2,6 @@
 	<div>
 		<h2><img src="<?php echo URL::base(); ?>public/image/system/h.png" style="transform: scale(-1, 1);">Новости<!-- Сделать название через переменную --><img src="<?php echo URL::base(); ?>public/image/system/h.png"></h2>
 		<div>
-			<?php $i=0 ?>
 			<?php for($u=0; ;$u++){ 
 				if (isset($newss[$u])) { 
 					if ($u%2 == 0) {

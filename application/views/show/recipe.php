@@ -17,32 +17,7 @@
 			Добавил: <a href="<?php echo URL::base().'user?id=1'?>"><?php echo $recipes[0]['family']."&nbsp".$recipes[0]['name']; ?></a>
 		</div>	
 		<div class="nw_date">
-			<?php
-			if (substr($recipes[0]['date_added'],0,10)!==date("Y-m-d")) {
-				if (date('Y-m-d', strtotime('yesterday'))==substr($recipes[0]['date_added'],0,10)) {
-					echo "Вчера в ".substr(substr($recipes[0]['date_added'],11,8),0,5);
-				} else {
-					$date = explode(".", date("d.m.Y",strtotime($recipes[0]['date_added'])));
-					switch ($date[1]){
-						case 1: $m='января'; break;
-						case 2: $m='февраля'; break;
-						case 3: $m='марта'; break;
-						case 4: $m='апреля'; break;
-						case 5: $m='мая'; break;
-						case 6: $m='июня'; break;
-						case 7: $m='июля'; break;
-						case 8: $m='августа'; break;
-						case 9: $m='сентября'; break;
-						case 10: $m='октября'; break;
-						case 11: $m='ноября'; break;
-						case 12: $m='декабря'; break;
-					}
-					echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2].date(' в G:i', strtotime($recipes[0]['date_added']));
-				}
-			} else {
-			 	echo "Сегодня в ".substr(substr($recipes[0]['date_added'],11,8),0,5);
-			}
-			?>
+			<?php echo $date[0];?>
 		</div>
 	</div>
 	<div class="rc_content">
@@ -73,19 +48,19 @@
 	</div>
 	<div class="rc_iconlist">
 		<div class="rc_icon">
-			<img class="mini_icon" title="Кухня" src=<?php echo '"'.URL::base().'public/image/system/kitchens_icon.png"' ?>>&nbspРусская <!-- Колличество приготовивших -->
+			<img class="mini_icon" title="Кухня" src=<?php echo '"'.URL::base().'public/image/system/kitchens_icon.png"' ?>>&nbsp<?php echo $recipes[0]['title_k'];?> <!-- Колличество приготовивших -->
 		</div>
 		<div class="rc_icon">
-			<img class="mini_icon" title="Колличество приготовивших" src=<?php echo '"'.URL::base().'public/image/system/prepared_icon.png"' ?>>&nbsp13 <!-- Колличество приготовивших -->
+			<img class="mini_icon" title="Количество приготовивших" src=<?php echo '"'.URL::base().'public/image/system/prepared_icon.png"' ?>>&nbsp<?php echo $recipes[0]['want_prepare'];?> <!-- Колличество приготовивших -->
 		</div>
 		<div class="rc_icon">
-			<img class="mini_icon" title="Колличество лайков" src=<?php echo '"'.URL::base().'public/image/system/likes_icon.png"' ?>>&nbsp13 <!-- Колличество лайков -->
+			<img class="mini_icon" title="Количество лайков" src=<?php echo '"'.URL::base().'public/image/system/likes_icon.png"' ?>>&nbsp<?php echo $recipes[0]['likes'];?> <!-- Колличество лайков -->
 		</div>
 		<div class="rc_icon">
-			<img class="mini_icon" title="Колличество порций" src=<?php echo '"'.URL::base().'public/image/system/servings_icon.png"' ?>>&nbsp13 <!-- Колличество порций -->
+			<img class="mini_icon" title="Количество порций" src=<?php echo '"'.URL::base().'public/image/system/servings_icon.png"' ?>>&nbsp<?php echo $recipes[0]['portions'];?> <!-- Колличество порций -->
 		</div>
 		<div class="rc_icon">
-			<img class="mini_icon" title="Время приготовления" src=<?php echo '"'.URL::base().'public/image/system/time_icon.png"' ?>>&nbsp13 <!-- Время приготовления -->
+			<img class="mini_icon" title="Время приготовления" src=<?php echo '"'.URL::base().'public/image/system/time_icon.png"' ?>>&nbsp<?php echo $recipes[0]['time'];?> <!-- Время приготовления -->
 		</div>
 	</div>
 	<div class="nw_share">

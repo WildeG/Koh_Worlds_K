@@ -7,6 +7,7 @@ abstract class Controller_Common extends Controller_Template {
     public function before()
     {
         parent::before(); 	
+        $this->template->title = 'Worlds Kitchens';
         $this->template->styles = array('style', 'homepages');
         $this->template->scripts = array('jquery-1.9.1.min','jquery.waterwheelCarousel.min');
         $kitchens=Model::factory('Showmodel')->get_kitchens();

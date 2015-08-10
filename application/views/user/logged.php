@@ -17,7 +17,7 @@
 		</ul>
 	</li>
 	<li>
-		<a style='display:block;margin-top:0px;margin-bottom:0px' href='<?php echo URL::base(); ?>show/advice'><div class="link" style="padding-left:10px;">Советы</div></a>
+		<a style='display:block;margin-top:0px;margin-bottom:0px' href='<?php echo URL::base(); ?>show/advices'><div class="link" style="padding-left:10px;">Советы</div></a>
 	</li>
 	<!-- <li> 
 		<a href="#"><div class="link" style="padding-left:10px;">Поиск</div></a>

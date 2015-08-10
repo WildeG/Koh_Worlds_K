@@ -14,32 +14,7 @@
 	<div class="nw_mtitle"> 
 		<div class="nw_autor"> Автор: <a href="<?php echo URL::base().'user?id=1';?>"><?php echo $newss[0]['family']."&nbsp".$newss[0]['name']; ?></a> </div>
 		<div class="nw_date">
-			<?php
-			if (substr($newss[0]['date_added'],0,10)!==date("Y-m-d")) {
-				if (date('Y-m-d', strtotime('yesterday'))==substr($newss[0]['date_added'],0,10)) {
-					echo "Вчера в ".substr(substr($newss[0]['date_added'],11,8),0,5);
-				} else {
-					$date = explode(".", date("d.m.Y",strtotime($newss[0]['date_added'])));
-					switch ($date[1]){
-						case 1: $m='января'; break;
-						case 2: $m='февраля'; break;
-						case 3: $m='марта'; break;
-						case 4: $m='апреля'; break;
-						case 5: $m='мая'; break;
-						case 6: $m='июня'; break;
-						case 7: $m='июля'; break;
-						case 8: $m='августа'; break;
-						case 9: $m='сентября'; break;
-						case 10: $m='октября'; break;
-						case 11: $m='ноября'; break;
-						case 12: $m='декабря'; break;
-					}
-					echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2].date(' в G:i', strtotime($newss[0]['date_added']));
-				}
-			} else {
-			 	echo "Сегодня в ".substr(substr($newss[0]['date_added'],11,8),0,5);
-			}
-			?>
+			<?php	echo $date[$u];		?>
 		</div>
 	</div>
 	<div class="nw_content">

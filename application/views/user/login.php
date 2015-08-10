@@ -30,7 +30,7 @@
 		<center>
 		<input type='submit' name='submit' class='login_button' value='Вход'>
 		<div class="login_link">
-			<h4><a href='<?php echo URL::base(); ?>registration' >Зарегестрироваться</a></h4>
+			<h4><a href='<?php echo URL::base(); ?>registration' >Зарегистрироваться</a></h4>
 		</div>
 		</center>
 	</form>

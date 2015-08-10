@@ -3,6 +3,7 @@
 class Controller_Auth extends Controller_Common {
     public function action_registration()
     {
+        $this->template->title = 'Регистрация';        
         $this->template->content = View::factory('user/registration');
         if ($post = $this->request->post())
         {

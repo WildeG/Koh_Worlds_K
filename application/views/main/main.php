@@ -53,7 +53,7 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<title>World Kitchens</title>
+	<title><?php echo $title;?></title>
 		</head>
 		<body>
 		<div id="body"><img src="<?php echo URL::base(); ?>public/image/system/logo-3.png" style="height: 150px; width: 150px; margin-left: 30px;" align="left">  

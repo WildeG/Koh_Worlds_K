@@ -42,8 +42,13 @@
 			$res = $sql->execute()->get('test',0);
 			return $res;
 		}
+		public function get_count_advs(){
+			$sql = DB::select(array(DB::expr('COUNT(*)'), 'test'))->from('advice');
+			$res = $sql->execute()->get('test',0);
+			return $res;
+		}
 		public function get_recipe($data){
-			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'kitchens')->from('recipe')->where('id_recipe','=',$data)->join('users')->on('id_autors','=','id');			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'kitchens', 'title_k', 'likes', 'want_prepare', 'portions', 'time')->from('recipe')->where('id_recipe','=',$data)->join('users')->on('id_autors','=','id')->join('kitchens')->on('kitchens.id', '=', 'recipe.kitchens');			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
@@ -72,6 +77,12 @@
 		}
 		public function get_all($page){
 			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit(5);			
+			$res = $sql->execute();
+			$res2 = $res->as_array();
+			return $res2;
+		}
+		public function get_advs($page){
+			$sql = DB::select('name', 'family', 'advice', 'date_pub', 'id_advice', 'id_autors', 'likes', 'dislikes')->from('advice')->where('date_pub', '<=', date('Y-m-d H:i:s'))->and_where('check', '=', '1')->join('users')->on('id_autors','=','id')->order_by('id_advice', 'desc')->offset($page*5)->limit(5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;

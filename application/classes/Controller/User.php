@@ -3,6 +3,7 @@
 class Controller_User extends Controller_Common {
     public function action_user()
     {
+        $this->template->title = 'Страница пользователя';
  		$content = View::factory('user/user')->bind('recipes', $recipes)->bind('user', $user)->bind('want_prep', $want_prep)->bind('my', $my)->bind('subs', $subs)->bind('roles', $roles)->bind('alrdprep', $alrd_prep);
  		$recipes=Model::factory('Showmodel')->get_count_recipes($_GET['id']);	
  		$user=Model::factory('Showmodel')->get_user($_GET['id']);	
@@ -25,14 +26,19 @@ class Controller_User extends Controller_Common {
     }
     public function action_wantcook()
     {
+        $this->template->title = 'Хочу приготовить';
         $content = View::factory('user/wantcook')->bind('recipes',$recipes)->bind('pages', $pages);
+        if (!isset($_GET['page'])){
+            $page=0;
+        }
+        else {$page=$_GET['page'];}
         $count=Model::factory('Showmodel')->get_count_prep($_SESSION['id']);    
         $recipes=Model::factory('Showmodel')->fav_rec();  
-        if ($count<5){
+        if ($count<=5){
             $pages=NULL;
         }
         else{
-            $pages=$this->pages_wantcook($_GET['page'],$count);
+            $pages=$this->pages($page,$count,'user/wantcook?');
         }    
         $this->template->content = $content;
     }
@@ -44,6 +50,7 @@ class Controller_User extends Controller_Common {
     }
     /***********/
     public function action_recipes(){ //рецепты пользователя
+        $this->template->title = 'Рецепты пользователя';
         $content = View::factory('user/recipes')->bind('recipes', $recipes)->bind('title', $title)->bind('pages', $pages);
         $recipes=Model::factory('Showmodel')->get_recipes_user($_GET['id'],$_GET['page']);
         if ($_GET['id']==$_SESSION['id']){
@@ -55,27 +62,27 @@ class Controller_User extends Controller_Common {
             $pages=NULL;
         }
         else{
-            $pages=$this->pages_usrec($_GET['page'],$count,$_GET['id']);
+            $pages=$this->pages($_GET['page'],$count,'user/recipes?id='.$_GET['id'].'&');
         }   
         //echo Debug::vars($count);
         $this->template->content = $content;
     }
-    protected function pages_usrec($page,$count,$id){ //страницы для рецептов пользователя
+    protected function pages($page,$count,$type){ //страницы для всего
         $res=NULL;
         if ($page!=0){
-            $res='<a href="'.URL::base().'user/recipes?id='.$id.'&page=0"> << </a><a href="'.URL::base().'user/recipes?id='.$id.'&page='.($page-1).'"> < </a>';
+            $res='<a href="'.URL::base().$type.'page=0"> << </a><a href="'.URL::base().$type.'page='.($page-1).'"> < </a>';
         }
         $i=-2;
         while ($i<$page){
             if (($page+$i>=0) && ($i+$page<$page)){
-                $res.='<a href="'.URL::base().'user/recipes?id='.$id.'&page='.($page+$i).'">'.(($page+$i)+1).'</a>';
+                $res.='<a href="'.URL::base().$type.'page='.($page+$i).'">'.(($page+$i)+1).'</a>';
             }
             $i++;
         }
         $res.=($page+1).' ';
         $i=0;
         while (($i<2) && ($i+$page+1<$count/5)){
-            $res.='<a href="'.URL::base().'user/recipes?id='.$id.'&page='.($page+$i+1).'">'.(($page+$i)+2).'</a>';
+            $res.='<a href="'.URL::base().$type.'page='.($page+$i+1).'">'.(($page+$i)+2).'</a>';
             $i++;
         }
         if (intval($count/5)>=$count/5){
@@ -83,34 +90,7 @@ class Controller_User extends Controller_Common {
         }
         else {$a=intval($count/5);}
         if ($page+1<$count/5){
-            $res.= '<a href="'.URL::base().'user/recipes?id='.$id.'&page='.($page+1).'"> > </a><a href="'.URL::base().'user/recipes?id='.$id.'&page='.$a.'"> >> </a>';
-        }
-        return $res;
-    }
-    protected function pages_wantcook($page,$count){ //страницы для желаемых рецептов
-        $res=NULL;
-        if ($page!=0){
-            $res='<a href="'.URL::base().'user/wantcook?page=0"> << </a><a href="'.URL::base().'user/wantcook?page='.($page-1).'"> < </a>';
-        }
-        $i=-2;
-        while ($i<$page){
-            if (($page+$i>=0) && ($i+$page<$page)){
-                $res.='<a href="'.URL::base().'user/wantcook?page='.($page+$i).'">'.(($page+$i)+1).'</a>';
-            }
-            $i++;
-        }
-        $res.=($page+1).' ';
-        $i=0;
-        while (($i<2) && ($i+$page+1<$count/5)){
-            $res.='<a href="'.URL::base().'user/wantcook?page='.($page+$i+1).'">'.(($page+$i)+2).'</a>';
-            $i++;
-        }
-        if (intval($count/5)>=$count/5){
-            $a=intval($count/5)-1;
-        }
-        else {$a=intval($count/5);}
-        if ($page+1<$count/5){
-            $res.= '<a href="'.URL::base().'user/wantcook?page='.($page+1).'"> > </a><a href="'.URL::base().'user/wantcook?page='.$a.'"> >> </a>';
+            $res.= '<a href="'.URL::base().$type.'page='.($page+1).'"> > </a><a href="'.URL::base().$type.'page='.$a.'"> >> </a>';
         }
         return $res;
     }

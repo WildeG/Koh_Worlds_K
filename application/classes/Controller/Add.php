@@ -5,12 +5,14 @@ class Controller_Add extends Controller_Common {
 
     public function action_news()
     {
+        $this->tempalte->title = 'Добавить новость';
  		$content = View::factory('add/news');
  		$this->template->styles=array('addnews','style', 'owl.carousel', 'homepages');
  		$this->template->content = $content;
     }
     public function action_recipe()
     {
+        $this->template->title = 'Добавить рецепт';
         $content = View::factory('add/recipe')->bind('kitchens', $kitchens)->bind('components', $components);
         $kitchens=Model::factory('Showmodel')->get_kitchens();
         $components=Model::factory('Showmodel')->get_component();
