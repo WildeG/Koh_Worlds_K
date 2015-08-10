@@ -1,0 +1,95 @@
+a:hover {
+	text-decoration: underline;
+}
+
+.nw_block{
+	width: 780px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.nw_title{
+	position: relative;
+	width: 780px;
+	text-align: center;
+}
+
+.nw_content{
+	width: 780px;
+}
+
+.nw_mtitle {
+	width: 760px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 15px;
+	color: rgba(0,0,0,0.7);
+}
+
+.nw_autor {
+	width: 370px;
+	float: left;
+}
+
+.nw_date {
+	text-align: right;
+	width: 370px;
+	float: right;
+}
+
+.nw_image {
+	float: right;
+	height: 300px;
+	width: 300px;
+	border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	margin-left: 10px;
+	background: rgba(255,255,255,0.5);
+}
+
+.nw_content {
+	text-indent: 10px;
+	margin-top: 30px;
+	text-align: justify;
+}
+
+.nw_estimate {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	float: right;
+	text-align: right;
+	opacity: 0.3;
+}
+
+.nw_estimate:hover {
+	opacity: 1;
+}
+
+.nw_share {
+	text-align: center;
+	opacity: 0.3;
+}
+
+.nw_share:hover {
+	opacity: 1;
+}
+
+.nw_button_image {
+	margin-top: 5px;
+	margin-right: 10px;
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+}
+
+.nw_button {
+	float: right;
+}
+.nw_block h2 {
+	margin: 0px;
+	padding: 0px;
+}

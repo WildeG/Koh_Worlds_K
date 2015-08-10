@@ -1,0 +1,29 @@
+h3 {
+	text-align: center;
+	font-size: 20px;
+}
+
+.rc_content {
+	min-height: 300px;
+}
+
+.rc_comp {
+	float: left;
+	width: 220px;
+	margin-left: 10px;
+	font-size: 18px;
+}
+
+.rc_icon {
+	float: left;
+	text-align: center;
+	margin: 10px;
+	width: 135px;
+	height: 25px;
+	font-size: 20px;
+	color: rgba(0,0,0,0.7);
+}
+
+.rc_iconlist {
+	height:45px;
+}

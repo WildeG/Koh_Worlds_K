@@ -42,6 +42,8 @@
 	<link href="<?php echo URL::base(); ?>public/css/news.css"  rel="stylesheet" type="text/css" >
 	<!-- к 1 рецепту -->
 	<link href="<?php echo URL::base(); ?>public/css/show-recipe.css"  rel="stylesheet" type="text/css" >
+	<!-- к 1 новости -->
+	<link href="<?php echo URL::base(); ?>public/css/show-news.css"  rel="stylesheet" type="text/css" >
 <!-- ********* -->
 
 	<!-- Скрипты для подключения карусели картинок -->
