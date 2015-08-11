@@ -4,6 +4,7 @@ class Controller_Show extends Controller_Common {
 
     public function action_recipes() //рецепты кухни
     {
+        $this->template->styles[] = 'show';
         $this->template->title = 'Рецепты';
         $content = View::factory('show/recipes')->bind('recipes', $recipes)->bind('kitchen', $kitchen)->bind('pages', $pages)->bind('date', $date); 
         if (!isset($_GET['page'])){
@@ -26,6 +27,9 @@ class Controller_Show extends Controller_Common {
         $this->template->content = $content;
     }
     public function action_recipe(){ //отдельный рецепт
+        $this->template->styles[] = 'showrecipe';
+        $this->template->styles[] = 'shownews';
+        $this->template->styles[] = 'advice';
         $content = View::factory('show/recipe')->bind('recipes',$recipes)->bind('comps',$comps)->bind('fav', $fav)->bind('text', $text)->bind('date',$date);
         $recipes = Model::factory('Showmodel')->get_recipe($_GET['id']);
         $comps = Model::factory('Showmodel')->get_comps($_GET['id']);
@@ -55,10 +59,12 @@ class Controller_Show extends Controller_Common {
         if (isset($recipes[0])){ 
             $date[0]=$this->date($recipes[0]['date_added']);
         }
+        echo Debug::vars($this->template->styles);
         $this->template->content = $content;
     }
     public function action_menu_day() //меню дня
     {
+        $this->template->styles[] = 'mday';
         $this->template->title = 'Меню дня';
         $content = View::factory('show/mday')->bind('mday', $mday)->bind('comps', $comps)->bind('category', $cat);
          if (empty($_GET['category'])||(!isset($_GET['category']))) {
@@ -80,6 +86,7 @@ class Controller_Show extends Controller_Common {
         $this->template->content = $content;
     }
     public function action_feed(){ //список новостей
+        $this->template->styles[] = 'news';
         $this->template->title = 'Новости';
         if (!isset($_GET['page'])){
             $page=0;
@@ -98,17 +105,20 @@ class Controller_Show extends Controller_Common {
         $this->template->content=$content;
     }
     public function action_news(){ //показ отдельной новости
+        $this->template->styles[] = 'shownews';
         $content = View::factory('show/news')->bind('newss',$newss)->bind('date',$date);
         $newss = Model::factory('Showmodel')->get_news($_GET['id']);
-        $this->template->title = $newss['title'];
+        $this->template->title = $newss[0]['title'];
         for($u=0; ;$u++){ if (isset($newss[$u])){ 
             $date[$u]=$this->date($newss[$u]['date_added']);
         }
         else {break;} }
+        echo Debug::vars($this->template->styles);
         $this->template->content = $content;
     }
     public function action_advices(){ //показ списка советов
         $this->template->title = 'Советы';
+        $this->template->styles[] = 'advice';
         $content = View::factory('show/advices')->bind('adv', $adv)->bind('pages', $pages)->bind('date', $date);
         if (!isset($_GET['page'])){
             $page=0;
@@ -126,7 +136,7 @@ class Controller_Show extends Controller_Common {
             $date[$u]=$this->date($adv[$u]['date_pub']);
         }
         else {break;} }
-        //echo Debug::vars($adv, $date);
+        echo Debug::vars($this->template->styles);
         $this->template->content = $content;
     }
     public function action_advice(){ //показ отдельного совета

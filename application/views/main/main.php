@@ -29,22 +29,6 @@
 	<?php endforeach; ?>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> <!--  Шрифт иконки в меню  -->
 
-<!-- Перенести -->
-	<!-- к списку советов -->
-	<link href="<?php echo URL::base(); ?>public/css/advice.css" rel="stylesheet" type="text/css" >
-	<!-- к регестрации -->
-	<link href="<?php echo URL::base(); ?>public/css/registration.css" rel="stylesheet" type="text/css" >
-	<!-- к меню дня -->
-	<link href="<?php echo URL::base(); ?>public/css/mday.css"  rel="stylesheet" type="text/css" >
-	<!-- к выводу рецептов -->
-	<link href="<?php echo URL::base(); ?>public/css/show.css"  rel="stylesheet" type="text/css" >
-	<!-- к новостям -->
-	<link href="<?php echo URL::base(); ?>public/css/news.css"  rel="stylesheet" type="text/css" >
-	<!-- к 1 рецепту -->
-	<link href="<?php echo URL::base(); ?>public/css/show-recipe.css"  rel="stylesheet" type="text/css" >
-	<!-- к 1 новости -->
-	<link href="<?php echo URL::base(); ?>public/css/show-news.css"  rel="stylesheet" type="text/css" >
-<!-- ********* -->
 
 	<!-- Скрипты для подключения карусели картинок -->
 	<?php foreach($scripts as $script): ?>

@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 	class Model_Showmodel extends Model_Database{
 		public function get_recipes($data,$page){
-			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit(5);			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'id', 'likes', 'portions', 'time')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit(5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;

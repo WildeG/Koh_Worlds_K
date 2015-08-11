@@ -14,7 +14,7 @@
 	<div class="nw_mtitle"> 
 		<div class="nw_autor"> Автор: <a href="<?php echo URL::base().'user?id=1';?>"><?php echo $newss[0]['family']."&nbsp".$newss[0]['name']; ?></a> </div>
 		<div class="nw_date">
-			<?php	echo $date[$u];		?>
+			<?php	echo $date[0];		?>
 		</div>
 	</div>
 	<div class="nw_content">
