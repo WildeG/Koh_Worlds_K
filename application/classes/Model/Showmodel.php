@@ -1,13 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 	class Model_Showmodel extends Model_Database{
 		public function get_recipes($data,$page){
-			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'id', 'likes', 'portions', 'time')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*10)->limit(10);			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'id', 'likes', 'portions', 'time','prepare')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*10)->limit(10);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
 		}
 		public function get_recipes_user($data,$page){
-			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('id_autors','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*10)->limit(10);			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'id', 'likes', 'portions', 'time','prepare')->from('recipe')->where('id_autors','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*10)->limit(10);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;

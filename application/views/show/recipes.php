@@ -32,7 +32,7 @@
 				</div>
 				<div class="show_basement">
 					<div class="show_icon">
-						<img class="mini_icon" title="Количество приготовивших" src=<?php echo '"'.URL::base().'public/image/system/prepared_icon.png"' ?>>&nbsp<?php echo 'placeholer' ?> <!-- Колличество приготовивших -->
+						<img class="mini_icon" title="Количество приготовивших" src=<?php echo '"'.URL::base().'public/image/system/prepared_icon.png"' ?>>&nbsp<?php echo $recipes[$u]['prepare']; ?> <!-- Колличество приготовивших -->
 					</div>
 					<div class="show_icon">
 						<img class="mini_icon" title="Количество лайков" src=<?php echo '"'.URL::base().'public/image/system/likes_icon.png"' ?>>&nbsp<?php echo $recipes[$u]['likes']; ?> <!-- Колличество лайков -->
