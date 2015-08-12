@@ -1,7 +1,7 @@
 <div id="registration" >
   <center>
     <h2><img src="<?php echo URL::base(); ?>public/image/system/h.png" style="transform: scale(-1, 1);">Регистрация<img src="<?php echo URL::base(); ?>public/image/system/h.png"></h2>
-    <form>
+    <form action='<?php echo URL::base(); ?>auth/registration' method="post" enctype="multipart/form-data">
       <div class="l_block">
         <div style="text-align:right" class="ml_block">Логин:</div>
         <div><input class="r_field" type="text" maxlength="32" name="username"><?php if (isset($errors)){echo Arr::get($errors, 'username');}?></div>

@@ -46,7 +46,7 @@
 				</div>
 			</div>
 		</div>
-		<?php } if($u>=5){break;}
+		<?php } else {break;}
 		} ?>
 	</div><?php echo $pages;?>
 </center>

@@ -26,7 +26,7 @@
 					</div>
 				</div>
 			</div>
-		<?php 	} if ($u>=5) { break; }
+		<?php 	} else{ break; }
    			}?>
    			<?php echo $pages; ?>
 	</div>

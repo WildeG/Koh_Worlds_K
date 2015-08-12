@@ -14,11 +14,11 @@ class Controller_Show extends Controller_Common {
         $recipes = Model::factory('Showmodel')->get_recipes($_GET['kitchens'],$page);
         $count=Model::factory('Showmodel')->get_count_kitchens($_GET['kitchens']);
         $kitchen=Model::factory('Showmodel')->get_kitchen($_GET['kitchens']);
-        if ($count<=5){
+        if ($count<=10){
             $pages=NULL;
         }
         else{
-            $pages=$this->pages($page,$count,'show/recipes?kitchens='.$_GET['kitchens'].'&');
+            $pages=$this->pages($page,$count,'show/recipes?kitchens='.$_GET['kitchens'].'&',10);
         }
         for($u=0; ;$u++){ if (isset($recipes[$u])){ 
             $date[$u]=$this->date($recipes[$u]['date_added']);
@@ -34,32 +34,32 @@ class Controller_Show extends Controller_Common {
         $recipes = Model::factory('Showmodel')->get_recipe($_GET['id']);
         $comps = Model::factory('Showmodel')->get_comps($_GET['id']);
         //echo Debug::vars($valid);
-        if (Auth::instance()->logged_in()) { 
-            $valid = Model::factory('Addmodel')->valid_favor($_GET['id'],'likes_recipe');
-            if ($valid==NULL){
-                $fav = '<a id="like">Мне нравится</a> ';
-                $text['like'] = '"+"';
-            }
-            elseif ($valid!=NULL){
-                $fav .= '<a id="like">Больше не нравится</a>';
-                $text['like'] = '"-"';
-            }
-            $valid = Model::factory('Addmodel')->valid_favor($_GET['id'],'favor');
-            if ($valid==NULL) {
-                $fav .= '<a id="want_prepare">Добавить в избранное</a>';
-                $text['fav'] = '"Добавлено"';
-            } 
-            elseif ($valid!=NULL){
-                $fav .= '<a id="want_prepare">Удалить из избранного</a>';
-                $text['fav'] = '"Удалено"';
-            }
-            $fav .= ' Приготовил<p>';
-        }
+        //if (Auth::instance()->logged_in()) { 
+        //    $valid = Model::factory('Addmodel')->valid_favor($_GET['id'],'likes_recipe');
+        //    if ($valid==NULL){
+        //        $fav = '<a id="like">Мне нравится</a> ';
+        //        $text['like'] = '"+"';
+        //    }
+        //    elseif ($valid!=NULL){
+        //        $fav .= '<a id="like">Больше не нравится</a>';
+        //        $text['like'] = '"-"';
+        //    }
+        //    $valid = Model::factory('Addmodel')->valid_favor($_GET['id'],'favor');
+        //    if ($valid==NULL) {
+        //        $fav .= '<a id="want_prepare">Добавить в избранное</a>';
+        //        $text['fav'] = '"Добавлено"';
+        //    } 
+        //    elseif ($valid!=NULL){
+        //        $fav .= '<a id="want_prepare">Удалить из избранного</a>';
+        //        $text['fav'] = '"Удалено"';
+        //    }
+        //    $fav .= ' Приготовил<p>';
+        //}
         $this->template->title = $recipes[0]['title'];
         if (isset($recipes[0])){ 
             $date[0]=$this->date($recipes[0]['date_added']);
         }
-        echo Debug::vars($this->template->styles);
+        //echo Debug::vars($this->template->styles);
         $this->template->content = $content;
     }
     public function action_menu_day() //меню дня
@@ -99,7 +99,7 @@ class Controller_Show extends Controller_Common {
             $pages=NULL;
         }
         else{
-            $pages=$this->pages($page,$count,'show/feed?');
+            $pages=$this->pages($page,$count,'show/feed?',5);
         }
 
         $this->template->content=$content;
@@ -126,17 +126,17 @@ class Controller_Show extends Controller_Common {
         else {$page=$_GET['page'];}
         $count = Model::factory('Showmodel')->get_count_advs();
         $adv = Model::factory('Showmodel')->get_advs($page);
-        if ($count<=5){
+        if ($count<=25){
             $pages=NULL;
         }
         else{
-            $pages=$this->pages($page,$count,'show/advices?');
+            $pages=$this->pages($page,$count,'show/advices?',25);
         }
         for($u=0; ;$u++){ if (isset($adv[$u])){ 
             $date[$u]=$this->date($adv[$u]['date_pub']);
         }
         else {break;} }
-        echo Debug::vars($this->template->styles);
+        //echo Debug::vars($this->template->styles);
         $this->template->content = $content;
     }
     public function action_advice(){ //показ отдельного совета
@@ -144,7 +144,7 @@ class Controller_Show extends Controller_Common {
         $this->template->title = 'Совет';
         $this->template->content = $content;
     }
-    protected function pages($page,$count,$type){ //страницы для всего
+    protected function pages($page,$count,$type,$units){ //страницы для всего
         $res=NULL;
         if ($page!=0){
             $res='<a href="'.URL::base().$type.'page=0"> << </a><a href="'.URL::base().$type.'page='.($page-1).'"> < </a>';
@@ -158,15 +158,15 @@ class Controller_Show extends Controller_Common {
         }
         $res.=($page+1).' ';
         $i=0;
-        while (($i<2) && ($i+$page+1<$count/5)){
+        while (($i<2) && ($i+$page+1<$count/$units)){
             $res.='<a href="'.URL::base().$type.'page='.($page+$i+1).'">'.(($page+$i)+2).'</a>';
             $i++;
         }
-        if (intval($count/5)>=$count/5){
-            $a=intval($count/5)-1;
+        if (intval($count/$units)>=$count/$units){
+            $a=intval($count/$units)-1;
         }
-        else {$a=intval($count/5);}
-        if ($page+1<$count/5){
+        else {$a=intval($count/$units);}
+        if ($page+1<$count/$units){
             $res.= '<a href="'.URL::base().$type.'page='.($page+1).'"> > </a><a href="'.URL::base().$type.'page='.$a.'"> >> </a>';
         }
         return $res;

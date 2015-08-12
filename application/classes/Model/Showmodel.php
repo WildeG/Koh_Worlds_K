@@ -1,13 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 	class Model_Showmodel extends Model_Database{
 		public function get_recipes($data,$page){
-			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'id', 'likes', 'portions', 'time')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit(5);			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added', 'id', 'likes', 'portions', 'time')->from('recipe')->where('kitchens','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*10)->limit(10);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
 		}
 		public function get_recipes_user($data,$page){
-			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('id_autors','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*5)->limit(5);			
+			$sql = DB::select('name', 'family', 'title', 'recipe', 'id_recipe', 'image', 'date_added')->from('recipe')->where('id_autors','=',$data)->join('users')->on('id_autors','=','id')->order_by('id_recipe', 'desc')->offset($page*10)->limit(10);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
@@ -82,7 +82,7 @@
 			return $res2;
 		}
 		public function get_advs($page){
-			$sql = DB::select('name', 'family', 'advice', 'date_pub', 'id_advice', 'id_autors', 'likes', 'dislikes')->from('advice')->where('date_pub', '<=', date('Y-m-d H:i:s'))->and_where('check', '=', '1')->join('users')->on('id_autors','=','id')->order_by('id_advice', 'desc')->offset($page*5)->limit(5);			
+			$sql = DB::select('name', 'family', 'advice', 'date_pub', 'id_advice', 'id_autors', 'likes', 'dislikes')->from('advice')->where('date_pub', '<=', date('Y-m-d H:i:s'))->and_where('check', '=', '1')->join('users')->on('id_autors','=','id')->order_by('id_advice', 'desc')->offset($page*25)->limit(25);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
