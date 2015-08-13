@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июл 30 2015 г., 20:23
+-- Время создания: Авг 13 2015 г., 21:57
 -- Версия сервера: 5.6.24
 -- Версия PHP: 5.6.8
 
@@ -36,7 +36,19 @@ CREATE TABLE IF NOT EXISTS `advice` (
   `dislikes` int(11) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_pub` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `advice`
+--
+
+INSERT INTO `advice` (`check`, `id_advice`, `title`, `id_autors`, `advice`, `likes`, `dislikes`, `date_added`, `date_pub`) VALUES
+(1, 1, 'adv1', 1, 'adv1', 0, 0, '2015-08-10 17:56:17', '2015-08-10 18:00:00'),
+(1, 2, 'adv2', 1, 'adv2', 0, 0, '2015-08-10 20:11:37', '2015-08-10 20:00:00'),
+(1, 3, 'adv3', 1, 'adv3', 0, 0, '2015-08-10 20:11:54', '2015-08-10 20:00:00'),
+(1, 4, 'adv4', 1, 'adv4', 0, 0, '2015-08-10 20:12:05', '2015-08-10 20:00:00'),
+(1, 5, 'adv5', 1, 'adv5', 0, 0, '2015-08-10 20:12:16', '2015-08-10 20:00:00'),
+(1, 6, 'adv6', 1, 'adv6', 0, 0, '2015-08-10 20:12:25', '2015-08-10 20:00:00');
 
 -- --------------------------------------------------------
 
@@ -128,6 +140,7 @@ INSERT INTO `component` (`id_recipe`, `id_component`, `quantity`) VALUES
 ('28', '1', '28'),
 ('29', '1', '29'),
 ('30', '1', '30'),
+('31', '1', '31'),
 ('31', '1', '31');
 
 -- --------------------------------------------------------
@@ -303,19 +316,21 @@ CREATE TABLE IF NOT EXISTS `news` (
   `image` varchar(120) NOT NULL DEFAULT 'default_image.jpg',
   `id_autors` smallint(6) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_pub` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `date_pub` datetime NOT NULL,
+  `rating` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `news`
 --
 
-INSERT INTO `news` (`id_news`, `title`, `texts`, `image`, `id_autors`, `date_added`, `date_pub`) VALUES
-(1, 'test news 1', '1', 'default_image.jpg', 1, '2015-07-22 17:32:33', '0000-00-00 00:00:00'),
-(2, 'test news 2', '2', 'default_image.jpg', 1, '2015-07-25 01:30:00', '0000-00-00 00:00:00'),
-(3, '', '', 'default_image.jpg', 1, '2015-07-28 22:32:57', '0000-00-00 00:00:00'),
-(4, '', '', 'default_image.jpg', 1, '2015-07-28 22:33:13', '0000-00-00 00:00:00'),
-(5, 'test news 5', '5', 'default_image.jpg', 1, '2015-07-28 22:57:26', '0000-00-00 00:00:00');
+INSERT INTO `news` (`id_news`, `title`, `texts`, `image`, `id_autors`, `date_added`, `date_pub`, `rating`) VALUES
+(1, 'test news 1', '1', 'default_image.jpg', 1, '2015-07-22 17:32:33', '0000-00-00 00:00:00', 0),
+(2, 'test news 2', '2', 'default_image.jpg', 1, '2015-07-25 01:30:00', '0000-00-00 00:00:00', 0),
+(3, '', '', 'default_image.jpg', 1, '2015-07-28 22:32:57', '0000-00-00 00:00:00', 0),
+(4, '', '', 'default_image.jpg', 1, '2015-07-28 22:33:13', '0000-00-00 00:00:00', 0),
+(5, 'test news 5', '5', 'default_image.jpg', 1, '2015-07-28 22:57:26', '0000-00-00 00:00:00', 0),
+(6, 'test news 6', '6', 'default_image.jpg', 1, '2015-08-10 18:28:17', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -328,6 +343,27 @@ CREATE TABLE IF NOT EXISTS `rating_news` (
   `id_user` int(11) NOT NULL,
   `rating` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `rating_news`
+--
+
+INSERT INTO `rating_news` (`id_news`, `id_user`, `rating`) VALUES
+(6, 1, 1);
+
+--
+-- Триггеры `rating_news`
+--
+DELIMITER $$
+CREATE TRIGGER `rate` AFTER INSERT ON `rating_news`
+ FOR EACH ROW UPDATE `news` SET rating = rating+NEW.rating WHERE id_news=NEW.id_news
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `unrate` AFTER DELETE ON `rating_news`
+ FOR EACH ROW UPDATE `news` SET rating = rating-OLD.rating WHERE id_news=OLD.id_news
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -363,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `recipe` (
   `checked` varchar(10) NOT NULL DEFAULT 'false',
   `portions` int(8) NOT NULL,
   `time` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `recipe`
@@ -398,7 +434,8 @@ INSERT INTO `recipe` (`id_recipe`, `title`, `id_autors`, `recipe`, `image`, `dat
 (27, '27', 2, '27', 'default_image.jpg', '2015-07-27 18:24:36', 0, 0, 0, 0, '1', 'no', 'false', 27, '27 Минут'),
 (28, '28', 2, '28', 'default_image.jpg', '2015-07-27 18:24:45', 0, 0, 0, 0, '1', 'no', 'false', 28, '28 Минут'),
 (29, '29', 2, '29', 'default_image.jpg', '2015-07-27 18:24:56', 1, 0, 1, 0, '1', 'no', 'false', 29, '29 Минут'),
-(30, '30', 2, '30', 'default_image.jpg', '2015-07-27 18:25:05', 0, 0, 0, 0, '1', 'no', 'false', 30, '30 Минут');
+(30, '30', 2, '30', 'default_image.jpg', '2015-07-27 18:25:05', 0, 0, 0, 0, '1', 'no', 'false', 30, '30 Минут'),
+(31, '31', 1, '31', 'default_image.jpg', '2015-08-10 19:19:40', 0, 0, 0, 0, '1', 'no', 'false', 31, '31 Минут');
 
 -- --------------------------------------------------------
 
@@ -439,6 +476,7 @@ CREATE TABLE IF NOT EXISTS `roles_users` (
 INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
 (1, 1),
 (2, 1),
+(3, 1),
 (1, 2);
 
 -- --------------------------------------------------------
@@ -474,15 +512,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(32) NOT NULL,
   `family` varchar(32) NOT NULL,
   `dateofreg` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `logins`, `last_login`, `name`, `family`, `dateofreg`) VALUES
-(1, 'Lilly', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 46, 1438264529, 'Максим', 'Сульфриев', '2015-07-22'),
-(2, 'test_user_2', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 7, 1438264438, '123', '321', '2015-07-23');
+(1, 'Lilly', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 55, 1439407910, 'Максим', 'Сульфриев', '2015-07-22'),
+(2, 'test_user_2', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 8, 1439477262, '123', '321', '2015-07-23'),
+(3, 'testuser3', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 1, 1439407196, 'testuser2', 'testuser2fam', '2015-08-12');
 
 --
 -- Триггеры `users`
@@ -567,7 +606,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `advice`
 --
 ALTER TABLE `advice`
-  MODIFY `id_advice` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_advice` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `comments`
 --
@@ -592,12 +631,12 @@ ALTER TABLE `name_component`
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id_news` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id_news` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `recipe`
 --
 ALTER TABLE `recipe`
-  MODIFY `id_recipe` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+  MODIFY `id_recipe` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT для таблицы `roles`
 --
@@ -607,7 +646,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
