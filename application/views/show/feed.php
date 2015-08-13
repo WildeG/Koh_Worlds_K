@@ -21,10 +21,10 @@
 								</div>
 								<div class="mblock_subtitle">
 									<div class="mblock_autor">
-										<a href=""><?php echo $newss[$u]['family'].' '.$newss[$u]['name']; ?></a>
+										<a href=<?php echo "'".URL::base()."user?id=".$newss[$u]['id']."'";?>><?php echo $newss[$u]['family'].' '.$newss[$u]['name']; ?></a>
 									</div>
 									<div class="mblock_date">
-										<?php echo $newss[$u]['date_added']; ?>
+										<?php echo $date[$u]; ?>
 									</div>
 								</div>
 								<div class="mblock_text">
@@ -35,7 +35,7 @@
 								</div>
 							</div>
 						</div>
-			<?php 	} if ($u>=5) { break; }
+			<?php 	} else{ break; }
    			}?>
 		</div>
 		<div class="pages">

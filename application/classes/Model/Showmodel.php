@@ -76,7 +76,7 @@
 			return $res;
 		}
 		public function get_all($page){
-			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit(5);			
+			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added', 'id')->from('news')->join('users')->on('id_autors','=','id')->order_by('id_news', 'desc')->offset($page*5)->limit(5);			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;
@@ -98,7 +98,7 @@
 			return $res;
 		}
 		public function get_news($data){
-			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added')->from('news')->where('id_news','=',$data)->join('users')->on('id_autors','=','id');			
+			$sql = DB::select('name', 'family', 'title', 'texts', 'id_news', 'image', 'date_added','rating')->from('news')->where('id_news','=',$data)->join('users')->on('id_autors','=','id');			
 			$res = $sql->execute();
 			$res2 = $res->as_array();
 			return $res2;

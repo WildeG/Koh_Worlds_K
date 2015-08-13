@@ -92,7 +92,7 @@ class Controller_Show extends Controller_Common {
             $page=0;
         }
         else {$page=$_GET['page'];}
-        $content=View::factory('show/feed')->bind('newss',$newss)->bind('pages', $pages);
+        $content=View::factory('show/feed')->bind('newss',$newss)->bind('pages', $pages)->bind('date', $date);
         $newss=Model::factory('Showmodel')->get_all($page);
         $count=Model::factory('Showmodel')->get_count_news();
         if ($count<=5){
@@ -101,19 +101,24 @@ class Controller_Show extends Controller_Common {
         else{
             $pages=$this->pages($page,$count,'show/feed?',5);
         }
-
-        $this->template->content=$content;
-    }
-    public function action_news(){ //показ отдельной новости
-        $this->template->styles[] = 'shownews';
-        $content = View::factory('show/news')->bind('newss',$newss)->bind('date',$date);
-        $newss = Model::factory('Showmodel')->get_news($_GET['id']);
-        $this->template->title = $newss[0]['title'];
         for($u=0; ;$u++){ if (isset($newss[$u])){ 
             $date[$u]=$this->date($newss[$u]['date_added']);
         }
         else {break;} }
-        echo Debug::vars($this->template->styles);
+        $this->template->content=$content;
+    }
+    public function action_news(){ //показ отдельной новости
+        $this->template->styles[] = 'shownews';
+        $content = View::factory('show/news')->bind('newss',$newss)->bind('date',$date)->bind('rtng', $fav);
+        $newss = Model::factory('Showmodel')->get_news($_GET['id']);
+        $this->template->title = $newss[0]['title'];
+        $date[0]=$this->date($newss[0]['date_added']);
+        if (Auth::instance()->logged_in()){
+        $fav =  '<div class="nw_estimate">
+                <img id="like" class="nw_button_image" title="Интересно" src="'.URL::base().'public/image/system/plus.png"><a>'.$newss[0]['rating'].'</a><img id="dislike" class="nw_button_image" title="Не интересно" src="'.URL::base().'public/image/system/minus.png">
+                </div>';
+        }
+        //echo Debug::vars($this->template->styles);
         $this->template->content = $content;
     }
     public function action_advices(){ //показ списка советов

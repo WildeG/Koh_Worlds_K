@@ -116,6 +116,13 @@ class Controller_Add extends Controller_Common {
         else $content = View::factory('error');
         $this->template->content = $content;
     }
+    public function action_nrating(){
+        $favor=Model::factory('Addmodel')->rating_news($_POST);
+        if ($favor!=FALSE){
+        $content=View::factory('success');}
+        else $content = View::factory('error');
+        $this->template->content = $content;
+    }
     public function action_add_like(){
         $favor=Model::factory('Addmodel')->add_favor('likes_recipe');
         if ($favor!=FALSE){

@@ -50,9 +50,21 @@
 			$res=$sql->execute();
 			return $res;
 		}
-		public function valid_favor($id,$type){
-			$valid=DB::select()->from($type)->where('id_user', '=', $_SESSION['id'])->and_where('recipe_id', '=', $id);
+		public function rating_news($data){
+			$valid = $this->valid_favor($data['id_news']);
+			if ($valid!=NULL){		
+				$sql=DB::delete('rating_news')->where('id_user', '=', $_SESSION['id'])->and_where('id_news', '=', $data['id_news']);
+			}
+			else {
+				$sql=DB::insert('rating_news', array('id_news', 'id_user', 'rating'))->values(array($data['id_news'], $_SESSION['id'], $data['type']));
+			}
+			$res=$sql->execute();
+			return $res;
+		}
+		public function valid_favor($data){
+			$valid=DB::select()->from('rating_news')->where('id_user', '=', $_SESSION['id'])->and_where('id_news', '=', $data);
 			$valid=$valid->execute()->get('id_user', NULL);
+			//echo Debug::vars($valid);
 			return $valid;
 		}
 }

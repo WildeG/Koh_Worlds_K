@@ -13,6 +13,7 @@ return array(
         'addcomponent' => array('admin','login'),
         'add_favor'    => array('admin', 'login'),
         'add_like'     => array('admin', 'login'),
+        'nrating'      => array('admin','login'),
     ),
 
     'Controller_Auth' => array(
