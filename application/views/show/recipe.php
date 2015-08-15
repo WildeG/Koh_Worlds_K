@@ -14,7 +14,7 @@
 	</div>
 	<div class="nw_mtitle">
 		<div class="nw_autor">
-			Добавил: <a href="<?php echo URL::base().'user?id=1'?>"><?php echo $recipes[0]['family']."&nbsp".$recipes[0]['name']; ?></a>
+			Добавил: <a href="<?php echo URL::base().'user?id='.$_SESSION['id']?>"><?php echo $recipes[0]['family']."&nbsp".$recipes[0]['name']; ?></a>
 		</div>	
 		<div class="nw_date">
 			<?php echo $date[0];?>

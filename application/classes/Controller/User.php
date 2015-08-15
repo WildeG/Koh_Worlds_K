@@ -7,7 +7,7 @@ class Controller_User extends Controller_Common {
  		$content = View::factory('user/user')->bind('recipes', $recipes)->bind('user', $user)->bind('want_prep', $want_prep)->bind('my', $my)->bind('subs', $subs)->bind('roles', $roles)->bind('alrdprep', $alrd_prep);
  		$recipes=Model::factory('Showmodel')->get_count_recipes($_GET['id']);	
  		$user=Model::factory('Showmodel')->get_user($_GET['id']);	
- 		$roles=Model::factory('User')->get_roles_array();
+ 		//$roles=Model::factory('User')->get_roles_array();
  		$want_prep=Model::factory('Showmodel')->get_count_prep($_GET['id']);
         $alrd_prep=Model::factory('Showmodel')->get_count_alrd_prep($_GET['id']);
  		$subs=Model::factory('Showmodel')->get_count_subs($_GET['id']);
