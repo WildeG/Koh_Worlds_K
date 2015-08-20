@@ -153,6 +153,10 @@ Route::set('show','<controller>/<action>', array('action' => 'menu_day|news|feed
 	->defaults(array(
 		'controller' => 'Show',
 	));
+Route::set('admin','<controller>/<action>', array('action' => 'checkrecipe|checkrecipes|checkadvices'))
+	->defaults(array(
+		'controller' => 'Admin',
+	));
 Route::set('add','<controller>/<action>', array('action' => 'news|recipe|add_favor|add_like|nrating'))
 	->defaults(array(
 		'controller' => 'Add',

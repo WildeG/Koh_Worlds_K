@@ -67,6 +67,16 @@
 			//echo Debug::vars($valid);
 			return $valid;
 		}
+		public function rec_check($id, $check,$type){ //осторожно, если $check не является 1, то строка будет безвозвратно удалена!
+			if ($check==1){
+				$sql=DB::update($type)->set(array('check'=>$check))->where('id_'.$type,'=',$id);
+			}
+			else {
+				$sql=DB::delete($type)->where('id_'.$type,'=',$id);
+			}
+			$res=$sql->execute();
+			return $res;
+		}
 }
 		
 

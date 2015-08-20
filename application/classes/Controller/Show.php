@@ -24,6 +24,7 @@ class Controller_Show extends Controller_Common {
             $date[$u]=$this->date($recipes[$u]['date_added']);
         }
         else {break;} }
+        //echo Debug::vars($recipes);
         $this->template->content = $content;
     }
     public function action_recipe(){ //отдельный рецепт

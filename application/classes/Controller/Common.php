@@ -19,7 +19,9 @@ abstract class Controller_Common extends Controller_Template {
             }
             else {
                 $roles="<li><a href='".URL::base()."add/news'>Новость</a></li>
-                <li><a href='".URL::base()."add/kitchens'>Кухню</a></li>";
+                <li><a href='".URL::base()."add/kitchens'>Кухню</a></li>
+                <li><a href='".URL::base()."admin/checkrecipes'>Проверка рецептов</a></li>
+                <li><a href='".URL::base()."admin/checkadvices'>Проверка советов</a></li>";
             }   
         }   
         else{
