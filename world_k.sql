@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 13 2015 г., 21:57
+-- Время создания: Сен 10 2015 г., 18:13
 -- Версия сервера: 5.6.24
 -- Версия PHP: 5.6.8
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `advice` (
-  `check` tinyint(1) NOT NULL,
+  `check` tinyint(1) NOT NULL DEFAULT '0',
   `id_advice` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `id_autors` int(11) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `advice` (
   `dislikes` int(11) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_pub` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `advice`
@@ -48,7 +48,8 @@ INSERT INTO `advice` (`check`, `id_advice`, `title`, `id_autors`, `advice`, `lik
 (1, 3, 'adv3', 1, 'adv3', 0, 0, '2015-08-10 20:11:54', '2015-08-10 20:00:00'),
 (1, 4, 'adv4', 1, 'adv4', 0, 0, '2015-08-10 20:12:05', '2015-08-10 20:00:00'),
 (1, 5, 'adv5', 1, 'adv5', 0, 0, '2015-08-10 20:12:16', '2015-08-10 20:00:00'),
-(1, 6, 'adv6', 1, 'adv6', 0, 0, '2015-08-10 20:12:25', '2015-08-10 20:00:00');
+(1, 6, 'adv6', 1, 'adv6', 0, 0, '2015-08-10 20:12:25', '2015-08-10 20:00:00'),
+(0, 7, 'test check adv', 1, 'adv', 0, 0, '2015-08-19 17:53:33', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -396,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `recipe` (
   `prepare` smallint(6) NOT NULL DEFAULT '0',
   `kitchens` varchar(30) NOT NULL,
   `category` varchar(30) NOT NULL DEFAULT 'no',
-  `checked` varchar(10) NOT NULL DEFAULT 'false',
+  `check` tinyint(1) NOT NULL DEFAULT '0',
   `portions` int(8) NOT NULL,
   `time` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
@@ -405,37 +406,35 @@ CREATE TABLE IF NOT EXISTS `recipe` (
 -- Дамп данных таблицы `recipe`
 --
 
-INSERT INTO `recipe` (`id_recipe`, `title`, `id_autors`, `recipe`, `image`, `date_added`, `likes`, `dislike`, `want_prepare`, `prepare`, `kitchens`, `category`, `checked`, `portions`, `time`) VALUES
-(1, 'test recipe 1', 1, '1', 'default_image.jpg', '2015-07-22 17:32:13', 0, 0, 1, 0, '1', 'no', 'false', 1, '1 Минут'),
-(2, 'test recipe 2', 1, '2', 'default_image.jpg', '2015-07-22 17:48:26', 0, 0, 1, 0, '2', 'no', 'false', 2, '2 Минут'),
-(4, 'test recipe 4', 1, '4', 'default_image.jpg', '2015-07-23 12:55:26', 0, 0, 0, 0, '2', 'no', 'false', 4, '4 Минут'),
-(5, 'test recipe 5', 1, '5', 'default_image.jpg', '2015-07-23 12:55:40', 0, 0, 0, 0, '1', 'no', 'false', 5, '5 Минут'),
-(6, 'test recipe 6', 1, '6', 'default_image.jpg', '2015-07-23 12:55:55', 0, 0, 0, 0, '1', 'no', 'false', 6, '6 Минут'),
-(7, 'test recipe 7', 1, '7', 'default_image.jpg', '2015-07-23 12:56:08', 0, 0, 0, 0, '1', 'no', 'false', 0, '7 Минут'),
-(8, 'test recipe 8', 1, '8', 'default_image.jpg', '2015-07-23 12:56:20', 0, 0, 0, 0, '1', 'no', 'false', 8, '8 Минут'),
-(9, 'test recipe 9', 1, '9', 'default_image.jpg', '2015-07-23 14:09:00', 0, 0, 0, 0, '1', 'no', 'false', 9, '9 Минут'),
-(10, 'test recipe 10', 1, '10', 'default_image.jpg', '2015-07-24 17:44:32', 0, 0, 0, 0, '2', 'no', 'false', 10, '10 Часов'),
-(11, 'test recipe 11', 2, '11', 'default_image.jpg', '2015-07-27 18:17:00', 0, 0, 0, 0, '1', 'no', 'false', 11, '11 Минут'),
-(12, 'test recipe 12', 2, '12', 'default_image.jpg', '2015-07-27 18:17:16', 0, 0, 0, 0, '1', 'no', 'false', 12, '12 Минут'),
-(13, '13', 2, '13', 'default_image.jpg', '2015-07-27 18:17:26', 0, 0, 0, 0, '1', 'no', 'false', 13, '13 Минут'),
-(14, '14', 2, '14', 'default_image.jpg', '2015-07-27 18:17:35', 0, 0, 0, 0, '1', 'no', 'false', 14, '14 Минут'),
-(15, '15', 2, '15', 'default_image.jpg', '2015-07-27 18:17:44', 0, 0, 0, 0, '1', 'no', 'false', 15, '15 Минут'),
-(16, '16', 2, '16', 'default_image.jpg', '2015-07-27 18:17:53', 0, 0, 0, 0, '1', 'no', 'false', 16, '16 Минут'),
-(17, '17', 2, '17', 'default_image.jpg', '2015-07-27 18:18:03', 0, 0, 0, 0, '1', 'no', 'false', 17, '17 Минут'),
-(18, '18', 2, '18', 'default_image.jpg', '2015-07-27 18:18:12', 0, 0, 0, 0, '1', 'no', 'false', 18, '18 Минут'),
-(19, '19', 2, '19', 'default_image.jpg', '2015-07-27 18:18:29', 0, 0, 0, 0, '1', 'no', 'false', 19, '19 Минут'),
-(20, '20', 2, '20', 'default_image.jpg', '2015-07-27 18:18:39', 0, 0, 0, 0, '1', 'no', 'false', 20, '20 Минут'),
-(21, '21', 2, '21', 'default_image.jpg', '2015-07-27 18:23:45', 0, 0, 0, 0, '1', 'no', 'false', 21, '21 Минут'),
-(22, '22', 2, '22', 'default_image.jpg', '2015-07-27 18:23:54', 0, 0, 0, 0, '1', 'no', 'false', 22, '22 Минут'),
-(23, '23', 2, '23', 'default_image.jpg', '2015-07-27 18:24:02', 0, 0, 0, 0, '1', 'no', 'false', 23, '23 Минут'),
-(24, '24', 2, '24', 'default_image.jpg', '2015-07-27 18:24:11', 0, 0, 0, 0, '1', 'no', 'false', 24, '24 Минут'),
-(25, '25', 2, '25', 'default_image.jpg', '2015-07-27 18:24:19', 0, 0, 0, 0, '1', 'no', 'false', 25, '25 Минут'),
-(26, '26', 2, '26', 'default_image.jpg', '2015-07-27 18:24:28', 0, 0, 1, 0, '1', 'no', 'false', 26, '26 Минут'),
-(27, '27', 2, '27', 'default_image.jpg', '2015-07-27 18:24:36', 0, 0, 0, 0, '1', 'no', 'false', 27, '27 Минут'),
-(28, '28', 2, '28', 'default_image.jpg', '2015-07-27 18:24:45', 0, 0, 0, 0, '1', 'no', 'false', 28, '28 Минут'),
-(29, '29', 2, '29', 'default_image.jpg', '2015-07-27 18:24:56', 1, 0, 1, 0, '1', 'no', 'false', 29, '29 Минут'),
-(30, '30', 2, '30', 'default_image.jpg', '2015-07-27 18:25:05', 0, 0, 0, 0, '1', 'no', 'false', 30, '30 Минут'),
-(31, '31', 1, '31', 'default_image.jpg', '2015-08-10 19:19:40', 0, 0, 0, 0, '1', 'no', 'false', 31, '31 Минут');
+INSERT INTO `recipe` (`id_recipe`, `title`, `id_autors`, `recipe`, `image`, `date_added`, `likes`, `dislike`, `want_prepare`, `prepare`, `kitchens`, `category`, `check`, `portions`, `time`) VALUES
+(1, 'test recipe 1', 1, '1', 'default_image.jpg', '2015-07-22 17:32:13', 0, 0, 1, 0, '1', 'no', 0, 1, '1 Минут'),
+(2, 'test recipe 2', 1, '2', 'default_image.jpg', '2015-07-22 17:48:26', 0, 0, 1, 0, '2', 'no', 0, 2, '2 Минут'),
+(4, 'test recipe 4', 1, '4', 'default_image.jpg', '2015-07-23 12:55:26', 0, 0, 0, 0, '2', 'no', 0, 4, '4 Минут'),
+(5, 'test recipe 5', 1, '5', 'default_image.jpg', '2015-07-23 12:55:40', 0, 0, 0, 0, '1', 'no', 0, 5, '5 Минут'),
+(6, 'test recipe 6', 1, '6', 'default_image.jpg', '2015-07-23 12:55:55', 0, 0, 0, 0, '1', 'no', 0, 6, '6 Минут'),
+(7, 'test recipe 7', 1, '7', 'default_image.jpg', '2015-07-23 12:56:08', 0, 0, 0, 0, '1', 'no', 0, 0, '7 Минут'),
+(8, 'test recipe 8', 1, '8', 'default_image.jpg', '2015-07-23 12:56:20', 0, 0, 0, 0, '1', 'no', 0, 8, '8 Минут'),
+(9, 'test recipe 9', 1, '9', 'default_image.jpg', '2015-07-23 14:09:00', 0, 0, 0, 0, '1', 'no', 0, 9, '9 Минут'),
+(10, 'test recipe 10', 1, '10', 'default_image.jpg', '2015-07-24 17:44:32', 0, 0, 0, 0, '2', 'no', 0, 10, '10 Часов'),
+(11, 'test recipe 11', 2, '11', 'default_image.jpg', '2015-07-27 18:17:00', 0, 0, 0, 0, '1', 'no', 0, 11, '11 Минут'),
+(12, 'test recipe 12', 2, '12', 'default_image.jpg', '2015-07-27 18:17:16', 0, 0, 0, 0, '1', 'no', 1, 12, '12 Минут'),
+(13, '13', 2, '13', 'default_image.jpg', '2015-07-27 18:17:26', 0, 0, 0, 0, '1', 'no', 0, 13, '13 Минут'),
+(14, '14', 2, '14', 'default_image.jpg', '2015-07-27 18:17:35', 0, 0, 0, 0, '1', 'no', 0, 14, '14 Минут'),
+(15, '15', 2, '15', 'default_image.jpg', '2015-07-27 18:17:44', 0, 0, 0, 0, '1', 'no', 0, 15, '15 Минут'),
+(16, '16', 2, '16', 'default_image.jpg', '2015-07-27 18:17:53', 0, 0, 0, 0, '1', 'no', 0, 16, '16 Минут'),
+(17, '17', 2, '17', 'default_image.jpg', '2015-07-27 18:18:03', 0, 0, 0, 0, '1', 'no', 0, 17, '17 Минут'),
+(18, '18', 2, '18', 'default_image.jpg', '2015-07-27 18:18:12', 0, 0, 0, 0, '1', 'no', 0, 18, '18 Минут'),
+(19, '19', 2, '19', 'default_image.jpg', '2015-07-27 18:18:29', 0, 0, 0, 0, '1', 'no', 0, 19, '19 Минут'),
+(20, '20', 2, '20', 'default_image.jpg', '2015-07-27 18:18:39', 0, 0, 0, 0, '1', 'no', 0, 20, '20 Минут'),
+(21, '21', 2, '21', 'default_image.jpg', '2015-07-27 18:23:45', 0, 0, 0, 0, '1', 'no', 0, 21, '21 Минут'),
+(22, '22', 2, '22', 'default_image.jpg', '2015-07-27 18:23:54', 0, 0, 0, 0, '1', 'no', 0, 22, '22 Минут'),
+(23, '23', 2, '23', 'default_image.jpg', '2015-07-27 18:24:02', 0, 0, 0, 0, '1', 'no', 0, 23, '23 Минут'),
+(24, '24', 2, '24', 'default_image.jpg', '2015-07-27 18:24:11', 0, 0, 0, 0, '1', 'no', 0, 24, '24 Минут'),
+(25, '25', 2, '25', 'default_image.jpg', '2015-07-27 18:24:19', 0, 0, 0, 0, '1', 'no', 0, 25, '25 Минут'),
+(27, '27', 2, '27', 'default_image.jpg', '2015-07-27 18:24:36', 0, 0, 0, 0, '1', 'no', 0, 27, '27 Минут'),
+(29, '29', 2, '29', 'default_image.jpg', '2015-07-27 18:24:56', 1, 0, 1, 0, '1', 'no', 1, 29, '29 Минут'),
+(30, '30', 2, '30', 'default_image.jpg', '2015-07-27 18:25:05', 0, 0, 0, 0, '1', 'no', 1, 30, '30 Минут'),
+(31, '31', 1, '31', 'default_image.jpg', '2015-08-10 19:19:40', 0, 0, 0, 0, '1', 'no', 1, 31, '31 Минут');
 
 -- --------------------------------------------------------
 
@@ -519,8 +518,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `logins`, `last_login`, `name`, `family`, `dateofreg`) VALUES
-(1, 'Lilly', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 55, 1439407910, 'Максим', 'Сульфриев', '2015-07-22'),
-(2, 'test_user_2', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 8, 1439477262, '123', '321', '2015-07-23'),
+(1, 'Lilly', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 58, 1440080159, 'Максим', 'Сульфриев', '2015-07-22'),
+(2, 'test_user_2', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 10, 1439991989, '123', '321', '2015-07-23'),
 (3, 'testuser3', '11579da96b5df72e1bb80efb4a3478b386c09bb77708e04f7d97db74cc8d1dae', 1, 1439407196, 'testuser2', 'testuser2fam', '2015-08-12');
 
 --
@@ -606,7 +605,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `advice`
 --
 ALTER TABLE `advice`
-  MODIFY `id_advice` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_advice` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблицы `comments`
 --
